@@ -17,7 +17,7 @@ public class Coupon {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private long id;
 
-	@Column(name = "vendor_id")
+	@OneToOne
 	private Vendor owner;
 
 	@Column(name = "code")

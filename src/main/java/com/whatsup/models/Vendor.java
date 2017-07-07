@@ -17,7 +17,6 @@ public class Vendor {
 	private long id;
 
 	@OneToOne
-	@Column(name = "user_id")
 	private User owner;
 
 	@Column(name = "display_name")
@@ -26,6 +25,10 @@ public class Vendor {
 	@Column(name = "validated")
 	private boolean isValidated;
 
+	public Vendor(User owner, String displayName) {
+		this.owner = owner;
+		this.displayName = displayName;
+	}
 
 	public long getId() {
 		return id;
