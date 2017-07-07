@@ -1,5 +1,8 @@
 package com.whatsup;
 
+import com.vividsolutions.jts.geom.Coordinate;
+import com.vividsolutions.jts.geom.GeometryFactory;
+import com.vividsolutions.jts.geom.Point;
 import com.whatsup.models.Location;
 import com.whatsup.models.User;
 import com.whatsup.models.UserRole;
@@ -7,7 +10,6 @@ import com.whatsup.models.Vendor;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.data.geo.Point;
 import org.springframework.test.context.junit4.SpringRunner;
 
 
@@ -29,11 +31,16 @@ public class WhatsUpApplicationTests {
 		Vendor coffee = new Vendor(frank, "Covfefe");
 		coffee.setValidated(false);
 
-		Point p1 = new Point(29.426582, -98.489567);
+		GeometryFactory geometryFactory = new GeometryFactory();
+
+		Coordinate c1 = new Coordinate(29.426582, -98.489567);
+		Point p1 = geometryFactory.createPoint(c1);
 		Location downtown1 = new Location(cakes, p1);
 
-		Point p2 = new Point(29.426329, -98.491510);
+		Coordinate c2 = new Coordinate(29.426329, -98.491510);
+		Point p2 = geometryFactory.createPoint(c2);
 		Location downtown2 = new Location(coffee, p2);
+
 	}
 
 }
