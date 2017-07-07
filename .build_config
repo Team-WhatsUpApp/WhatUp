@@ -1,0 +1,2 @@
+BUILD_COMMAND=command_to_execute_to_build_your_project.sh
+WAR_FILE=relative_path_to_the_artifact.war
