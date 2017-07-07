@@ -30,14 +30,23 @@ public class AuthenticationController {
     }
 
 
+
     @PostMapping("/register")
     public String create(@ModelAttribute User user) {
         user.setPassword(passwordEncoder.encode(user.getPassword()));
         usersRepository.saveAndFlush(user);
-        return "redirect:index";
+        return "Login";
+    }
+
+    @GetMapping("/register")
+    public String showRegisterForm(@ModelAttribute User user) {
+        return "register";
     }
 
 
-
+    @GetMapping("/dashboard")
+    public String showDashboard(@ModelAttribute User user) {
+        return "dashboard";
+    }
 
 }
