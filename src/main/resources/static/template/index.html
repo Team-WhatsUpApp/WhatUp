@@ -30,6 +30,13 @@
 
 
     <style>
+
+        .bgoverlay {
+            width: 100%;
+            height: auto;
+            background-color: rgba(0, 0, 0, .5);
+        }
+
         .sa {
             background-image: url("../img/sa6.jpg");
             background-size: cover;
@@ -62,6 +69,7 @@
         #burgerdiv {
             height: 84vh;
             width: auto;
+            
         }
 
         h2 {
@@ -76,11 +84,36 @@
         .device-mockup > .device {
             height: 100%
         }
-        
+
+
+        button:hover {
+            opacity: 0.8;
+        }
+        .login{
+            color: darkorange;
+        }
+
 
         header {
             background: url(../img/bg-pattern.png), linear-gradient(to left, lightpink, blue);
         }
+        section {
+            padding: 90px 0 10px 0;
+        }
+
+        @media only screen  and (max-width: 1024px) {
+            #firstphone {
+                margin-top: 6vw;
+            }
+        }
+
+        @media only screen  and (max-width: 1366px) {
+
+            #firstphone {
+                margin-top: 10vw;
+            }
+        }
+
 
 
     </style>
@@ -142,7 +175,7 @@
             <div class="col-sm-5">
                 <div class="device-container">
                     <div class="device-mockup iphone6_plus portrait white">
-                        <div class="device">
+                        <div id="firstphone" class="device">
                             <div class="screen">
                                 <!-- Demo image for screen mockup, you can put an image here, some HTML, an animation, video, or anything else! -->
                                 <img style="height: 100%;" src="../img/phone1.jpg" class="img-responsive"
@@ -159,12 +192,32 @@
     </div>
 </header>
 
-<section id="download" class="download bg-primary text-center sa">
-    <div class="container">
-        <div class="row">
-            <div class="col-md-8 col-md-offset-2">
+<section id="download" class="download bg-primary text-center  sa">
+    <div class="container bgoverlay" >
+        <div class="row ">
+            <div class="col-md-8 col-md-offset-2 ">
                 <h2 class="section-heading">Discover what all the buzz is about!</h2>
                 <p>Our app is available on any mobile or tablet device </p>
+                <p>Login friend!</p>
+
+
+                <div class="login">
+
+                    <input type="text" placeholder="Enter Username" name="uname" required>
+
+                    <input type="password" placeholder="Enter Password" name="psw" required>
+
+                    <button type="submit">Login</button>
+
+                </div>
+
+                <div class="login" >
+                    <!--<button type="button" class="cancelbtn">Cancel</button>-->
+                    <input type="checkbox" checked="checked"> Remember me
+                    <br>
+                    <span class="psw">Forgot <a href="#">password?</a></span>
+                </div>
+
                 <!--<div class="badges">-->
                 <!--<a class="badge-link" href="#"><img src="img/google-play-badge.svg" alt=""></a>-->
                 <!--<a class="badge-link" href="#"><img src="img/app-store-badge.svg" alt=""></a>-->
