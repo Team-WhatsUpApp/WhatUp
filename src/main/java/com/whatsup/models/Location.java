@@ -1,6 +1,7 @@
 package com.whatsup.models;
 
-import org.springframework.data.geo.Point;
+
+import com.vividsolutions.jts.geom.Point;
 
 import javax.persistence.*;
 import java.io.Serializable;
@@ -22,13 +23,15 @@ public class Location implements Serializable{
 	@OneToOne
 	private Vendor owner;
 
-	@Column(name = "location", columnDefinition = "geometry")
+	@Column(name = "location")
 	private Point location;
 
 	public Location(Vendor owner, Point location) {
 		this.owner = owner;
 		this.location = location;
 	}
+
+
 
 	public Location() {
 	}
