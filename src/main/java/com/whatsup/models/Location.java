@@ -1,6 +1,9 @@
 package com.whatsup.models;
 
+import org.springframework.data.geo.Point;
+
 import javax.persistence.*;
+import java.io.Serializable;
 
 /**
  * Created by mosesfranco on 7/5/17
@@ -10,25 +13,21 @@ import javax.persistence.*;
 
 @Entity
 @Table(name = "locations")
-public class Location {
+public class Location implements Serializable{
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private long id;
 
-	@Column(nullable = false , name = "vendor_id")
+	@OneToOne
 	private Vendor owner;
 
-	@Column(name = "latitude")
-	private Double latitude;
+	@Column(name = "location", columnDefinition = "geometry")
+	private Point location;
 
-	@Column(name = "longitude")
-	private Double longitude;
-
-	public Location(Vendor owner, Double latitude, Double longitude) {
+	public Location(Vendor owner, Point location) {
 		this.owner = owner;
-		this.latitude = latitude;
-		this.longitude = longitude;
+		this.location = location;
 	}
 
 	public Location() {
@@ -48,21 +47,5 @@ public class Location {
 
 	public void setOwner(Vendor owner) {
 		this.owner = owner;
-	}
-
-	public Double getLatitude() {
-		return latitude;
-	}
-
-	public void setLatitude(Double latitude) {
-		this.latitude = latitude;
-	}
-
-	public Double getLongitude() {
-		return longitude;
-	}
-
-	public void setLongitude(Double longitude) {
-		this.longitude = longitude;
 	}
 }
