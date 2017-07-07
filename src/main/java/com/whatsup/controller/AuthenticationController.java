@@ -35,7 +35,7 @@ public class AuthenticationController {
     public String create(@ModelAttribute User user) {
         user.setPassword(passwordEncoder.encode(user.getPassword()));
         usersRepository.saveAndFlush(user);
-        return "Login";
+        return "login";
     }
 
     @GetMapping("/register")
