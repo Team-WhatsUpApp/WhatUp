@@ -47,14 +47,14 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
                 .and()
                 .authorizeRequests()
                 .antMatchers(
-                        "/posts/create",
-                        "/posts/?/edit",
-                        "/ads/create"
+                        "/coupons/create",
+                        "/coupons/?/edit"
+
                 )
                 .authenticated()
         ;
 //        REMOVE WHEN APPLICATION IS COMPLETE AND ENABLE SECURITY!!!
-//        http.csrf().disable();
+        http.csrf().disable();
     }
 
     @Override
