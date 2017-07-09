@@ -29,6 +29,11 @@ public class AuthenticationController {
         return "login";
     }
 
+    /*@GetMapping("/newlogin")
+    public String shownewLoginForm(@ModelAttribute User user) {
+        return "new_login";
+    }*/
+
 
 
     @PostMapping("/register")
