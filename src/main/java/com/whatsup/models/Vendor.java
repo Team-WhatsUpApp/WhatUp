@@ -25,6 +25,9 @@ public class Vendor {
 	@Column(name = "validated")
 	private boolean isValidated;
 
+	public Vendor() {
+	}
+
 	public Vendor(User owner, String displayName) {
 		this.owner = owner;
 		this.displayName = displayName;
