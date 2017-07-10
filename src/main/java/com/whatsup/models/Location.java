@@ -14,6 +14,25 @@ import java.io.Serializable;
 
 @Entity
 @Table(name = "locations")
+//@NamedStoredProcedureQuery(
+//		name = "getLocations", // name of stored procedure in the persistence unit
+//		procedureName = "getLocations", //name of  stored procedure in the database
+//		parameters = //Parameters of the stored procedure
+//				{
+//						@StoredProcedureParameter(// A parameter,
+//								name = "lat", //Name of the parameter
+//								mode = ParameterMode.IN, // Mode of the parameter
+//								type = double.class), // JDBC Type.
+//						@StoredProcedureParameter(// A parameter,
+//								name = "long", //Name of the parameter
+//								mode = ParameterMode.IN, // Mode of the parameter
+//								type = double.class),
+//						@StoredProcedureParameter(// A parameter,
+//								name = "point", //Name of the parameter
+//								mode = ParameterMode.IN, // Mode of the parameter
+//								type = String.class)
+//				}
+//)
 public class Location implements Serializable{
 
 	@Id
