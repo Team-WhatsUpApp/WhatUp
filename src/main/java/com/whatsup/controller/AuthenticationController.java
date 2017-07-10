@@ -2,7 +2,9 @@ package com.whatsup.controller;
 
 import com.whatsup.model.User;
 import com.whatsup.repository.UsersRepository;
+import com.whatsup.svcs.UserWithRoles;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.ComponentScan;
 import org.springframework.http.HttpStatus;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.crypto.password.PasswordEncoder;
@@ -17,6 +19,7 @@ import org.springframework.web.bind.annotation.*;
  */
 @EnableWebSecurity
 @Controller
+@ComponentScan(basePackageClasses = UserWithRoles.class)
 public class AuthenticationController {
 
     @Autowired
@@ -25,8 +28,13 @@ public class AuthenticationController {
     private PasswordEncoder passwordEncoder;
 
     @GetMapping("/login")
-    public String showLoginForm(@ModelAttribute User user) {
+    public String showLoginForm() {
         return "login";
+    }
+
+    @GetMapping("/yelp")
+    public String shownewYelpAPI() {
+        return "yelpAPI";
     }
 
 
@@ -39,13 +47,14 @@ public class AuthenticationController {
     }
 
     @GetMapping("/register")
-    public String showRegisterForm(@ModelAttribute User user) {
+    public String showRegisterForm(Model model) {
+        model.addAttribute("user", new User());
         return "register";
     }
 
 
     @GetMapping("/dashboard")
-    public String showDashboard(@ModelAttribute User user) {
+    public String showDashboard() {
         return "dashboard";
     }
 
