@@ -58,4 +58,11 @@ public class AuthenticationController {
         return "dashboard";
     }
 
+
+
+    @GetMapping("/index")
+    public String showAppPage() {
+        return "index";
+    }
+
 }

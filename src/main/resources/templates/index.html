@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en"/>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 
 <head>
 
@@ -12,7 +12,7 @@
     <title>#WhatsUP!</title>
 
     <!-- Bootstrap Core CSS -->
-    <link href="../static/lib/bootstrap/css/bootstrap.min.css" rel="stylesheet"/>
+    <link href="../lib/bootstrap/css/bootstrap.min.css" rel="stylesheet"/>
 
     <!-- Custom Fonts -->
     <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet"/>
@@ -21,12 +21,12 @@
     <link href="https://fonts.googleapis.com/css?family=Muli" rel="stylesheet"/>
 
     <!-- Plugin CSS -->
-    <link rel="stylesheet" href="../static/lib/font-awesome/css/font-awesome.min.css"/>
-    <link rel="stylesheet" href="../static/lib/simple-line-icons/css/simple-line-icons.css"/>
-    <link rel="stylesheet" href="../static/lib/device-mockups/device-mockups.min.css"/>
+    <link rel="stylesheet" href="../lib/font-awesome/css/font-awesome.min.css"/>
+    <link rel="stylesheet" href="../lib/simple-line-icons/css/simple-line-icons.css"/>
+    <link rel="stylesheet" href="../lib/device-mockups/device-mockups.min.css"/>
 
     <!-- Theme CSS -->
-    <link href="../static/css/new-age.min.css" rel="stylesheet"/>
+    <link href="../css/new-age.min.css" rel="stylesheet"/>
 
 
     <style>
@@ -38,22 +38,22 @@
         /*}*/
 
         .sa {
-            background-image: url("../static/img/sa6.jpg");
+            background-image: url("../img/sa6.jpg");
             background-size: cover;
         }
 
         .josh {
-            background-image: url("../static/img/josh.png");
+            background-image: url("../img/josh.png");
             background-size: cover;
         }
 
         .del {
-            background-image: url("../static/img/del.jpg");
+            background-image: url("../img/del.jpg");
             background-size: cover;
         }
 
         .moses {
-            background-image: url("../static/img/moses.png");
+            background-image: url("../img/moses.png");
             background-size: cover;
         }
 
@@ -62,7 +62,7 @@
         }
 
         .burger {
-            background-image: url("../static/img/res2.jpg");
+            background-image: url("../img/res2.jpg");
             background-size: cover;
         }
 
@@ -100,7 +100,7 @@
         }
 
         header {
-            background: url(../static/img/bg-pattern.png), linear-gradient(to left, lightpink, blue);
+            background: url(../img/bg-pattern.png), linear-gradient(to left, lightpink, blue);
         }
         section {
             padding: 90px 0 10px 0;
@@ -150,7 +150,7 @@
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav navbar-right">
                 <li>
-                    <a class="page-scroll" href="#download">Log In</a>
+                    <a class="page-scroll" href="/login">Log In</a>
                 </li>
                 <li>
                     <a class="page-scroll" href="#features">Features</a>
@@ -173,7 +173,7 @@
                     <div class="header-content-inner">
                         <h1>#WhatsUP! is a new app that will give you exclusive discounts to your city's unique
                             restaurants and bars! </h1>
-                        <a href="#download" class="btn btn-outline btn-xl page-scroll">Register for free!</a>
+                        <a th:href="@{/register}" class="btn btn-outline btn-xl page-scroll">Register for free!</a>
                     </div>
                 </div>
             </div>
@@ -183,8 +183,8 @@
                         <div id="firstphone" class="device">
                             <div class="screen">
                                 <!-- Demo image for screen mockup, you can put an image here, some HTML, an animation, video, or anything else! -->
-                                <img style="height: 100%;" src="../static/img/phone1.jpg" class="img-responsive"
-                                     id="1phoneimage" alt="">
+                                <img style="height: 100%;" src="../img/phone1.jpg" class="img-responsive"
+                                     id="1phoneimage" alt="" />
                             </div>
                             <div class="button">
                                     <!-- You can hook the "home button" to some JavaScript events or just remove it -->
@@ -204,7 +204,7 @@
                 <h2 class="section-heading">Discover what all the buzz is about!</h2>
                 <p>Our app is available on any mobile or tablet device </p>
 
-                <button    id="button"   href="/login"   class="btn btn-outline btn-xl page-scroll">Login!</button>
+                <a th:href="@{/login}"><button    id="button" class="btn btn-outline btn-xl page-scroll">Login!</button></a>
 
 
                 <!--<div class="login">-->
@@ -251,8 +251,8 @@
                         <div class="device">
                             <div class="screen">
                                 <!-- Demo image for screen mockup, you can put an image here, some HTML, an animation, video, or anything else! -->
-                                <img style="height: 100%;" src="../static/img/res3.jpg" class="img-responsive" alt=""></div>
-                            <div class="button">
+                                <img style="height: 100%;" src="../img/res3.jpg" class="img-responsive" alt="" />
+                                <div class="button"></div>
                                     <!-- You can hook the "home button" to some JavaScript events or just remove it -->
                                 </div>
                         </div>
@@ -265,7 +265,7 @@
                         <div class="col-md-6">
                             <div class="feature-item">
                                 <!--<i class="icon-screen text-primary" ></i>-->
-                                <img style="height: 8vw;" src="../static/img/wallet.svg">
+                                <img style="height: 8vw;" src="../img/wallet.svg" />
                                 <h3>Easier on the Wallet</h3>
                                 <p class="text-muted">Get exclusive member discounts !</p>
                             </div>
@@ -273,7 +273,7 @@
                         <div class="col-md-6">
                             <div class="feature-item">
                                 <!--<i class="icon-camera text-primary"></i>-->
-                                <img style="height: 8vw;" src="../static/img/city.svg">
+                                <img style="height: 8vw;" src="../img/city.svg" />
                                 <h3>Help the Cause</h3>
                                 <p class="text-muted">You get to support your local San Antonio economy !</p>
                             </div>
@@ -282,7 +282,7 @@
                     <div class="row">
                         <div class="col-md-6">
                             <div class="feature-item">
-                                <img style="height: 8vw;" src="../static/img/party.svg">
+                                <img style="height: 8vw;" src="../img/party.svg" />
                                 <!--<i class="icon-present text-primary"></i>-->
                                 <h3>New and Exciting Places</h3>
                                 <p class="text-muted">Explore new restaurants and bars to meet up with your friends
@@ -291,7 +291,7 @@
                         </div>
                         <div class="col-md-6">
                             <div class="feature-item">
-                                <img style="height: 8vw;" src="../static/img/piggybank.svg">
+                                <img style="height: 8vw;" src="../img/piggybank.svg" />
                                 <!--<i class="icon-lock-open text-primary"></i>-->
                                 <h3>Enjoy Life Conveniently</h3>
                                 <p class="text-muted">Completely Free !</p>
@@ -307,7 +307,7 @@
 <section class="burger" id="burgerdiv">
     <div>
         <div class="container">
-            <h2 id="stopwaiting">Stop waiting.<br>Start Exploring.</h2>
+            <h2 id="stopwaiting">Stop waiting.<br />Start Exploring.</h2>
             <a href="#contact" class="btn btn-outline btn-xl page-scroll">Let's Get Started!</a>
         </div>
     </div>
@@ -317,7 +317,7 @@
 <section id="contact" class="contact bg-primary">
     <div class="container">
         <h2>We <i class="fa fa-heart"></i> new friends!</h2>
-        <br>
+        <br />
         <h2>Meet the Developers</h2>
         <ul class="list-inline list-social">
             <li class="josh">
@@ -349,18 +349,7 @@
         </ul>
     </div>
 </footer>
-
-<!-- jQuery -->
-<script src="../static/lib/jquery/jquery.min.js"></script>
-
-<!-- Bootstrap Core JavaScript -->
-<script src="../static/lib/bootstrap/js/bootstrap.min.js"></script>
-
-<!-- Plugin JavaScript -->
-<script src="../https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js"></script>
-
-<!-- Theme JavaScript -->
-<script src="../static/js/new-age.min.js"></script>
+<div th:replace="fragments :: scripts" />
 
 </body>
 
