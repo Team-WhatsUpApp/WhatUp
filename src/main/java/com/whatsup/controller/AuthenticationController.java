@@ -60,7 +60,7 @@ public class AuthenticationController {
 
 
 
-    @GetMapping("/index")
+    @GetMapping("")
     public String showAppPage() {
         return "index";
     }
