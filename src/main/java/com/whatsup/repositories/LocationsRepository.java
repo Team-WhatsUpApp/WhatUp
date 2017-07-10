@@ -16,11 +16,10 @@ import java.util.List;
  */
 @Repository
 public interface LocationsRepository extends CrudRepository<Location, Long> {
-//
-//	@Query("call getLocations(?1, ?2, ?3)")
-//	public List<String> getLocationsMap(String lat, String lon, String point);
-
-	@Procedure(name = "getLocations")
-	public List<String> getLocationsMap(@Param("lat") String lat, @Param("lon") String lon, @Param("point") String point);
+	@Query(
+		value = "SELECT *  FROM locations WHERE st_within(location, st_envelope(linestring(point(:lon-:dist/abs(cos(radians(:lat))*69), :lat-(:dist/69)), point(:lon+:dist/abs(cos(radians(:lat))*69), :lat+(:dist/69))))) ORDER BY st_distance(point(:lon, :lat), location)",
+		nativeQuery = true
+	)
+	List<Location> getLocationsMap(@Param("lon") double lon, @Param("lat") double lat, @Param("dist")double dist);
 
 }
