@@ -67,5 +67,23 @@
 		</plugins>
 	</build>
 
+    <!--<profiles>
+        <profile>
+            <id>development</id>
+            <activation>
+                <activeByDefault>true</activeByDefault>
+            </activation>
+            <properties>
+                <environment.name>development</environment.name>
+            </properties>
+        </profile>
+        <profile>
+            <id>production</id>
+            <properties>
+                <environment.name>production</environment.name>
+            </properties>
+        </profile>
+    </profiles>-->
+
 
 </project>

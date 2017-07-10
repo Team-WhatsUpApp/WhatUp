@@ -11,11 +11,13 @@ import org.springframework.context.annotation.PropertySource;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 
 
+/*
 @Configuration
 @ComponentScan
 @EnableJpaRepositories
 @EnableAutoConfiguration
-@PropertySource("application.properties")
+*/
+//@PropertySource("application.properties")
 @SpringBootApplication
 public class WhatsUpApplication extends SpringBootServletInitializer {
 
