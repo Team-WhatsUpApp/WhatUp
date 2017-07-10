@@ -19,8 +19,8 @@ public class WhatsUpApplicationTests {
 
 	@Test
 	public void contextLoads() {
-		User moses = new User("mo", "mo@mo.com","blarghpass","Moses","Franco", 2105551234);
-		User frank = new User("frank", "frank@frank.com","passblargh","Frank","Foo", 2105554321);
+		User moses = new User("mo", "mo@mo.com", "blarghpass", "Moses", "Franco", 2105551234);
+		User frank = new User("frank", "frank@frank.com", "passblargh", "Frank", "Foo", 2105554321);
 
 		UserRole testing1 = new UserRole(1, "ADMIN");
 		UserRole testing2 = new UserRole(2, "ADMIN");
@@ -33,11 +33,11 @@ public class WhatsUpApplicationTests {
 
 		GeometryFactory geometryFactory = new GeometryFactory();
 
-		Coordinate c1 = new Coordinate(29.426582, -98.489567);
+		Coordinate c1 = new Coordinate(-98.489567, 29.426582);
 		Point p1 = geometryFactory.createPoint(c1);
 		Location downtown1 = new Location(cakes, p1);
 
-		Coordinate c2 = new Coordinate(29.426329, -98.491510);
+		Coordinate c2 = new Coordinate(-98.491510, 29.426329);
 		Point p2 = geometryFactory.createPoint(c2);
 		Location downtown2 = new Location(coffee, p2);
 
