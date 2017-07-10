@@ -53,6 +53,9 @@ public class User {
 		this.phoneNumber = user.phoneNumber;
 	}
 
+	public User() {
+	}
+
 	public User(String username, String email, String password, String firstName, String lastName, int phoneNumber) {
 		this.username = username;
 		this.email = email;
