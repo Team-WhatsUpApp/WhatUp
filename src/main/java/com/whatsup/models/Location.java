@@ -50,9 +50,15 @@ public class Location implements Serializable{
 		this.location = location;
 	}
 
-
-
 	public Location() {
+	}
+
+	public Point getLocation() {
+		return location;
+	}
+
+	public void setLocation(Point location) {
+		this.location = location;
 	}
 
 	public long getId() {
