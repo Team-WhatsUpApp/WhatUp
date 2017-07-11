@@ -5,6 +5,7 @@ import org.hibernate.annotations.CreationTimestamp;
 
 import javax.persistence.*;
 import java.util.Date;
+import java.util.List;
 
 /**
  * Created by mosesfranco on 7/5/17
@@ -43,6 +44,14 @@ public class User {
 
 	@Column(name = "phone_number")
 	private int phoneNumber;
+
+	@ManyToMany(cascade = CascadeType.ALL)
+	@JoinTable(
+			name="user_has_coupons",
+			joinColumns={@JoinColumn(name="user_id")},
+			inverseJoinColumns={@JoinColumn(name="coupon_id")}
+	)
+	private List<Coupon> userCouponList;
 
 	public User(User user) {
 		this.username = user.username;
@@ -127,5 +136,13 @@ public class User {
 
 	public void setPhoneNumber(int phoneNumber) {
 		this.phoneNumber = phoneNumber;
+	}
+
+	public List<Coupon> getUserCouponList() {
+		return userCouponList;
+	}
+
+	public void setUserCouponList(List<Coupon> userCouponList) {
+		this.userCouponList = userCouponList;
 	}
 }
