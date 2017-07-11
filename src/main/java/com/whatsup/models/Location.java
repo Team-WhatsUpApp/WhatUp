@@ -5,6 +5,7 @@ import com.vividsolutions.jts.geom.Point;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.util.List;
 
 /**
  * Created by mosesfranco on 7/5/17
@@ -40,13 +41,21 @@ public class Location implements Serializable{
 	private long id;
 
 	@OneToOne
-	private Vendor owner;
+	private Vendor vendor;
 
 	@Column(name = "location")
 	private Point location;
 
-	public Location(Vendor owner, Point location) {
-		this.owner = owner;
+	@ManyToMany(cascade = CascadeType.ALL)
+	@JoinTable(
+			name="location_has_coupons",
+			joinColumns={@JoinColumn(name="location_id")},
+			inverseJoinColumns={@JoinColumn(name="coupon_id")}
+	)
+	private List<Coupon> couponList;
+
+	public Location(Vendor vendor, Point location) {
+		this.vendor = vendor;
 		this.location = location;
 	}
 
@@ -69,11 +78,19 @@ public class Location implements Serializable{
 		this.id = id;
 	}
 
-	public Vendor getOwner() {
-		return owner;
+	public Vendor getVendor() {
+		return vendor;
 	}
 
-	public void setOwner(Vendor owner) {
-		this.owner = owner;
+	public void setVendor(Vendor vendor) {
+		this.vendor = vendor;
+	}
+
+	public List<Coupon> getCouponList() {
+		return couponList;
+	}
+
+	public void setCouponList(List<Coupon> couponList) {
+		this.couponList = couponList;
 	}
 }
