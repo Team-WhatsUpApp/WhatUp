@@ -1,6 +1,7 @@
 package com.whatsup.models;
 
 import javax.persistence.*;
+import java.util.List;
 
 /**
  * Created by mosesfranco on 7/5/17
@@ -24,6 +25,12 @@ public class Vendor {
 
 	@Column(name = "validated")
 	private boolean isValidated;
+
+	@OneToMany(cascade = CascadeType.ALL, mappedBy = "id")
+	private List<Coupon> couponList;
+
+	@OneToMany(cascade = CascadeType.ALL, mappedBy = "id")
+	private List<Location> locationList;
 
 	public Vendor() {
 	}
@@ -63,5 +70,21 @@ public class Vendor {
 
 	public void setValidated(boolean validated) {
 		isValidated = validated;
+	}
+
+	public List<Coupon> getCouponList() {
+		return couponList;
+	}
+
+	public void setCouponList(List<Coupon> couponList) {
+		this.couponList = couponList;
+	}
+
+	public List<Location> getLocationList() {
+		return locationList;
+	}
+
+	public void setLocationList(List<Location> locationList) {
+		this.locationList = locationList;
 	}
 }
