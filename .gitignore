@@ -1,5 +1,6 @@
 target/
 !.mvn/wrapper/maven-wrapper.jar
+.DS_Store
 
 ### STS ###
 .apt_generated
@@ -24,6 +25,10 @@ nbdist/
 .nb-gradle/
 
 
+<<<<<<< HEAD
 application.properties
 /target/
+=======
+
+>>>>>>> master
 /src/main/resources/application.properties

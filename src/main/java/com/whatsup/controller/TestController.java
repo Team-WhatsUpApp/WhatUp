@@ -31,6 +31,7 @@ import com.vividsolutions.jts.geom.Point;
 @RestController
 public class TestController {
 
+<<<<<<< HEAD
 	@Autowired
 	LocationsRepository locationsDao;
 	@Autowired
@@ -172,5 +173,11 @@ public class TestController {
 
 		return "Hello! ... I am working!!!!";
 	}
+=======
+    @RequestMapping("/testpage")
+    public String home() {
+        return "Hello! ... I am working!!!!";
+    }
+>>>>>>> master
 
 }

@@ -35,7 +35,11 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
         http
                 .formLogin()
                 .loginPage("/login")
+<<<<<<< HEAD
                 .defaultSuccessUrl("/")
+=======
+                .defaultSuccessUrl("/dashboard")
+>>>>>>> master
                 .permitAll()
                 .and()
                 .authorizeRequests()
@@ -47,14 +51,24 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
                 .and()
                 .authorizeRequests()
                 .antMatchers(
+<<<<<<< HEAD
                         "/posts/create",
                         "/posts/?/edit",
                         "/ads/create"
+=======
+                        "/coupons/create",
+                        "/coupons/?/edit"
+
+>>>>>>> master
                 )
                 .authenticated()
         ;
 //        REMOVE WHEN APPLICATION IS COMPLETE AND ENABLE SECURITY!!!
+<<<<<<< HEAD
 //        http.csrf().disable();
+=======
+        http.csrf().disable();
+>>>>>>> master
     }
 
     @Override
