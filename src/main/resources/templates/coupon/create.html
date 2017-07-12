@@ -6,16 +6,16 @@
 <title>Create a coupon</title>
 <body>
 <nav th:include="fragments :: navbar"></nav>
-<div>
-    <form th:action="${/coupon/create}"
-          th:method="POST"
-          th:object="${coupon}"
-          th:include="fragments :: couponForm"
+<div class="container">
+    <form
+            th:action="@{/coupon/create}"
+            th:method="POST"
+            th:object="${coupon}"
+            th:include="fragments :: couponForm"
     >
-
     </form>
 </div>
 
-<script th:include="fragmetns :: scripts"></script>
+<script th:include="fragments :: scripts"></script>
 </body>
 </html>
