@@ -3,9 +3,9 @@ package com.whatsup.svcs;
 /**
  * Created by DelMonroe on 7/5/17.
  */
-import com.whatsup.model.User;
+import com.whatsup.models.User;
 import com.whatsup.repository.Roles;
-import com.whatsup.repository.UsersRepository;
+import com.whatsup.repositories.UsersRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
