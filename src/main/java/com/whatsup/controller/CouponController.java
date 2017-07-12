@@ -4,6 +4,7 @@ import com.whatsup.models.Coupon;
 import com.whatsup.repositories.CouponsRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -19,7 +20,8 @@ public class CouponController {
 	CouponsRepository couponDao;
 
 	@GetMapping("/coupon/create")
-	public String formsCoupon(){
+	public String formsCoupon(Model model){
+		model.addAttribute("coupon", new Coupon());
 		return "coupon/create";
 	}
 
