@@ -1,8 +1,8 @@
 body{
     background-image: url("../img/SanAntonio.jpeg");
     background-size: cover;
-    background-repeat: no-repeat;
-    height:100vh;
+    /*background-repeat: no-repeat;*/
+    /*height:100vh;*/
 }
 #registerdiv{
     text-align: center;
@@ -18,6 +18,8 @@ p{
 button{
     background-color: orange;
     border-radius: 32px;
+    width:8vw;
+    height:2.5vw;
 }
 .header{
     font-family: "Catamaran";
@@ -42,62 +44,106 @@ z-index:-100;
     /*font-size:3vw;*/
 }
 
+
 input{
     height: 3vh;
-    width: 30vw;
+    width: 20vw;
     border-radius: 32px;
 }
 #vendor{
     width: auto;
     height:auto;
 }
-
-
-/*@media screen only and (min-width:310px) {*/
-/*.attention {*/
-/*font-size: 10vw;*/
-/*}*/
-
-/*input{*/
-/*width: 33vw;*/
-/*}*/
-/*button{*/
-/*background-color: orange;*/
-/*border-radius: 32px;*/
-/*height: 4vh;*/
-/*width:10vw;*/
-/*}*/
-
-
-/*}*/
-
-/*@media (min-width: 736px) {*/
-
-/*}*/
-
-/*@media (min-width: 1024px) {*/
-/*button{*/
-/*background-color: orange;*/
-/*border-radius: 32px;*/
-/*font-size:6vw;*/
-/*}*/
-/*p{*/
-/*font-size:5vw;*/
-/*}*/
-
-/*}*/
-
-/*@media (min-width: 1366px) {*/
-/*p{*/
-/*font-size:5vw;*/
-/*}*/
+.username{
+    font-size: 2vw;
+}
+.signin{
+    font-size: 1.8vw;
+}
 
 
 
-/*}*/
-/*@media (min-width: 2300px) {*/
-/*p{*/
-/*font-size:5vw;*/
-/*}*/
+@media only screen and (min-width: 480px) {
 
-/*}*/
+    /*body{*/
+        /*background-image: url("../img/SanAntonio.jpeg");*/
+        /*background-size: cover;*/
+        /*!*background-repeat: no-repeat;*!*/
+        /*height:100vh;*/
+    /*}*/
+    p{
+        margin:0;
+        font-size:8vw;
+    }
+    .header{
+        font-family: "Catamaran";
+        font-size: 8vw;
+        margin: 0;
+        font-weight: 200;
+        letter-spacing: 1px;
+    }
+    input{
+        height: 4vh;
+        width: 40vw;
+        border-radius: 32px;
+
+    }
+    .username{
+        font-size: 3vw;
+    }
+
+    button{
+        background-color: orange;
+        border-radius: 32px;
+        width:23vw;
+        height:6vw;
+    }
+    .signin{
+        font-size: 3.8vw;
+    }
+    #vendor {
+        font-size:2vw;
+    }
+}
+
+@media only screen and (min-width: 736px) {}
+
+@media only screen and (min-width: 1120px) {
+    p{
+        margin:0;
+        font-size:4vw;
+    }
+    .username{
+        font-size: 2vw;
+    }
+    input{
+        height: 3vh;
+        width: 20vw;
+        border-radius: 32px;
+    }
+    .header{
+        font-family: "Catamaran";
+        font-size: 5vw;
+        margin: 0;
+        font-weight: 200;
+        letter-spacing: 1px;
+    }
+    button{
+        background-color: orange;
+        border-radius: 32px;
+        width:8vw;
+        height:2.5vw;
+    }
+    .signin{
+        font-size: 1.8vw;
+    }
+
+
+  }
+
+
+
+
+
+
+
