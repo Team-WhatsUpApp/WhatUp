@@ -1,63 +1,38 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4">
-<!--<head th:replace="fragments :: head('Sign In')" />-->
-
-
-<!-- Bootstrap Core CSS -->
-<link href="../static/lib/bootstrap/css/bootstrap.min.css" rel="stylesheet"/>
-
-<!-- Custom Fonts -->
-<link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet"/>
-<link href="https://fonts.googleapis.com/css?family=Catamaran:100,200,300,400,500,600,700,800,900"
-      rel="stylesheet"/>
-<link href="https://fonts.googleapis.com/css?family=Muli" rel="stylesheet"/>
-
-<!-- Plugin CSS -->
-<link rel="stylesheet" href="../static/lib/font-awesome/css/font-awesome.min.css"/>
-<link rel="stylesheet" href="../static/lib/simple-line-icons/css/simple-line-icons.css"/>
-<link rel="stylesheet" href="../static/lib/device-mockups/device-mockups.min.css"/>
-
-<!-- Theme CSS -->
-<link href="../static/css/new-age.min.css" rel="stylesheet"/>
-<link href="../static/css/dashboard.css" rel="stylesheet" />
-
-
-
-
-
-
+<head th:replace="fragments :: head('Sign In')" />
 <body id="dashdiv">
 
-<nav th:replace="fragments :: navbar" />
+    <nav th:replace="fragments :: navbar" />
 
-<div>
-
-
-<p class="header">What's Up! What do you feel like doing?</p>
-<br/>
-<label class="dropdown1" for="activity"></label>
-<select id="activity" name="activity">
-    <option value="australia">Eating</option>
-    <option value="canada">Drinking</option>
-    <option value="usa">Dancing</option>
-</select>
-<br/>
-    <br/>
-<div >
-    <input id="zipcode"  placeholder="Enter Your Zipcode" th:field="*{username}" />
-</div>
-
-<br/>
-    <br/>
+    <div>
 
 
-    <div id="map-display"></div>
+        <p class="header">What's Up! What do you feel like doing?</p>
+        <br/>
+        <label class="dropdown1" for="activity"></label>
+        <select id="activity" name="activity">
+            <option value="australia">Eating</option>
+            <option value="canada">Drinking</option>
+            <option value="usa">Dancing</option>
+        </select>
+        <br/>
+            <br/>
+        <div >
+            <input id="zipcode"  placeholder="Enter Your Zipcode" th:field="*{username}" />
+        </div>
+
+        <br/>
+            <br/>
 
 
-</div>
+            <div id="map-display"></div>
 
-<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCxIPbNd4ljI6NdSyP5ugk4XoKDzw2VEZM"></script>
-<link href="../static/js/dashboard.js" rel="javascript" />
+
+    </div>
+
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCxIPbNd4ljI6NdSyP5ugk4XoKDzw2VEZM"></script>
+    <link href="../static/js/dashboard.js" rel="javascript" />
 
 </body>
 </html>
