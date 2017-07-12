@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4">
-<head th:replace="fragments :: head('Sign In')" />
+<head th:replace="fragments/fragments :: head('Sign In')" />
 <body id="dashdiv">
 
-    <nav th:replace="fragments :: navbar" />
+    <nav th:replace="fragments/fragments :: navbar" />
 
     <div>
 
@@ -19,7 +19,10 @@
         <br/>
             <br/>
         <div >
-            <input id="zipcode"  placeholder="Enter Your Zipcode" th:field="*{username}" />
+            <input id="zipcode"  placeholder="Enter Your Zipcode"/>
+
+
+                   <!--th:field="*{zipcode}" />-->
         </div>
 
         <br/>
@@ -32,7 +35,7 @@
     </div>
 
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCxIPbNd4ljI6NdSyP5ugk4XoKDzw2VEZM"></script>
-    <link href="../static/js/dashboard.js" rel="javascript" />
+    <link href="/../js/dashboard.js" rel="javascript" />
 
 </body>
 </html>

@@ -10,7 +10,7 @@
     <meta name="viewport" content="initial-scale=1, maximum-scale=1"/>
 
     <!-- Bootstrap Core CSS -->
-    <link href="../static/lib/bootstrap/css/bootstrap.min.css" rel="stylesheet"/>
+    <link href="/../lib/bootstrap/css/bootstrap.min.css" rel="stylesheet"/>
 
     <!-- Custom Fonts -->
     <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet"/>
@@ -19,15 +19,15 @@
     <link href="https://fonts.googleapis.com/css?family=Muli" rel="stylesheet"/>
 
     <!-- Plugin CSS -->
-    <link rel="stylesheet" href="../static/lib/font-awesome/css/font-awesome.min.css"/>
-    <link rel="stylesheet" href="../static/lib/simple-line-icons/css/simple-line-icons.css"/>
-    <link rel="stylesheet" href="../static/lib/device-mockups/device-mockups.min.css"/>
-    <link href="../static/css/login.css" rel="stylesheet"/>
-    <link href="../static/css/dashboard.css" rel="stylesheet" />
-    <link href="../static/css/register.css" rel="stylesheet"/>
+    <link rel="stylesheet" href="/../lib/font-awesome/css/font-awesome.min.css"/>
+    <link rel="stylesheet" href="/../lib/simple-line-icons/css/simple-line-icons.css"/>
+    <link rel="stylesheet" href="/../lib/device-mockups/device-mockups.min.css"/>
+    <link href="/../css/login.css" rel="stylesheet"/>
+    <link href="/../css/dashboard.css" rel="stylesheet" />
+    <link href="/../css/register.css" rel="stylesheet"/>
 
     <!-- Theme CSS -->
-    <!--<link href="../static/css/new-age.min.css" rel="stylesheet"/>-->
+    <link href="/../css/new-age.min.css" rel="stylesheet"/>
 
     <title th:text="${title}">#WhatsUP!</title>
 </head>
@@ -38,7 +38,7 @@
     <div class="container-fluid">
 
         <div class="navbar-header">
-            <a class="navbar-brand" href="/">WhatsUp</a>
+            <a class="navbar-brand" th:href="@{/index}">WhatsUp</a>
         </div>
 
         <div class="collapse navbar-collapse">

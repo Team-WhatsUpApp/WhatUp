@@ -4,10 +4,10 @@
 body {
 
     color: white;
-    background-image: url("../img/dinnertable.jpg");
+    background-image: url("/../img/dinnertable.jpg");
     background-size: cover;
-    background-repeat: no-repeat;
-    height: 100vh;
+    /*background-repeat: no-repeat;*/
+    /*height: 100vw;*/
 }
 
 div {
@@ -20,6 +20,7 @@ a {
     font-family: Lato;
     letter-spacing: 2px;
     font-size: 1vw;
+    text-decoration: none;
 
 }
 
@@ -89,14 +90,14 @@ p {
     font-size: 1.5vw;
 }
 
-@media only screen and (min-width: 480px) {
+@media only screen and (min-width: 310px) {
     p {
         font-size: 7vw;
     }
 
     input {
-        height: 3vh;
-        width: 30vw;
+        height: 6vw;
+        width: 53vw;
         border-radius: 32px;
     }
 
@@ -109,14 +110,17 @@ p {
     }
 
     a {
-        font-size: 2vw;
+        font-size: 5vw;
     }
 
     button {
         width: 20vw;
-        height: 5vw;
+        height: 7vw;
     }
 
+    h1 {
+        font-size: 14vw;
+    }
 }
 
 @media (min-width: 768px) {
@@ -169,15 +173,15 @@ p {
     }
 
     .signin {
-        font-size: 1.8vw;
+        font-size: 1.5vw;
     }
 
     .username {
-        font-size: 2vw;
+        font-size: 1.3vw;
     }
 
     a {
-        font-size: 2vw;
+        font-size: 1.5vw;
     }
 }
 

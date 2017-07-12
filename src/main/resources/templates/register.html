@@ -1,12 +1,12 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4">
-<head th:replace="fragments :: head('Register form')" />
+<head th:replace="fragments/fragments :: head('Register form')" />
 
 
 
 <body>
 
-<nav th:replace="fragments :: navbar" />
+<nav th:replace="fragments/fragments :: navbar" />
 
 <div id="bgoverlay"></div>
 
@@ -17,40 +17,40 @@
 <div id="registerdiv" class="col-lg-12"><h3 class="header">Registration</h3>
     <div >
             <form th:action="@{/register}" th:method="POST" th:object="${user}">
-                <div >
+                <div>
 
-                        <div class="col-sm-6">
+                        <div >
                             <input class="username"  placeholder=" Username" th:field="*{username}" />
                         </div>
                     <br/>
 
-                        <div class="col-sm-6">
+                        <div>
                             <input class="username"  placeholder=" Email" th:field="*{email}" />
                         </div>
 
                     <br/>
 
-                        <div class="col-sm-6">
+                        <div>
                             <input  type="password" class="custom-control-indicator nsearch-input username" placeholder=" Enter Your Password" th:field="*{password}" />
                         </div>
 
                     <br/>
-                    <div class="col-sm-6">
+                    <div>
                         <input  class="username" type="password"  placeholder=" Confirm Password" th:field="*{password}" />
                     </div>
 
                     <br/>
-                    <div class="col-sm-6">
-                        <input class="username" type="text"  placeholder=" Phone Number" th:field="*{phone}" />
+                    <div>
+                        <input class="username" type="text"  placeholder=" Phone Number" th:field="*{phoneNumber}" />
                     </div>
 
                     <br/>
 
-                    <input id="vendor" type="checkbox" name="vendor" value="vendor">Vendor Profile?
+                    <input id="vendor" type="checkbox" name="vendor" value="vendor"/>Vendor Profile?
 
                     <br/>
                         <!--<input id="rbutton" class="btn" type="submit" />-->
-                        <button class="signin" ><span>Register</span></button>
+                        <button class="signin"><span>Register</span></button>
                 </div>
             </form>
     </div>

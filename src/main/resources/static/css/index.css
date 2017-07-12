@@ -5,22 +5,22 @@
 /*}*/
 
 .sa {
-    background-image: url("../../static/img/sa6.jpg");
+    background-image: url("../img/sa6.jpg");
     background-size: cover;
 }
 
 .josh {
-    background-image: url("../../static/img/josh.png");
+    background-image: url("../img/josh.png");
     background-size: cover;
 }
 
 .del {
-    background-image: url("../../static/img/del.jpg");
+    background-image: url("../img/del.jpg");
     background-size: cover;
 }
 
 .moses {
-    background-image: url("../../static/img/moses.png");
+    background-image: url("../img/moses.png");
     background-size: cover;
 }
 
@@ -29,7 +29,7 @@
 }
 
 .burger {
-    background-image: url("../../static/img/res2.jpg");
+    background-image: url("../img/res2.jpg");
     background-size: cover;
 }
 
@@ -67,7 +67,7 @@ button:hover {
 }
 
 header {
-    background: url(../../static/img/bg-pattern.png), linear-gradient(to left, lightpink, blue);
+    background: url(../img/bg-pattern.png), linear-gradient(to left, lightpink, blue);
 }
 section {
     padding: 90px 0 10px 0;

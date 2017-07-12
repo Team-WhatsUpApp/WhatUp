@@ -15,19 +15,20 @@ p{
     margin:0;
     font-size:4vw;
 }
-button{
-    background-color: orange;
-    border-radius: 32px;
-    width:8vw;
-    height:2.5vw;
-}
-.header{
-    font-family: "Catamaran";
-    font-size: 5vw;
-    margin: 0;
-    font-weight: 200;
-    letter-spacing: 1px;
-}
+/*button{*/
+    /*background-color: orange;*/
+    /*border-radius: 32px;*/
+    /*width:8vw;*/
+    /*height:2.5vw;*/
+/*}*/
+/*.header{*/
+    /*font-family: "Catamaran";*/
+    /*font-size: 5vw;*/
+    /*margin: 0;*/
+    /*font-weight: 200;*/
+    /*letter-spacing: 1px;*/
+/*}*/
+
 #bgoverlay {
 width: 100vw;
 height: 100vh;
@@ -45,51 +46,41 @@ z-index:-100;
 }
 
 
-input{
-    height: 3vh;
-    width: 20vw;
-    border-radius: 32px;
-}
-#vendor{
-    width: auto;
-    height:auto;
-}
-.username{
-    font-size: 2vw;
-}
-.signin{
-    font-size: 1.8vw;
-}
+/*input{*/
+    /*height: 3vh;*/
+    /*width: 40vw;*/
+    /*border-radius: 32px;*/
+/*}*/
+/*#vendor{*/
+    /*width: auto;*/
+    /*height:auto;*/
+/*}*/
 
 
 
-@media only screen and (min-width: 480px) {
 
-    /*body{*/
-        /*background-image: url("../img/SanAntonio.jpeg");*/
-        /*background-size: cover;*/
-        /*!*background-repeat: no-repeat;*!*/
-        /*height:100vh;*/
-    /*}*/
+@media only screen and (min-width: 350px) {
+
+
     p{
         margin:0;
         font-size:8vw;
     }
     .header{
         font-family: "Catamaran";
-        font-size: 8vw;
+        font-size: 14vw;
         margin: 0;
         font-weight: 200;
         letter-spacing: 1px;
     }
     input{
-        height: 4vh;
-        width: 40vw;
+        height: 5.2vw;
+        width: 50vw;
         border-radius: 32px;
 
     }
     .username{
-        font-size: 3vw;
+        font-size: 4vw;
     }
 
     button{
@@ -101,12 +92,12 @@ input{
     .signin{
         font-size: 3.8vw;
     }
-    #vendor {
-        font-size:2vw;
-    }
+    /*#vendor {*/
+        /*font-size:1vw;*/
+    /*}*/
 }
 
-@media only screen and (min-width: 736px) {}
+/*@media only screen and (min-width: 736px) {}*/
 
 @media only screen and (min-width: 1120px) {
     p{
@@ -114,7 +105,7 @@ input{
         font-size:4vw;
     }
     .username{
-        font-size: 2vw;
+        font-size: 1.4vw;
     }
     input{
         height: 3vh;
@@ -135,7 +126,7 @@ input{
         height:2.5vw;
     }
     .signin{
-        font-size: 1.8vw;
+        font-size: 1.5vw;
     }
 
 
