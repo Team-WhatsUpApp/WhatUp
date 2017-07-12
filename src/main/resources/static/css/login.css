@@ -1,19 +1,20 @@
 @import url(//fonts.googleapis.com/css?family=Catamaran);
 @import url(//fonts.googleapis.com/css?family=Lato);
 
-
 body {
 
-    color:  white;
+    color: white;
     background-image: url("../img/dinnertable.jpg");
     background-size: cover;
     background-repeat: no-repeat;
     height: 100vh;
 }
-div{
+
+div {
     text-align: center;
 }
-a{
+
+a {
     color: lightskyblue;
     text-decoration: none;
     font-family: Lato;
@@ -21,20 +22,21 @@ a{
     font-size: 1vw;
 
 }
-a:hover{
+
+a:hover {
     color: orange;
 }
-input{
+
+input {
     height: 3vh;
     width: 20vw;
     border-radius: 32px;
 }
 
-button{
+button {
     background-color: orange;
     border-radius: 32px;
-    /*width:10vw;*/
-    /*height:3vw;*/
+
 }
 
 #bgoverlay {
@@ -42,7 +44,7 @@ button{
     height: 100%;
     background-color: rgba(0, 0, 0, .5);
     position: fixed;
-    z-index:-100;
+    z-index: -100;
 }
 
 .attention {
@@ -52,32 +54,34 @@ button{
 
     letter-spacing: 2px;
 }
-h1{
+
+h1 {
     font-family: "Catamaran";
     font-size: 6vw;
-    margin:0;
+    margin: 0;
     font-weight: 200;
     letter-spacing: 1px;
 }
+
 #logindiv {
     /*margin-top:20vh;*/
     /*border:2px solid yellow;*/
     position: relative;
-    z-index:100;
+    z-index: 100;
 }
+
 #logindiv2 {
     /*margin-top:20vh;*/
     /*border:2px solid yellow;*/
 }
 
-
 p {
-    font-family:Catamaran;
-    font-size:4vw;
-    margin:0;
+    font-family: Catamaran;
+    font-size: 4vw;
+    margin: 0;
 }
 
-.signin{
+.signin {
     font-size: 1vw;
 }
 
@@ -85,42 +89,50 @@ p {
     font-size: 1.5vw;
 }
 
-
 @media only screen and (min-width: 480px) {
     p {
-        font-size:7vw;
+        font-size: 7vw;
     }
-input {
-    height: 3vh;
-    width: 30vw;
-    border-radius: 32px;
-}
-    .signin{
+
+    input {
+        height: 3vh;
+        width: 30vw;
+        border-radius: 32px;
+    }
+
+    .signin {
         font-size: 3vw;
     }
+
     .username {
-        font-size: 3vw;
+        font-size: 4vw;
     }
-    a{
+
+    a {
         font-size: 2vw;
     }
+
+    button {
+        width: 20vw;
+        height: 5vw;
+    }
+
 }
 
-
-
-
-
-@media  (min-width: 768px) {
-    input{
+@media (min-width: 768px) {
+    input {
         height: 4vh;
         width: 40vw;
     }
+
     p {
-        font-size:5.5vw;
+        font-size: 5.5vw;
     }
-    a{
-        font-size:3vw;
+
+    a {
+        font-size: 3vw;
     }
+
     h1 {
         font-family: "Catamaran";
         font-size: 6vw;
@@ -128,41 +140,44 @@ input {
         font-weight: 200;
         letter-spacing: 1px;
     }
+
     button {
 
         width: 16vw;
         height: 4vw;
     }
 
-
 }
-
-
 
 @media only screen and (min-width: 1120px) {
 
     p {
-        font-size:4vw;
+        font-size: 4vw;
     }
-    input{
-        height: 5vh;
-        width: 30vw;
+
+    input {
+        height: 3vh;
+        width: 20vw;
         border-radius: 32px;
     }
-    button{
+
+    button {
         background-color: orange;
         border-radius: 32px;
-        width:8vw;
-        height:3vw;
+        width: 8vw;
+        height: 2.5vw;
     }
-    .signin{
-        font-size: 2vw;
+
+    .signin {
+        font-size: 1.8vw;
     }
+
     .username {
         font-size: 2vw;
     }
-    a{
-        font-size:2vw;
+
+    a {
+        font-size: 2vw;
     }
 }
 
@@ -180,103 +195,6 @@ input {
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-/*@media only screen and (min-width: 250px) and (max-width: 737px){*/
-    /*p{*/
-        /*font-family: "Catamaran";*/
-        /*font-size:7vw;*/
-    /*}*/
-    /*body {*/
-        /*color:  white;*/
-        /*background-image: url("../img/dinnertable.jpg");*/
-        /*background-size: cover;*/
-        /*background-repeat: no-repeat;*/
-        /*!*height: 100vh;*!*/
-        /*!*width:100vw;*!*/
-        /*!*font-size:4vw;*!*/
-    /*}*/
-
-    /*input {*/
-        /*height: 4vh;*/
-        /*width: 40vw;*/
-        /*border-radius: 32px;*/
-    /*}*/
-
-    /*a {*/
-        /*font-size: 4vw;*/
-    /*}*/
-
-    /*!*a:hover{*!*/
-        /*!*color: orange;*!*/
-    /*!*}*!*/
-
-    /*button {*/
-
-        /*height: 3vh;*/
-        /*width: 20vw;*/
-    /*}*/
-/*}*/
-
-/*@media (min-width: 1024px) {*/
-    /*p {*/
-        /*font-size:3vw;*/
-    /*}*/
-
-
-
-
-/*__________________________________________________________________________*/
-
-/*@media (max-width: 1500px) {*/
-    /*p {*/
-        /*font-family:Catamaran;*/
-        /*font-size:5vw;*/
-        /*margin:0;*/
-    /*}*/
-    /*input {*/
-        /*height: 3vh;*/
-        /*width: 30vw;*/
-        /*border-radius: 32px;*/
-    /*}*/
-    /*button {*/
-        /*background-color: orange;*/
-        /*border-radius: 32px;*/
-        /*height: 3vh;*/
-        /*width: 10vw;*/
-    /*}*/
-    /*a{*/
-        /*font-size: 1.5vw;*/
-    /*}*/
-/*}*/
-
-
-/*@media (min-width: 1366px) {*/
-/*button {*/
-/*height: 5vw;*/
-/*width: 8vw;*/
-/*}*/
-/*}*/
-
-
-
-/*@media only screen  and (max-width: 1024px) {*/
-
-/*}*/
-
-/*@media only screen  and (max-width: 1366px) {*/
-
-/*}*/
 
 
 

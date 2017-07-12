@@ -7,11 +7,12 @@
 <body>
 
 
+
+<div id="bgoverlay"></div>
+
 <div id="registererror" class="attention" th:if="${param.error}">
     <p>Invalid Username, Email, or Password.</p>
 </div>
-
-<div id="bgoverlay"></div>
 
 <div id="registerdiv" class="col-lg-12"><h3 class="header">Registration</h3>
     <div >
@@ -19,37 +20,37 @@
                 <div >
 
                         <div class="col-sm-6">
-                            <input id="nrusername"  placeholder=" Username" th:field="*{username}" />
+                            <input class="username"  placeholder=" Username" th:field="*{username}" />
                         </div>
                     <br/>
 
                         <div class="col-sm-6">
-                            <input id="nremail"  placeholder=" Email" th:field="*{email}" />
+                            <input class="username"  placeholder=" Email" th:field="*{email}" />
                         </div>
 
                     <br/>
 
                         <div class="col-sm-6">
-                            <input  type="password" class="custom-control-indicator nsearch-input" placeholder=" Enter Your Password" th:field="*{password}" />
+                            <input  type="password" class="custom-control-indicator nsearch-input username" placeholder=" Enter Your Password" th:field="*{password}" />
                         </div>
 
                     <br/>
                     <div class="col-sm-6">
-                        <input  type="password"  placeholder=" Confirm Password" th:field="*{password}" />
+                        <input  class="username" type="password"  placeholder=" Confirm Password" th:field="*{password}" />
                     </div>
 
                     <br/>
                     <div class="col-sm-6">
-                        <input  type="text"  placeholder=" Phone Number" th:field="*{phone}" />
+                        <input class="username" type="text"  placeholder=" Phone Number" th:field="*{phone}" />
                     </div>
 
                     <br/>
 
-                    <input id="vendor" type="checkbox" name="Vendor" value="Vendor">Vendor Profile?
+                    <input id="vendor" type="checkbox" name="vendor" value="vendor">Vendor Profile?
 
                     <br/>
                         <!--<input id="rbutton" class="btn" type="submit" />-->
-                        <button ><span>Register</span></button>
+                        <button class="signin" ><span>Register</span></button>
                 </div>
             </form>
     </div>
