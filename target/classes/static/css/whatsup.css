@@ -5,6 +5,94 @@ body {
     padding: 0;
 }
 
+
+
+/*.bgoverlay {*/
+/*width: 100%;*/
+/*height: auto;*/
+/*background-color: rgba(0, 0, 0, .5);*/
+/*}*/
+
+.sa {
+    background-image: url("../static/img/sa6.jpg");
+    background-size: cover;
+}
+
+.josh {
+    background-image: url("../static/img/josh.png");
+    background-size: cover;
+}
+
+.del {
+    background-image: url("../static/img/del.jpg");
+    background-size: cover;
+}
+
+.moses {
+    background-image: url("../static/img/moses.png");
+    background-size: cover;
+}
+
+#1phoneimage {
+    background-size: cover;
+}
+
+.burger {
+    background-image: url("../static/img/res2.jpg");
+    background-size: cover;
+}
+
+#burgerdiv {
+    height: 84vh;
+    width: auto;
+
+}
+
+h2 {
+    color: white;
+}
+
+#stopwaiting {
+    font-size: 8vw;
+
+}
+
+.device-mockup > .device {
+    height: 100%
+}
+
+
+button:hover {
+    opacity: 0.8;
+}
+.login{
+    color: darkorange;
+}
+
+
+header {
+    background: url(../../static/img/bg-pattern.png), linear-gradient(to left, lightpink, blue);
+}
+section {
+    padding: 90px 0 10px 0;
+}
+
+@media only screen  and (max-width: 1024px) {
+    #firstphone {
+        margin-top: 6vw;
+    }
+}
+
+@media only screen  and (max-width: 1366px) {
+
+    #firstphone {
+        margin-top: 10vw;
+    }
+}
+
+
+
+
 /* ============= index.html file that display a list of host; remove the a tag styling from the posts ================ */
 
 .nounderline {
@@ -70,33 +158,33 @@ h3#lheading {
 
 /* ============ Sign in and Register buttons ============== */
 
-#lbutton {
-    position: absolute;
-    border-radius: 0;
-    width: 120px;
-    margin-top: 105px;
-    margin-left: 20px;
-    border: 3px solid #3574bc;
-}
-#lbutton:hover {
-    border: 3px solid #286090;
-}
+/*#lbutton {*/
+    /*position: absolute;*/
+    /*border-radius: 0;*/
+    /*width: 120px;*/
+    /*margin-top: 105px;*/
+    /*margin-left: 20px;*/
+    /*border: 3px solid #3574bc;*/
+/*}*/
+/*#lbutton:hover {*/
+    /*border: 3px solid #286090;*/
+/*}*/
 
-#lgbutton {
-    color: #286090;
-    width: 120px;
-    border-radius: 0;
-    background-color: white;
-    position: absolute;
-    margin-top: 105px;
-    margin-left: 157px;
-    border: 3px solid #286090;
-}
+/*#lgbutton {*/
+    /*color: #286090;*/
+    /*width: 120px;*/
+    /*border-radius: 0;*/
+    /*background-color: white;*/
+    /*position: absolute;*/
+    /*margin-top: 105px;*/
+    /*margin-left: 157px;*/
+    /*border: 3px solid #286090;*/
+/*}*/
 
-#lgbutton:hover {
-    color: white;
-    background-color: #286090;
-}
+/*#lgbutton:hover {*/
+    /*color: white;*/
+    /*background-color: #286090;*/
+/*}*/
 
 
 

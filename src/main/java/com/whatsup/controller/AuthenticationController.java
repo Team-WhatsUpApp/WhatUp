@@ -22,29 +22,30 @@ import org.springframework.web.bind.annotation.*;
 @ComponentScan(basePackageClasses = UserWithRoles.class)
 public class AuthenticationController {
 
-    @Autowired
-    private UsersRepository usersRepository;
-    @Autowired
-    private PasswordEncoder passwordEncoder;
+    /*@Autowired
+    private UsersRepository usersRepository;*/
+    /*@Autowired
+    private PasswordEncoder passwordEncoder;*/
+
 
     @GetMapping("/login")
     public String showLoginForm() {
         return "login";
     }
 
-    @GetMapping("/yelp")
-    public String shownewYelpAPI() {
-        return "yelpAPI";
-    }
+//    @GetMapping("/yelp")
+//    public String shownewYelpAPI() {
+//        return "yelpAPI";
+//    }
 
 
 
-    @PostMapping("/register")
-    public String create(@ModelAttribute User user) {
-        user.setPassword(passwordEncoder.encode(user.getPassword()));
-        usersRepository.saveAndFlush(user);
-        return "login";
-    }
+//    @PostMapping("/register")
+//    public String create(@ModelAttribute User user) {
+//        user.setPassword(passwordEncoder.encode(user.getPassword()));
+//        usersRepository.saveAndFlush(user);
+//        return "login";
+//    }
 
     @GetMapping("/register")
     public String showRegisterForm(Model model) {
@@ -53,9 +54,9 @@ public class AuthenticationController {
     }
 
 
-    @GetMapping("/dashboard")
-    public String showDashboard() {
-        return "dashboard";
-    }
+//    @GetMapping("/dashboard")
+//    public String showDashboard() {
+//        return "dashboard";
+//    }
 
 }
