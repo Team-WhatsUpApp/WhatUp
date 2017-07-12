@@ -19,33 +19,9 @@
 
 <!-- Theme CSS -->
 <link href="../static/css/new-age.min.css" rel="stylesheet"/>
-<!--<link href="../static/css/whatsup.css" rel="stylesheet" />-->
+<link href="../static/css/dashboard.css" rel="stylesheet" />
 
 
-<style>
-
-body{
-color: white;  text-align: center;
-background: url(../static/img/bg-pattern.png), linear-gradient(to left, lightpink, blue);
-}
-select{
-    color: black;
-}
-
-input{
-    height: 3vh;
-    width: auto;
-    border-radius: 32px;
-    color: black;
-}
-
-#dashdiv{
-    text-align: center;
-}
-
-
-
-</style>
 
 
 
@@ -53,9 +29,9 @@ input{
 <body id="dashdiv">
 <nav th:replace="fragments :: navbar" />
 <div>
-<h1>Welcome to Your Dashboard</h1>
+<!--<h1>Welcome to Your Dashboard</h1>-->
 <!--<div id="dashboard"></div>-->
-<p>What's Up! What do you feel like doing?</p>
+<p class="header">What's Up! What do you feel like doing?</p>
 <br/>
 <label class="dropdown1" for="activity"></label>
 <select id="activity" name="activity">
@@ -69,15 +45,17 @@ input{
     <input id="zipcode"  placeholder="Enter Your Zipcode" th:field="*{username}" />
 </div>
 
+<br/>
+    <br/>
 
 
-
-
-
+    <div id="map-display"></div>
 
 
 </div>
 
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCxIPbNd4ljI6NdSyP5ugk4XoKDzw2VEZM"></script>
+<link href="../static/js/dashboard.js" rel="javascript" />
 
 </body>
 </html>

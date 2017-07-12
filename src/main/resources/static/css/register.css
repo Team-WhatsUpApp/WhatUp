@@ -1,0 +1,103 @@
+body{
+    background-image: url("../img/SanAntonio.jpeg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    height:100vh;
+}
+#registerdiv{
+    text-align: center;
+    /*border:2px solid blue;*/
+    color: white;
+    font-family:Catamaran ;
+}
+
+p{
+    margin:0;
+    font-size:4vw;
+}
+button{
+    background-color: orange;
+    border-radius: 32px;
+}
+.header{
+    font-family: "Catamaran";
+    font-size: 5vw;
+    margin: 0;
+    font-weight: 200;
+    letter-spacing: 1px;
+}
+#bgoverlay {
+width: 100vw;
+height: 100vh;
+background-color: rgba(0, 0, 0, .4);
+position: fixed;
+z-index:-100;
+}
+
+.attention {
+    color: red;
+    font-family: "Catamaran";
+    letter-spacing: 1px;
+    text-align: center;
+    /*font-size:3vw;*/
+}
+
+input{
+    height: 3vh;
+    width: 30vw;
+    border-radius: 32px;
+}
+#vendor{
+    width: auto;
+    height:auto;
+}
+
+
+/*@media screen only and (min-width:310px) {*/
+/*.attention {*/
+/*font-size: 10vw;*/
+/*}*/
+
+/*input{*/
+/*width: 33vw;*/
+/*}*/
+/*button{*/
+/*background-color: orange;*/
+/*border-radius: 32px;*/
+/*height: 4vh;*/
+/*width:10vw;*/
+/*}*/
+
+
+/*}*/
+
+/*@media (min-width: 736px) {*/
+
+/*}*/
+
+/*@media (min-width: 1024px) {*/
+/*button{*/
+/*background-color: orange;*/
+/*border-radius: 32px;*/
+/*font-size:6vw;*/
+/*}*/
+/*p{*/
+/*font-size:5vw;*/
+/*}*/
+
+/*}*/
+
+/*@media (min-width: 1366px) {*/
+/*p{*/
+/*font-size:5vw;*/
+/*}*/
+
+
+
+/*}*/
+/*@media (min-width: 2300px) {*/
+/*p{*/
+/*font-size:5vw;*/
+/*}*/
+
+/*}*/

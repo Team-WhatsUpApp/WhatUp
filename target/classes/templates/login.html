@@ -1,41 +1,141 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4">
-<head th:replace="fragments :: head('Sign In')" />
-<body id="bkgrnd">
-<div th:if="${param.error}">
-    Invalid Username and Password.
-</div>
-<div th:if="${param.logout}">
-    You have been logged out.
-</div>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4">
+<head th:replace="fragments :: head('Sign In')"/>
 
-        <div id="loginbox"><h3 id="sgnin">Sign In</h3>
-            <div class="container-fluid">
-                <form th:action="@{/login}" th:method="POST">
-                    <div class="form-group input-group row">
-                        <!--<label id="nuname" class="col-sm-4 col-form-label" for="nusername">Username</label>-->
-                        <span id="uicon" class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
-                        <div class="col-sm-6">
-                            <input class="custom-control-indicator nsearch-input" id="nusername" name="username" type="text" placeholder="Username" />
-                        </div>
-                    </div>
-                    <br />
-                    <div class="form-group input-group row">
-                        <!--<label id="npname" class="col-sm-4 col-form-label" for="nlpassword">Password</label>-->
-                        <span id="lock" class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
-                        <div class="col-sm-6">
-                            <input class="custom-control-indicator nsearch-input" id="nlpassword" name="password" type="password" placeholder="Password" />
-                        </div>
-                    </div>
-                    <!--<button id="logbtn" th:href="@{/register}"><span>Sign in</span></button>-->
-                    <button id="logbtn"><span>Sign in</span></button>
-                </form>
-            </div>
+<style>
+    @import url(//fonts.googleapis.com/css?family=Catamaran);
+    body {
+        background-color: lightblue;
+        color:  white;
+        background-image: url("../static/img/res1.jpg");
+        background-size: cover;
+        background-repeat: no-repeat;
+        height: 100vh;
+    }
+    div{
+        text-align: center;
 
+    }
+    .attention {
+        color: red;
+    }
+    h1{
+        font-family: "Catamaran";
+        font-size: 6vw;
+        margin:0;
+    }
+    #logindiv {
+        margin-top:30vh;
+    }
+    p{
+        font-family:Catamaran;
+        font-size:3vw;
+        margin:0;
+    }
+    input{
+        height: 3vw;
+        width: auto;
+    }
+
+    @media only screen  and (max-width: 736px) {
+
+
+        p{
+            font-family: "Catamaran";
+            font-size:6vw;
+        }
+
+
+    }
+
+    /*@media only screen  and (max-width: 1024px) {*/
+        /*font-size:10vw;*/
+    /*}*/
+
+    /*@media only screen  and (max-width: 1366px) {*/
+       /*font-size:10vw;*/
+    /*}*/
+
+
+
+
+</style>
+
+</head>
+
+
+<body>
+        <div id="logindiv" class="attention" th:if="${param.error}">
+            <p>Invalid Username and Password.</p>
         </div>
-        <div id="logbtnback"></div>
-        <div id="register"><span id="forgot"><a class="nounderline" href="#">Forgot Username?</a> | <a class="nounderline" href="#">Forgot Password?</a></span></div>
-        <a class="nounderline" href="/register"><button id="regbtn"><span>Register</span></button></a>
+
+
+        <div class="attention" th:if="${param.logout}">
+           <p> You have been logged out.</p>
+        </div>
+
+
+<div class="col-lg-12">
+    <h1>Sign In!</h1>
+
+    <form th:action="@{/login}" th:method="POST">
+        <!--<label id="username" class="col-lg-12" for="username">Username</label>-->
+
+        <div >
+            <input  class="col-lg-6" name="username" type="text" placeholder="Enter Your Username"/>
+        </div>
+
+        <!--<label id="password" class="col-lg-12 " for="password">Password</label>-->
+
+        <div>
+            <input class="col-lg-6" name="password" type="password" placeholder="Enter Your Password"/>
+        </div>
+
+        <button  style="text-align: center" class="btn btn-outline btn-xl page-scroll">Sign in</button>
+
+
+
+        <div>
+            <span><a href="#">Forgot Username?</a> | <a class="nounderline" href="#">Forgot Password?</a></span>
+        </div>
+        <a  href="/register">
+            <button><span>Register</span></button>
+        </a>
+
+
+</div>
+
+
+<!--<div class="container">-->
+<!--<h3>Sign In</h3>-->
+<!--<div class="container-fluid">-->
+<!--<form th:action="@{/login}" th:method="POST">-->
+<!--<div class="form-group input-group row">-->
+<!--<label id="nuname" class="col-sm-4 col-form-label" for="nusername">Username</label>-->
+<!--<span id="uicon" class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>-->
+<!--<div class="col-lg-12">-->
+<!--<input  id="nusername" name="username" type="text" placeholder="Username" />-->
+<!--</div>-->
+<!--</div>-->
+<!--<br/>-->
+<!--<div class="form-group input-group row">-->
+<!--&lt;!&ndash;<label id="npname" class="col-sm-4 col-form-label" for="nlpassword">Password</label>&ndash;&gt;-->
+<!--<span id="lock" class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>-->
+<!--<div class="col-lg-12">-->
+<!--<input class="custom-control-indicator nsearch-input" id="nlpassword" name="password" type="password" placeholder="Password" />-->
+<!--</div>-->
+<!--</div>-->
+<!--&lt;!&ndash;<button id="logbtn" th:href="@{/register}"><span>Sign in</span></button>&ndash;&gt;-->
+<!--<button  class="btn btn-outline btn-xl page-scroll">Sign in</button>-->
+<!--</form>-->
+<!--</div>-->
+
+<!--</div>-->
+<!--<div>-->
+<!---->
+<!--</div>-->
+
 
 
 </body>
