@@ -55,6 +55,19 @@
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-security</artifactId>
 		</dependency>
+		<!--Hibernate spatial-->
+		<!-- https://mvnrepository.com/artifact/org.hibernate/hibernate-spatial -->
+		<dependency>
+			<groupId>org.hibernate</groupId>
+			<artifactId>hibernate-spatial</artifactId>
+			<version>5.2.10.Final</version>
+		</dependency>
+		<!--JTS-->
+		<dependency>
+			<groupId>com.vividsolutions</groupId>
+			<artifactId>jts</artifactId>
+			<version>1.13</version>
+		</dependency>
 	</dependencies>
 
 

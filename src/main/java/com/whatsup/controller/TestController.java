@@ -3,9 +3,7 @@ package com.whatsup.controller;
 
 import com.vividsolutions.jts.geom.Coordinate;
 import com.vividsolutions.jts.geom.GeometryFactory;
-import com.whatsup.model.*;
 import com.whatsup.models.*;
-import com.whatsup.models.User;
 import com.whatsup.model.UserRole;
 import com.whatsup.repositories.CouponsRepository;
 import com.whatsup.repositories.LocationsRepository;
@@ -31,8 +29,7 @@ import com.vividsolutions.jts.geom.Point;
 @RestController
 public class TestController {
 
-<<<<<<< HEAD
-	@Autowired
+	/*@Autowired
 	LocationsRepository locationsDao;
 	@Autowired
 	UsersRepository usersDao;
@@ -41,7 +38,7 @@ public class TestController {
 	@Autowired
 	CouponsRepository couponsDao;
 	@Autowired
-	Roles rolesDao;
+	Roles rolesDao;*/
 
 	@RequestMapping("/testpage")
 
@@ -139,45 +136,38 @@ public class TestController {
 		downtown5.setCouponList(couponList5);
 
 
-		usersDao.save(user1);
-		usersDao.save(user2);
-		usersDao.save(user3);
-		usersDao.save(user4);
-		usersDao.save(user5);
-		rolesDao.save(role1);
-		rolesDao.save(role2);
-		rolesDao.save(role3);
-		rolesDao.save(role4);
-		rolesDao.save(role5);
-		vendorsDao.save(vendor1);
-		vendorsDao.save(vendor2);
-		vendorsDao.save(vendor3);
-		vendorsDao.save(vendor4);
-		vendorsDao.save(vendor5);
-		locationsDao.save(downtown1);
-		locationsDao.save(downtown2);
-		locationsDao.save(downtown3);
-		locationsDao.save(downtown4);
-		locationsDao.save(downtown5);
-		couponsDao.save(coupon1);
-		couponsDao.save(coupon2);
-		couponsDao.save(coupon3);
-		couponsDao.save(coupon4);
-		couponsDao.save(coupon5);
+//		usersDao.save(user1);
+//		usersDao.save(user2);
+//		usersDao.save(user3);
+//		usersDao.save(user4);
+//		usersDao.save(user5);
+//		rolesDao.save(role1);
+//		rolesDao.save(role2);
+//		rolesDao.save(role3);
+//		rolesDao.save(role4);
+//		rolesDao.save(role5);
+//		vendorsDao.save(vendor1);
+//		vendorsDao.save(vendor2);
+//		vendorsDao.save(vendor3);
+//		vendorsDao.save(vendor4);
+//		vendorsDao.save(vendor5);
+//		locationsDao.save(downtown1);
+//		locationsDao.save(downtown2);
+//		locationsDao.save(downtown3);
+//		locationsDao.save(downtown4);
+//		locationsDao.save(downtown5);
+//		couponsDao.save(coupon1);
+//		couponsDao.save(coupon2);
+//		couponsDao.save(coupon3);
+//		couponsDao.save(coupon4);
+//		couponsDao.save(coupon5);
 
-		List<Location> locations = locationsDao.getLocationsMap(-98.489576, 29.426786, 1);
-		System.out.println(Arrays.toString(locations.toArray()));
-		for (Location location : locations) {
-			System.out.println(location.getId() + " " + location.getLocation().getX() + " " + location.getLocation().getY());
-		}
+//		List<Location> locations = locationsDao.getLocationsMap(-98.489576, 29.426786, 1);
+//		System.out.println(Arrays.toString(locations.toArray()));
+//		for (Location location : locations) {
+//			System.out.println(location.getId() + " " + location.getLocation().getX() + " " + location.getLocation().getY());
+//		}
 
 		return "Hello! ... I am working!!!!";
 	}
-=======
-    @RequestMapping("/testpage")
-    public String home() {
-        return "Hello! ... I am working!!!!";
-    }
->>>>>>> master
-
 }
