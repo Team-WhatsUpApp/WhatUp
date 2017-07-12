@@ -3,11 +3,7 @@ package com.whatsup.svcs;
 /**
  * Created by DelMonroe on 7/5/17.
  */
-<<<<<<< HEAD
-import com.whatsup.models.User;
-=======
 import com.whatsup.model.User;
->>>>>>> master
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.AuthorityUtils;
 import org.springframework.security.core.userdetails.UserDetails;

@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+
+    <meta charset="utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <meta name="description" content=""/>
+    <meta name="author" content=""/>
+
+    <title>#WhatsUP!</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="../static/lib/bootstrap/css/bootstrap.min.css" rel="stylesheet"/>
+
+    <!-- Custom Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css?family=Catamaran:100,200,300,400,500,600,700,800,900"
+          rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css?family=Muli" rel="stylesheet"/>
+
+    <!-- Plugin CSS -->
+    <link rel="stylesheet" href="../static/lib/font-awesome/css/font-awesome.min.css"/>
+    <link rel="stylesheet" href="../static/lib/simple-line-icons/css/simple-line-icons.css"/>
+    <link rel="stylesheet" href="../static/lib/device-mockups/device-mockups.min.css"/>
+
+    <!-- Theme CSS -->
+    <link href="../static/css/new-age.min.css" rel="stylesheet"/>
+
+
+    <style>
+
+        /*.bgoverlay {*/
+            /*width: 100%;*/
+            /*height: auto;*/
+            /*background-color: rgba(0, 0, 0, .5);*/
+        /*}*/
+
+        .sa {
+            background-image: url("../static/img/sa6.jpg");
+            background-size: cover;
+        }
+
+        .josh {
+            background-image: url("../static/img/josh.png");
+            background-size: cover;
+        }
+
+        .del {
+            background-image: url("../static/img/del.jpg");
+            background-size: cover;
+        }
+
+        .moses {
+            background-image: url("../static/img/moses.png");
+            background-size: cover;
+        }
+
+        #1phoneimage {
+            background-size: cover;
+        }
+
+        .burger {
+            background-image: url("../static/img/res2.jpg");
+            background-size: cover;
+        }
+
+        #burgerdiv {
+            height: 84vh;
+            width: auto;
+
+        }
+
+        h2 {
+            color: white;
+        }
+
+        #stopwaiting {
+            font-size: 8vw;
+
+        }
+
+        .device-mockup > .device {
+            height: 100%
+        }
+
+
+        button:hover {
+            opacity: 0.8;
+        }
+        .login{
+            color: darkorange;
+        }
+        #button{
+            background-color:transparent;
+        }
+        #button:hover{
+            background-color:#fdcc52;
+        }
+
+        header {
+            background: url(../static/img/bg-pattern.png), linear-gradient(to left, lightpink, blue);
+        }
+        section {
+            padding: 90px 0 10px 0;
+        }
+
+        @media only screen  and (max-width: 1024px) {
+            #firstphone {
+                margin-top: 6vw;
+            }
+        }
+
+        @media only screen  and (max-width: 1366px) {
+
+            #firstphone {
+                margin-top: 10vw;
+            }
+        }
+
+
+
+    </style>
+
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+</head>
+
+<body id="page-top">
+
+<nav id="mainNav" class="navbar navbar-default navbar-fixed-top">
+    <div class="container">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
+                    data-target="#bs-example-navbar-collapse-1">
+                <span class="sr-only">Toggle navigation</span> Menu <i class="fa fa-bars"></i>
+            </button>
+            <a class="navbar-brand page-scroll" href="#page-top">HOME</a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav navbar-right">
+                <li>
+                    <a class="page-scroll" href="#download">Log In</a>
+                </li>
+                <li>
+                    <a class="page-scroll" href="#features">Features</a>
+                </li>
+                <li>
+                    <a class="page-scroll" href="#contact">Contact Us</a>
+                </li>
+            </ul>
+        </div>
+        <!-- /.navbar-collapse -->
+    </div>
+    <!-- /.container-fluid -->
+</nav>
+
+<header>
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-7">
+                <div class="header-content">
+                    <div class="header-content-inner">
+                        <h1>#WhatsUP! is a new app that will give you exclusive discounts to your city's unique
+                            restaurants and bars! </h1>
+                        <a href="#download" class="btn btn-outline btn-xl page-scroll">Register for free!</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-5">
+                <div class="device-container">
+                    <div class="device-mockup iphone6_plus portrait white">
+                        <div id="firstphone" class="device">
+                            <div class="screen">
+                                <!-- Demo image for screen mockup, you can put an image here, some HTML, an animation, video, or anything else! -->
+                                <img style="height: 100%;" src="../static/img/phone1.jpg" class="img-responsive"
+                                     id="1phoneimage" alt="">
+                            </div>
+                            <div class="button">
+                                    <!-- You can hook the "home button" to some JavaScript events or just remove it -->
+                                </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+<section id="download" class="download bg-primary text-center  sa">
+    <div class="container bgoverlay" >
+        <div class="row ">
+            <div class="col-md-8 col-md-offset-2 ">
+                <h2 class="section-heading">Discover what all the buzz is about!</h2>
+                <p>Our app is available on any mobile or tablet device </p>
+
+                <button    id="button"   href="/login"   class="btn btn-outline btn-xl page-scroll">Login!</button>
+
+
+                <!--<div class="login">-->
+
+                    <!--<input type="text" placeholder="Enter Username" name="uname" required>-->
+
+                    <!--<input type="password" placeholder="Enter Password" name="psw" required>-->
+
+                <!--<button type="submit">Login</button>-->
+
+                <!--</div>-->
+
+                <!--<div class="login" >-->
+                    <!--&lt;!&ndash;<button type="button" class="cancelbtn">Cancel</button>&ndash;&gt;-->
+                    <!--<input type="checkbox" checked="checked"> Remember me-->
+                    <!--<br>-->
+                    <!--<span class="psw">Forgot <a href="#">password?</a></span>-->
+                <!--</div>-->
+
+                <!--<div class="badges">-->
+                <!--<a class="badge-link" href="#"><img src="img/google-play-badge.svg" alt=""></a>-->
+                <!--<a class="badge-link" href="#"><img src="img/app-store-badge.svg" alt=""></a>-->
+                <!--</div>-->
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id="features" class="features">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12 text-center">
+                    <!--<div class="section-heading">-->
+                        <!--<h2>Unlimited Features, Unlimited Fun</h2>-->
+                        <!--<p class="text-muted">Check out what you can do with this app theme!</p>-->
+                        <!--<hr>-->
+                    <!--</div>-->
+                </div>
+        </div>
+        <div class="row">
+            <div class="col-md-4">
+                <div class="device-container">
+                    <div class="device-mockup iphone6_plus portrait white">
+                        <div class="device">
+                            <div class="screen">
+                                <!-- Demo image for screen mockup, you can put an image here, some HTML, an animation, video, or anything else! -->
+                                <img style="height: 100%;" src="../static/img/res3.jpg" class="img-responsive" alt=""></div>
+                            <div class="button">
+                                    <!-- You can hook the "home button" to some JavaScript events or just remove it -->
+                                </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-8">
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="feature-item">
+                                <!--<i class="icon-screen text-primary" ></i>-->
+                                <img style="height: 8vw;" src="../static/img/wallet.svg">
+                                <h3>Easier on the Wallet</h3>
+                                <p class="text-muted">Get exclusive member discounts !</p>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="feature-item">
+                                <!--<i class="icon-camera text-primary"></i>-->
+                                <img style="height: 8vw;" src="../static/img/city.svg">
+                                <h3>Help the Cause</h3>
+                                <p class="text-muted">You get to support your local San Antonio economy !</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="feature-item">
+                                <img style="height: 8vw;" src="../static/img/party.svg">
+                                <!--<i class="icon-present text-primary"></i>-->
+                                <h3>New and Exciting Places</h3>
+                                <p class="text-muted">Explore new restaurants and bars to meet up with your friends
+                                    !</p>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="feature-item">
+                                <img style="height: 8vw;" src="../static/img/piggybank.svg">
+                                <!--<i class="icon-lock-open text-primary"></i>-->
+                                <h3>Enjoy Life Conveniently</h3>
+                                <p class="text-muted">Completely Free !</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="burger" id="burgerdiv">
+    <div>
+        <div class="container">
+            <h2 id="stopwaiting">Stop waiting.<br>Start Exploring.</h2>
+            <a href="#contact" class="btn btn-outline btn-xl page-scroll">Let's Get Started!</a>
+        </div>
+    </div>
+    <div class="overlay"></div>
+</section>
+
+<section id="contact" class="contact bg-primary">
+    <div class="container">
+        <h2>We <i class="fa fa-heart"></i> new friends!</h2>
+        <br>
+        <h2>Meet the Developers</h2>
+        <ul class="list-inline list-social">
+            <li class="josh">
+                <a href="#"><i></i></a>
+            </li>
+            <li class="del">
+                <a href="#"><i></i></a>
+            </li>
+            <li class="moses">
+                <a href="#"><i></i></a>
+            </li>
+        </ul>
+    </div>
+</section>
+
+<footer>
+    <div class="container">
+        <p>&copy; 2017 Whatsup Project</p>
+        <ul class="list-inline">
+            <li>
+                <a href="#">Privacy</a>
+            </li>
+            <li>
+                <a href="#">Terms</a>
+            </li>
+            <li>
+                <a href="#">FAQ</a>
+            </li>
+        </ul>
+    </div>
+</footer>
+
+<!-- jQuery -->
+<script src="../static/lib/jquery/jquery.min.js"></script>
+
+<!-- Bootstrap Core JavaScript -->
+<script src="../static/lib/bootstrap/js/bootstrap.min.js"></script>
+
+<!-- Plugin JavaScript -->
+<script src="../https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js"></script>
+
+<!-- Theme JavaScript -->
+<script src="../static/js/new-age.min.js"></script>
+
+</body>
+
+</html>

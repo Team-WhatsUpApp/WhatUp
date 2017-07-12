@@ -25,10 +25,5 @@ nbdist/
 .nb-gradle/
 
 
-<<<<<<< HEAD
-application.properties
-/target/
-=======
 
->>>>>>> master
 /src/main/resources/application.properties

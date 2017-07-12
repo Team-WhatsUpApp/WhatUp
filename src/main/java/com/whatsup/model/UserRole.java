@@ -23,11 +23,8 @@ public class UserRole {
         this.role = role;
     }
 
-<<<<<<< HEAD
-=======
     public UserRole () {}
 
->>>>>>> master
     public long getId() {
         return id;
     }

@@ -1,0 +1,639 @@
+body {
+    height: auto;
+    width: auto;
+    margin: 0;
+    padding: 0;
+}
+
+
+
+/*.bgoverlay {*/
+/*width: 100%;*/
+/*height: auto;*/
+/*background-color: rgba(0, 0, 0, .5);*/
+/*}*/
+
+.sa {
+    background-image: url("../static/img/sa6.jpg");
+    background-size: cover;
+}
+
+.josh {
+    background-image: url("../static/img/josh.png");
+    background-size: cover;
+}
+
+.del {
+    background-image: url("../static/img/del.jpg");
+    background-size: cover;
+}
+
+.moses {
+    background-image: url("../static/img/moses.png");
+    background-size: cover;
+}
+
+#1phoneimage {
+    background-size: cover;
+}
+
+.burger {
+    background-image: url("../static/img/res2.jpg");
+    background-size: cover;
+}
+
+#burgerdiv {
+    height: 84vh;
+    width: auto;
+
+}
+
+h2 {
+    color: white;
+}
+
+#stopwaiting {
+    font-size: 8vw;
+
+}
+
+.device-mockup > .device {
+    height: 100%
+}
+
+
+button:hover {
+    opacity: 0.8;
+}
+.login{
+    color: darkorange;
+}
+
+
+header {
+    background: url(../../static/img/bg-pattern.png), linear-gradient(to left, lightpink, blue);
+}
+section {
+    padding: 90px 0 10px 0;
+}
+
+@media only screen  and (max-width: 1024px) {
+    #firstphone {
+        margin-top: 6vw;
+    }
+}
+
+@media only screen  and (max-width: 1366px) {
+
+    #firstphone {
+        margin-top: 10vw;
+    }
+}
+
+
+
+
+/* ============= index.html file that display a list of host; remove the a tag styling from the posts ================ */
+
+.nounderline {
+    text-decoration: none; !important;
+/*@link-color*/
+}
+
+.nounderline:hover {
+    text-decoration: none; !important;
+}
+
+
+
+/* ========================================== LOGIN.HTML ======================================== */
+
+/* ================ form input styling ================= */
+
+input.search-input {
+    border-radius: 0;
+    border: none;
+    border-top-style: none !important;
+    border-bottom: 3px solid #286090;
+}
+
+#loginform {
+    position: absolute;
+    display: block;
+    margin-top: 15%;
+    margin-left: 40%;
+    width: 50%;
+}
+
+
+/* =========== Input fields: username and password bottom border =========== */
+
+#username {
+    position: absolute;
+    margin-top: -7px;
+    width: 300px;
+}
+
+#lpassword {
+    position: absolute;
+    margin-top: 35px;
+    width: 300px;
+}
+
+
+
+
+/* ========= Sign in h3 title ======== */
+
+h3#lheading {
+    color: #286090;
+    position: absolute;
+    margin-top: 9%;
+    margin-left: 41%;
+    font-weight: 600;
+}
+
+
+
+
+/* ============ Sign in and Register buttons ============== */
+
+/*#lbutton {*/
+    /*position: absolute;*/
+    /*border-radius: 0;*/
+    /*width: 120px;*/
+    /*margin-top: 105px;*/
+    /*margin-left: 20px;*/
+    /*border: 3px solid #3574bc;*/
+/*}*/
+/*#lbutton:hover {*/
+    /*border: 3px solid #286090;*/
+/*}*/
+
+/*#lgbutton {*/
+    /*color: #286090;*/
+    /*width: 120px;*/
+    /*border-radius: 0;*/
+    /*background-color: white;*/
+    /*position: absolute;*/
+    /*margin-top: 105px;*/
+    /*margin-left: 157px;*/
+    /*border: 3px solid #286090;*/
+/*}*/
+
+/*#lgbutton:hover {*/
+    /*color: white;*/
+    /*background-color: #286090;*/
+/*}*/
+
+
+
+
+
+/* ========= Label for Input fields ========= */
+
+label#uname {
+    color: #7f7f7f;
+    font-size: small;
+    font-weight: 300;
+    position: absolute;
+    margin-top: -6%;
+}
+
+label#pname {
+    color: #7f7f7f;
+    font-size: small;
+    font-weight: 300;
+    position: absolute;
+    margin-top: 0;
+
+}
+
+/* ========== removes outline focus on input fields ========== */
+
+input:focus {
+    outline: none;
+    border-bottom: 3px solid #e7e700;
+}
+
+
+/* ========== Creates a horizontal line in the login page ========= */
+
+hr#myhr {
+    position: absolute;
+    margin-top: 160px;
+    margin-left: 563px;
+    width: 525px;
+    border: none;
+    height: 3px;
+    background-color: #d8d8d8;
+    opacity: .3;
+}
+
+nav {
+    position: absolute;
+    background-color: #3C3C3B;
+    z-index: 3;
+}
+
+button#navpost {
+    position: absolute;
+    margin-top: 7px;
+    margin-left: 1125px;
+    background-color: #3C3C3B;
+    color: #286090;
+    border: 1px solid #286090;
+
+}
+
+#navpost:hover {
+    color: #3385c0;
+    border: 1px solid #3385c0;
+}
+
+button#navuser {
+    text-align: center;
+    position: absolute;
+    margin-top: 7px;
+    margin-left: 1205px;
+    background-color: #286090;
+    color: white;
+    border: 1px solid #286090;
+    width: 40px;
+}
+
+#navuser:hover {
+    color: white;
+    background-color: #3681c2;
+    border: 1px solid #3681c2;
+}
+
+.form-control {
+    border-top-style: none;
+}
+
+
+/* =========================================== REGISTER.HTML =========================================== */
+
+label#runame {
+    color: #7f7f7f;
+    font-size: small;
+    font-weight: 300;
+    position: absolute;
+    margin-top: 144px;
+    margin-left: 252px;
+}
+label#rpassword {
+    color: #7f7f7f;
+    font-size: small;
+    font-weight: 300;
+    position: absolute;
+    margin-top: 234px;
+    margin-left: 255px;
+}
+
+label#cpassword {
+    color: #7f7f7f;
+    font-size: small;
+    font-weight: 300;
+    position: absolute;
+    margin-top: 234px;
+    margin-left: 255px;
+}
+
+label#rmail {
+    position: absolute;
+    margin-top: 192px;
+    margin-left: 269px;
+}
+
+#password {
+    position: absolute;
+    margin-top: 220px;
+    margin-left: 314px;
+    width: 300px;
+}
+
+#remail {
+    position: absolute;
+    margin-top: 178px;
+    margin-left: 314px;
+    width: 300px;
+
+}
+
+#rusername {
+    position: absolute;
+    margin-top: 135px;
+    margin-left: 314px;
+    width: 300px;
+}
+
+
+#rbutton {
+    color: #286090;
+    width: 120px;
+    border-radius: 0;
+    background-color: white;
+    position: absolute;
+    margin-top: 259px;
+    margin-left: 314px;
+    border: 3px solid #286090;
+    width: 300px;
+}
+
+#rbutton:hover {
+    color: white;
+    background-color: #286090;
+}
+
+#dashboard {
+    background-image: url("/img/dashboard.png");
+    z-index: 3;
+}
+
+
+
+/* ======================== Background of new_Login.html page ================== */
+
+#bkgrnd {
+    width: 100%;
+    height: auto;
+    position: relative;
+    background-image: url("/img/SanAntonio.jpeg");
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+#loginbox {
+    position: absolute;
+    width: 330px;
+    height: 240px;
+    background-color: white;
+    opacity: .7;
+    margin-top: 188px;
+    margin-left: 38.5%;
+    z-index: 2;
+}
+
+#register {
+    position: absolute;
+    color: rgba(255, 0, 0, 0.62);
+    font-size: small;
+    width: 330px;
+    height: 95px;
+    background-color: white;
+    opacity: .7;
+    margin-top: 432px;
+    margin-left: 38.5%;
+}
+
+#logbtn {
+    position: absolute;
+    color: white;
+    width: 310px;
+    height: 65px;
+    margin-left: -1.5%;
+    margin-top: 115px;
+    border: 0;
+    border-radius: 0;
+    background-color: #FF0066;
+    z-index: 3;
+}
+#logbtnback {
+    position: absolute;
+    color: white;
+    width: 310px;
+    height: 65px;
+    margin-left: 39.3%;
+    margin-top: 355px;
+    border: 0;
+    border-radius: 0;
+    background-color: #FF0066;
+    z-index: 1;
+}
+
+#regbtn {
+    position: absolute;
+    color: #FF0066;
+    width: 310px;
+    height: 65px;
+    margin-left: 39.2%;
+    margin-top: 438px;
+    border: 0;
+    border-radius: 0;
+    background-color: white;
+}
+
+#forgot {
+    position: absolute;
+    margin-left: 50px;
+    margin-top: 75px;
+}
+
+#forgot > a {
+    color: rgba(255, 0, 0, 0.62);
+}
+
+#sgnin {
+    position: absolute;
+    color: rgba(255, 0, 0, 0.42);
+    margin-left: 125px;
+    margin-top: 10px;
+
+}
+
+input.nsearch-input {
+    border-radius: 0;
+    border: none;
+    border-top-style: none !important;
+    border-bottom: 3px solid rgba(255, 0, 0, 0.42);
+}
+
+label#nuname {
+    color: #7f7f7f;
+    font-size: small;
+    font-weight: 300;
+    position: absolute;
+    margin-top: 50px;
+    margin-left: 20px;
+}
+
+label#npname {
+    color: #7f7f7f;
+    font-size: small;
+    font-weight: 300;
+    position: absolute;
+    margin-top: 70px;
+    margin-left: 20px;
+
+}
+
+
+#nusername {
+    position: absolute;
+    margin-top: 65px;
+    width: 300px;
+}
+
+#nlpassword {
+    position: absolute;
+    margin-top: 85px;
+    width: 300px;
+}
+
+::-webkit-input-placeholder {
+    text-align: center;
+}
+
+:-moz-placeholder { /* Firefox 18- */
+    text-align: center;
+}
+
+::-moz-placeholder {  /* Firefox 19+ */
+    text-align: center;
+}
+
+:-ms-input-placeholder {
+    text-align: center;
+}
+
+#uicon {
+    position: absolute;
+    border: 0;
+    padding: 0;
+    margin-left: 17px;
+    margin-top: 55px;
+    background: none;
+    z-index: 2;
+}
+
+#lock {
+    position: absolute;
+    border: 0;
+    padding: 0;
+    margin-left: 17px;
+    margin-top: 77px;
+    background: none;
+    z-index: 2;
+}
+
+/* ================================= New register.html ================================== */
+
+#nrlpassword {
+    position: absolute;
+    margin-top: 85px;
+    width: 300px;
+}
+
+#nrusername {
+    position: absolute;
+    margin-top: 65px;
+    width: 300px;
+}
+
+#nremail {
+    position: absolute;
+    margin-top: 75px;
+    width: 300px;
+}
+
+#nlock {
+    position: absolute;
+    border: 0;
+    padding: 0;
+    margin-left: 17px;
+    margin-top: 163px;
+    background: none;
+    z-index: 2;
+}
+
+#nuicon {
+    position: absolute;
+    border: 0;
+    padding: 0;
+    margin-left: 17px;
+    margin-top: 55px;
+    background: none;
+    z-index: 2;
+}
+
+#nmail {
+    position: absolute;
+    border: 0;
+    padding: 0;
+    margin-left: 17px;
+    margin-top: 108px;
+    background: none;
+    z-index: 2;
+}
+
+#nrusername {
+    position: absolute;
+    margin-top: 65px;
+    width: 300px;
+}
+
+#nrlpassword {
+    position: absolute;
+    margin-top: 170px;
+    width: 300px;
+}
+
+#nusername {
+    position: absolute;
+    margin-top: 65px;
+    width: 300px;
+}
+
+#nremail {
+    position: absolute;
+    margin-top: 116px;
+    margin-left: -45px;
+    width: 300px;
+}
+
+#nregstr {
+    position: absolute;
+    color: rgba(255, 0, 0, 0.42);
+    margin-left: 125px;
+    margin-top: 10px;
+
+}
+
+#nrlogbtnback {
+    position: absolute;
+    color: white;
+    width: 310px;
+    height: 65px;
+    margin-left: 39.3%;
+    margin-top: 417px;
+    border: 0;
+    border-radius: 0;
+    background-color: #FF0066;
+    z-index: 1;
+}
+
+#nrlogbtn {
+    position: absolute;
+    color: white;
+    width: 310px;
+    height: 65px;
+    margin-left: -88.5%;
+    margin-top: 230px;
+    border: 0;
+    border-radius: 0;
+    background-color: #FF0066;
+    z-index: 3;
+}
+
+#nrloginbox {
+    position: absolute;
+    width: 330px;
+    height: 300px;
+    background-color: white;
+    opacity: .7;
+    margin-top: 188px;
+    margin-left: 38.5%;
+    z-index: 2;
+}
