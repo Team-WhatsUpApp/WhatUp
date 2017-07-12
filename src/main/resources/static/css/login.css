@@ -77,11 +77,11 @@ p {
     margin:0;
 }
 
-#signin{
+.signin{
     font-size: 1vw;
 }
 
-#username {
+.username {
     font-size: 1.5vw;
 }
 
@@ -95,10 +95,10 @@ input {
     width: 30vw;
     border-radius: 32px;
 }
-    #signin{
+    .signin{
         font-size: 3vw;
     }
-    #username {
+    .username {
         font-size: 3vw;
     }
     a{
@@ -152,13 +152,13 @@ input {
     button{
         background-color: orange;
         border-radius: 32px;
-        width:16vw;
+        width:8vw;
         height:3vw;
     }
-    #signin{
+    .signin{
         font-size: 2vw;
     }
-    #username {
+    .username {
         font-size: 2vw;
     }
     a{
