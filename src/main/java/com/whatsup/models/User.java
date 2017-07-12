@@ -47,11 +47,14 @@ public class User {
 
 	@ManyToMany(cascade = CascadeType.ALL)
 	@JoinTable(
-			name="user_has_coupons",
-			joinColumns={@JoinColumn(name="user_id")},
-			inverseJoinColumns={@JoinColumn(name="coupon_id")}
+			name = "user_has_coupons",
+			joinColumns = {@JoinColumn(name = "user_id")},
+			inverseJoinColumns = {@JoinColumn(name = "coupon_id")}
 	)
 	private List<Coupon> userCouponList;
+
+	public User() {
+	}
 
 	public User(User user) {
 		this.username = user.username;
@@ -60,9 +63,6 @@ public class User {
 		this.firstName = user.firstName;
 		this.lastName = user.lastName;
 		this.phoneNumber = user.phoneNumber;
-	}
-
-	public User() {
 	}
 
 	public User(String username, String email, String password, String firstName, String lastName, int phoneNumber) {

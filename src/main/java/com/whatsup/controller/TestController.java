@@ -3,25 +3,14 @@ package com.whatsup.controller;
 
 import com.vividsolutions.jts.geom.Coordinate;
 import com.vividsolutions.jts.geom.GeometryFactory;
+import com.vividsolutions.jts.geom.Point;
 import com.whatsup.models.*;
-import com.whatsup.model.UserRole;
-import com.whatsup.repositories.CouponsRepository;
-import com.whatsup.repositories.LocationsRepository;
-import com.whatsup.repositories.UsersRepository;
-import com.whatsup.repositories.VendorsRepository;
-import com.whatsup.repository.Roles;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import java.text.Format;
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Date;
 import java.util.List;
-
-import com.vividsolutions.jts.geom.Point;
 
 /**
  * Created by DelMonroe on 7/2/17.
@@ -50,7 +39,6 @@ public class TestController {
 //        location.setLocation(point);
 //
 //        locationsDao.save(location);
-
 
 
 //		Create users
@@ -86,11 +74,11 @@ public class TestController {
 //		Create a `Point` object, that will be assigned to a new `Location`, attached to each `Vendor`
 		GeometryFactory geometryFactory = new GeometryFactory();
 
-		Coordinate c1 = new Coordinate(-98.489569,29.426583);
+		Coordinate c1 = new Coordinate(-98.489569, 29.426583);
 		Point p1 = geometryFactory.createPoint(c1);
 		Location downtown1 = new Location(vendor1, p1);
 
-		Coordinate c2 = new Coordinate(-98.491509,29.426327);
+		Coordinate c2 = new Coordinate(-98.491509, 29.426327);
 		Point p2 = geometryFactory.createPoint(c2);
 		Location downtown2 = new Location(vendor2, p2);
 
