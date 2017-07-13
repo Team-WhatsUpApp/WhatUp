@@ -13,6 +13,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -36,5 +37,12 @@ public class MapController {
 		return "map/map";
 	}
 
+
+	@GetMapping("/locations/{lon}/{lat}/{dist}")
+	public @ResponseBody Iterable<Location>  locations(@PathVariable double lon, @PathVariable double lat, @PathVariable double dist, Model model) throws JSONException{
+		return locationsDao.getLocationsMap(lon, lat, dist/2);
+		//model.addAttribute("results", results);
+		//return "map/map";
+	}
 
 }
