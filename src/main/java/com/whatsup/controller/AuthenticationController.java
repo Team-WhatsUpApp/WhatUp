@@ -17,6 +17,55 @@ import org.springframework.web.bind.annotation.GetMapping;
 @ComponentScan(basePackageClasses = UserWithRoles.class)
 public class AuthenticationController {
 
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+    @Autowired
+    private UsersRepository usersRepository;
+    @Autowired
+    private PasswordEncoder passwordEncoder;
+
+    @GetMapping("/login")
+    public String showLoginForm() {
+        return "login";
+    }
+
+    @GetMapping("/yelp")
+    public String shownewYelpAPI() {
+        return "yelpAPI";
+    }
+
+
+
+    @PostMapping("/register")
+    public String create(@ModelAttribute User user) {
+        user.setPassword(passwordEncoder.encode(user.getPassword()));
+        usersRepository.saveAndFlush(user);
+        return "login";
+    }
+
+    @GetMapping("/register")
+    public String showRegisterForm(Model model) {
+        model.addAttribute("user", new User());
+        return "register";
+    }
+
+
+    @GetMapping("/dashboard")
+    public String showDashboard() {
+        return "dashboard";
+    }
+
+
+
+    @GetMapping("")
+    public String showAppPage() {
+        return "index";
+    }
+
+}
+=======
+>>>>>>> master
 	@GetMapping("/login")
 	public String showLoginForm() {
 		return "login";
@@ -32,4 +81,9 @@ public class AuthenticationController {
 		model.addAttribute("user", new User());
 		return "register";
 	}
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> 8fb0ddbd0012e692efd35ad620e7a0839bf8db4b
+>>>>>>> master
