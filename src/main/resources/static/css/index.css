@@ -1,11 +1,23 @@
-/*.bgoverlay {*/
-/*width: 100%;*/
-/*height: auto;*/
-/*background-color: rgba(0, 0, 0, .5);*/
-/*}*/
+
+.bgoverlay {
+    width: 100vw;
+    height: 100%;
+    background-color: rgba(0, 0, 0, .4);
+    /*position: fixed;*/
+    /*z-index:-10;*/
+    top:0;
+    bottom:0;
+    right:0;
+    left:0;
+    background-attachment: fixed;
+
+}
+
+
+
 #features{
     background-color: white;
-    /*background: url(../img/bg-pattern.png);*/
+
 }
 #midbutton{
 width: 15vw;
@@ -96,10 +108,7 @@ header {
 section {
     padding: 90px 0 10px 0;
 }
-/*#menu {*/
-    /*height: 8vw;*/
-    /*width:15vw;*/
-/*}*/
+
 
 
 
