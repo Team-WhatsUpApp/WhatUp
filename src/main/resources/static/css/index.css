@@ -1,0 +1,88 @@
+/*.bgoverlay {*/
+/*width: 100%;*/
+/*height: auto;*/
+/*background-color: rgba(0, 0, 0, .5);*/
+/*}*/
+
+.sa {
+    background-image: url("../img/sa6.jpg");
+    background-size: cover;
+}
+
+.josh {
+    background-image: url("../img/josh.png");
+    background-size: cover;
+}
+
+.del {
+    background-image: url("../img/del.jpg");
+    background-size: cover;
+}
+
+.moses {
+    background-image: url("../img/moses.png");
+    background-size: cover;
+}
+
+#1phoneimage {
+    background-size: cover;
+}
+
+.burger {
+    background-image: url("../img/res2.jpg");
+    background-size: cover;
+}
+
+#burgerdiv {
+    height: 84vh;
+    width: auto;
+
+}
+
+h2 {
+    color: white;
+}
+
+#stopwaiting {
+    font-size: 8vw;
+
+}
+
+.device-mockup > .device {
+    height: 100%
+}
+
+
+button:hover {
+    opacity: 0.8;
+}
+.login{
+    color: darkorange;
+}
+#button{
+    background-color:transparent;
+}
+#button:hover{
+    background-color:#fdcc52;
+}
+
+header {
+    background: url(../img/bg-pattern.png), linear-gradient(to left, lightpink, blue);
+}
+section {
+    padding: 90px 0 10px 0;
+}
+
+@media only screen  and (max-width: 1024px) {
+    #firstphone {
+        margin-top: 6vw;
+    }
+}
+
+@media only screen  and (max-width: 1366px) {
+
+    #firstphone {
+        margin-top: 10vw;
+    }
+}
+
