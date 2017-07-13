@@ -119,7 +119,7 @@
                 <h2 class="section-heading">Discover what all the buzz is about!</h2>
                 <p>Our app is available on any mobile or tablet device </p>
 
-                <button    id="button" class="btn btn-outline btn-xl page-scroll"  th:href="@{/login}">Login!</button>
+                <a id="midbutton" class="btn btn-outline btn-xl page-scroll"  th:href="@{/login}">Login!</a>
 
 
                 <!--<div class="login">-->
@@ -225,13 +225,13 @@
     <div>
         <div class="container">
             <h2 id="stopwaiting">Stop waiting.<br/>Start Exploring.</h2>
-            <a href="#contact" class="btn btn-outline btn-xl page-scroll">Let's Get Started!</a>
+            <a th:href="@{/login}" class="btn btn-outline btn-xl page-scroll">Let's Get Started!</a>
         </div>
     </div>
-    <div class="overlay"></div>
+    <!--<div class="overlay"></div>-->
 </section>
 
-<section id="contact" class="contact bg-primary">
+<section id="#contact" class="contact bg-primary">
     <div class="container">
         <h2>We <i class="fa fa-heart"></i> new friends!</h2>
         <br/>
@@ -278,7 +278,7 @@
 
 <!-- Theme JavaScript -->
 <!--<script src="/../js/new-age.min.js"></script>-->
-<!--< th:replace="fragments/fragments :: scripts"/>-->
+<div th:replace="fragments/fragments :: scripts"/>
 </body>
 
 </html>

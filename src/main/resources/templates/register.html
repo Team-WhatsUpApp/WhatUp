@@ -8,13 +8,13 @@
 
 <nav th:replace="fragments/fragments :: navbar"/>
 
-<!--<div id="bgoverlay"></div>-->
+<div id="bgoverlay">  </div>
 
 <div id="registererror" class="attention" th:if="${param.error}">
     <p>Invalid Username, Email, or Password.</p>
 </div>
 
-<div id="registerdiv" class="col-lg-12"><h3 class="header">Registration</h3>
+<div id="registerdiv" class="col-lg-12"><h1 class="header">Registration</h1>
     <div >
             <form th:action="@{/register}" th:method="POST" th:object="${user}">
                 <div>
