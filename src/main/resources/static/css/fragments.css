@@ -1,0 +1,42 @@
+ul.topnav {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #333;
+}
+
+ul.topnav li {float: left;}
+
+ul.topnav li a {
+    display: block;
+    color: white;
+    /*text-align: center;*/
+    padding: 1px 16px;
+    text-decoration: none;
+}
+ul.topnav li a:hover{color:yellow;}
+ul.topnav li a:hover:not(.active) {background-color: grey;}
+
+/*ul.topnav li a.active {background-color: orange;}*/
+
+ul.topnav li.right {float: right;}
+
+
+#home{
+    display: none;
+}
+#login{
+    display: none;
+}
+#register{
+    display: none;
+}
+#contact{
+    display: none;
+}
+
+@media screen and (max-width: 736px){
+    ul.topnav li.right,
+    ul.topnav li {float: none;}
+}
