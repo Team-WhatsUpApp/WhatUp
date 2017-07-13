@@ -1,43 +1,41 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4">
-<head th:replace="fragments :: head('Sign In')" />
+<head th:replace="fragments/fragments :: head('Sign In')" />
+<body id="dashdiv">
+
+    <nav th:replace="fragments/fragments :: navbar" />
+
+    <div>
 
 
-<!-- Bootstrap Core CSS -->
-<link href="../static/lib/bootstrap/css/bootstrap.min.css" rel="stylesheet"/>
-
-<!-- Custom Fonts -->
-<link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet"/>
-<link href="https://fonts.googleapis.com/css?family=Catamaran:100,200,300,400,500,600,700,800,900"
-      rel="stylesheet"/>
-<link href="https://fonts.googleapis.com/css?family=Muli" rel="stylesheet"/>
-
-<!-- Plugin CSS -->
-<link rel="stylesheet" href="../static/lib/font-awesome/css/font-awesome.min.css"/>
-<link rel="stylesheet" href="../static/lib/simple-line-icons/css/simple-line-icons.css"/>
-<link rel="stylesheet" href="../static/lib/device-mockups/device-mockups.min.css"/>
-
-<!-- Theme CSS -->
-<link href="../static/css/new-age.min.css" rel="stylesheet"/>
-<!--<link href="../static/css/whatsup.css" rel="stylesheet" />-->
-
-<style>
-
-body{
-color: white;
-
-background: url(../static/img/bg-pattern.png), linear-gradient(to left, lightpink, blue);
-
-}
-</style>
+        <p class="header">What's Up! What do you feel like doing?</p>
+        <br/>
+        <label class="dropdown1" for="activity"></label>
+        <select id="activity" name="activity">
+            <option value="australia">Eating</option>
+            <option value="canada">Drinking</option>
+            <option value="usa">Dancing</option>
+        </select>
+        <br/>
+            <br/>
+        <div >
+            <input id="zipcode"  placeholder="Enter Your Zipcode"/>
 
 
+                   <!--th:field="*{zipcode}" />-->
+        </div>
+
+        <br/>
+            <br/>
 
 
-<body>
-<nav th:replace="fragments :: navbar" />
+            <div id="map-display"></div>
 
-<h1>Welcome to the Dashboard</h1>
-<div id="dashboard"></div>
+
+    </div>
+
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCxIPbNd4ljI6NdSyP5ugk4XoKDzw2VEZM"></script>
+    <link href="/../js/dashboard.js" rel="javascript" />
+
 </body>
 </html>

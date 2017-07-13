@@ -1,40 +1,61 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4">
-<head th:replace="fragments :: head('Register form')" />
-<body id="bkgrnd">
-<div th:if="${param.error}">
-    Invalid Username, Email, or Password.
+<head th:replace="fragments/fragments :: head('Register form')" />
+
+
+
+<body>
+
+<nav th:replace="fragments/fragments :: navbar"/>
+
+<div id="bgoverlay">  </div>
+
+<div id="registererror" class="attention" th:if="${param.error}">
+    <p>Invalid Username, Email, or Password.</p>
 </div>
 
-
-<div id="nrloginbox"><h3 id="nregstr">Register</h3>
-    <div class="container-fluid">
+<div id="registerdiv" class="col-lg-12"><h1 class="header">Registration</h1>
+    <div >
             <form th:action="@{/register}" th:method="POST" th:object="${user}">
-                <div class="form-group input-group row">
-                        <!--<label id="runame" for="rusername">Username</label>-->
-                        <span id="nuicon" class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
-                        <div class="col-sm-6">
-                            <input id="nrusername" class="custom-control-indicator nsearch-input" placeholder="Username" th:field="*{username}" />
+                <div>
+
+                        <div >
+                            <input class="username"  placeholder=" Username" th:field="*{username}" />
+                        </div>
+                    <br/>
+
+                        <div>
+                            <input class="username"  placeholder=" Email" th:field="*{email}" />
                         </div>
 
-                        <!--<label id="rmail" for="remail">Email</label>-->
-                        <span id="nmail" class="input-group-addon"><i class="glyphicon glyphicon-envelope"></i></span>
-                        <div class="col-sm-6">
-                            <input id="nremail" class="custom-control-indicator nsearch-input" placeholder="Email" th:field="*{email}" />
+                    <br/>
+
+                        <div>
+                            <input  type="password" class="custom-control-indicator nsearch-input username" placeholder=" Enter Your Password" th:field="*{password}" />
                         </div>
 
-                        <!--<label id="rpassword" for="password">Password</label>-->
-                        <span id="nlock" class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
-                        <div class="col-sm-6">
-                            <input id="nrlpassword" type="password" class="custom-control-indicator nsearch-input" placeholder="Password" th:field="*{password}" />
-                        </div>
+                    <br/>
+                    <div>
+                        <input  class="username" type="password"  placeholder=" Confirm Password" th:field="*{password}" />
+                    </div>
 
+                    <br/>
+                    <div>
+                        <input class="username" type="text"  placeholder=" Phone Number" th:field="*{phoneNumber}" />
+                    </div>
+
+                    <br/>
+
+                    <input id="vendor" type="checkbox" name="vendor" value="vendor"/>Vendor Profile?
+
+                    <br/>
                         <!--<input id="rbutton" class="btn" type="submit" />-->
-                        <button id="nrlogbtn"><span>Register</span></button>
+                        <button class="signin"><span>Register</span></button>
                 </div>
             </form>
     </div>
 </div>
-<div id="nrlogbtnback"></div>
+
 </body>
+<head th:replace="fragments/fragments :: scripts" />
 </html>

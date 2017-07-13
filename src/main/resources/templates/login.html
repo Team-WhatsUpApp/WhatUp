@@ -1,42 +1,63 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4">
-<head th:replace="fragments :: head('Sign In')" />
-<body id="bkgrnd">
-<div th:if="${param.error}">
-    Invalid Username and Password.
-</div>
-<div th:if="${param.logout}">
-    You have been logged out.
-</div>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4">
+<head th:replace="fragments/fragments :: head('Sign In')" />
+<body>
+<nav th:replace="fragments/fragments :: navbar"/>
 
-        <div id="loginbox"><h3 id="sgnin">Sign In</h3>
-            <div class="container-fluid">
-                <form th:action="@{/login}" th:method="POST">
-                    <div class="form-group input-group row">
-                        <!--<label id="nuname" class="col-sm-4 col-form-label" for="nusername">Username</label>-->
-                        <span id="uicon" class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
-                        <div class="col-sm-6">
-                            <input class="custom-control-indicator nsearch-input" id="nusername" name="username" type="text" placeholder="Username" />
-                        </div>
-                    </div>
-                    <br />
-                    <div class="form-group input-group row">
-                        <!--<label id="npname" class="col-sm-4 col-form-label" for="nlpassword">Password</label>-->
-                        <span id="lock" class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
-                        <div class="col-sm-6">
-                            <input class="custom-control-indicator nsearch-input" id="nlpassword" name="password" type="password" placeholder="Password" />
-                        </div>
-                    </div>
-                    <!--<button id="logbtn" th:href="@{/register}"><span>Sign in</span></button>-->
-                    <button id="logbtn"><span>Sign in</span></button>
-                </form>
-            </div>
+<div id="bgoverlay"></div>
 
+        <div id="logindiv" class="attention" th:if="${param.error}">
+            <p>Uh oh. Invalid Username and Password.</p>
         </div>
-        <div id="logbtnback"></div>
-        <div id="register"><span id="forgot"><a class="nounderline" href="#">Forgot Username?</a> | <a class="nounderline" href="#">Forgot Password?</a></span></div>
-        <a class="nounderline" href="/register"><button id="regbtn"><span>Register</span></button></a>
 
 
+        <div id="logindiv2" class="attention" th:if="${param.logout}">
+           <p> See ya soon! You have been logged out.</p>
+        </div>
+
+
+<div class="col-lg-12">
+    <h1>Sign In!</h1>
+
+    <form th:action="@{/login}" th:method="POST">
+
+        <div >
+            <input  class="  username" name="username" type="text" placeholder="Enter Your Username"/>
+        </div>
+
+        <br/>
+
+        <div>
+            <input class="  username" name="password" type="password" placeholder="Enter Your Password"/>
+        </div>
+
+    </form>
+
+        <br/>
+        <br/>
+        <button class="signin">Sign In</button>
+
+        <br/>
+
+        <br/>
+        <div>
+            <span><a href="#">Forgot Username?</a>
+                <br/>
+                <a  href="#">Forgot Password?</a></span>
+        </div>
+<br/>
+        <a href="/register" class="signin"><button class="signin">Register</button>
+            <!--<span>Register</span>-->
+        </a>
+
+
+</div>
+
+
+
+
+
+<div th:replace="fragments/fragments :: scripts"/>
 </body>
 </html>

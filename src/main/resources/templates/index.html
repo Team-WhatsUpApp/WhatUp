@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
+<<<<<<< HEAD
 
 <head>
 
@@ -13,13 +14,14 @@
 
     <!-- Bootstrap Core CSS -->
     <link href="../lib/bootstrap/css/bootstrap.min.css" rel="stylesheet"/>
+=======
+<head th:replace="fragments/fragments :: head('Register form')" />
 
-    <!-- Custom Fonts -->
-    <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet"/>
-    <link href="https://fonts.googleapis.com/css?family=Catamaran:100,200,300,400,500,600,700,800,900"
-          rel="stylesheet"/>
-    <link href="https://fonts.googleapis.com/css?family=Muli" rel="stylesheet"/>
+>>>>>>> 8fb0ddbd0012e692efd35ad620e7a0839bf8db4b
 
+<!--<head th:fragment="head(title)">-->
+
+<<<<<<< HEAD
     <!-- Plugin CSS -->
     <link rel="stylesheet" href="../lib/font-awesome/css/font-awesome.min.css"/>
     <link rel="stylesheet" href="../lib/simple-line-icons/css/simple-line-icons.css"/>
@@ -27,16 +29,29 @@
 
     <!-- Theme CSS -->
     <link href="../css/new-age.min.css" rel="stylesheet"/>
+=======
+    <!--<meta charset="utf-8"/>-->
+    <!--<meta http-equiv="X-UA-Compatible" content="IE=edge"/>-->
+    <!--<meta name="viewport" content="width=device-width, initial-scale=1"/>-->
+    <!--<meta name="description" content=""/>-->
+    <!--<meta name="author" content=""/>-->
 
+    <!--<link href="https://fonts.googleapis.com/css?family=Droid+Sans" rel="stylesheet" />-->
+    <!--<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous"/>-->
+>>>>>>> 8fb0ddbd0012e692efd35ad620e7a0839bf8db4b
 
-    <style>
+    <!--<title>#WhatsUP!</title>-->
 
-        /*.bgoverlay {*/
-            /*width: 100%;*/
-            /*height: auto;*/
-            /*background-color: rgba(0, 0, 0, .5);*/
-        /*}*/
+    <!--&lt;!&ndash; Bootstrap Core CSS &ndash;&gt;-->
+    <!--<link href="/../lib/bootstrap/css/bootstrap.min.css" rel="stylesheet"/>-->
 
+    <!--&lt;!&ndash; Custom Fonts &ndash;&gt;-->
+    <!--<link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet"/>-->
+    <!--<link href="https://fonts.googleapis.com/css?family=Catamaran:100,200,300,400,500,600,700,800,900"-->
+          <!--rel="stylesheet"/>-->
+    <!--<link href="https://fonts.googleapis.com/css?family=Muli" rel="stylesheet"/>-->
+
+<<<<<<< HEAD
         .sa {
             background-image: url("../img/sa6.jpg");
             background-size: cover;
@@ -164,6 +179,63 @@
     </div>
     <!-- /.container-fluid -->
 </nav>
+=======
+    <!--&lt;!&ndash; Plugin CSS &ndash;&gt;-->
+    <!--<link rel="stylesheet" href="/../lib/font-awesome/css/font-awesome.min.css"/>-->
+    <!--<link rel="stylesheet" href="/../lib/simple-line-icons/css/simple-line-icons.css"/>-->
+    <!--<link rel="stylesheet" href="/../lib/device-mockups/device-mockups.min.css"/>-->
+    <!--<link href="/../css/login.css" rel="stylesheet"/>-->
+    <!--<link href="/../css/dashboard.css" rel="stylesheet"/>-->
+    <!--<link href="/../css/register.css" rel="stylesheet"/>-->
+    <!--<link href="/../css/fragments.css" rel="stylesheet"/>-->
+
+    <!--<link href="/../css/new-age.min.css" rel="stylesheet"/>-->
+    <!--<title th:text="${title}">#WhatsUP!</title>-->
+    <!--&lt;!&ndash; HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries &ndash;&gt;-->
+    <!--&lt;!&ndash; WARNING: Respond.js doesn't work if you view the page via file:// &ndash;&gt;-->
+    <!--&lt;!&ndash;[if lt IE 9]>-->
+    <!--<script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>-->
+    <!--<script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>-->
+    <!--<![endif]&ndash;&gt;-->
+
+    <!--&lt;!&ndash; Theme CSS &ndash;&gt;-->
+    <!--<link href="/../css/new-age.min.css" rel="stylesheet"/>-->
+    <!--<link href="/../css/index.css" rel="stylesheet"/>-->
+
+<!--</head>-->
+
+<body id="page-top">
+<nav th:replace="fragments/fragments :: navbar"/>
+<!--<nav id="mainNav" class="navbar navbar-default navbar-fixed-top">-->
+    <!--<div class="container">-->
+        <!--&lt;!&ndash; Brand and toggle get grouped for better mobile display &ndash;&gt;-->
+        <!--<div class="navbar-header">-->
+            <!--<button type="button" class="navbar-toggle collapsed" data-toggle="collapse"-->
+                    <!--data-target="#bs-example-navbar-collapse-1">-->
+                <!--<span class="sr-only">Toggle navigation</span> Menu <i class="fa fa-bars"></i>-->
+            <!--</button>-->
+            <!--<a class="navbar-brand page-scroll" href="#page-top">HOME</a>-->
+        <!--</div>-->
+
+        <!--&lt;!&ndash; Collect the nav links, forms, and other content for toggling &ndash;&gt;-->
+        <!--<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">-->
+            <!--<ul class="nav navbar-nav navbar-right">-->
+                <!--<li>-->
+                    <!--<a class="page-scroll" th:href="@{/login}">Log In</a>-->
+                <!--</li>-->
+                <!--<li>-->
+                    <!--<a class="page-scroll" th:href="@{/register}">Register</a>-->
+                <!--</li>-->
+                <!--<li>-->
+                    <!--<a class="page-scroll" href="/#contact">Contact Us</a>-->
+                <!--</li>-->
+            <!--</ul>-->
+        <!--</div>-->
+        <!--&lt;!&ndash; /.navbar-collapse &ndash;&gt;-->
+    <!--</div>-->
+    <!--&lt;!&ndash; /.container-fluid &ndash;&gt;-->
+<!--</nav>-->
+>>>>>>> 8fb0ddbd0012e692efd35ad620e7a0839bf8db4b
 
 <header>
     <div class="container">
@@ -183,8 +255,12 @@
                         <div id="firstphone" class="device">
                             <div class="screen">
                                 <!-- Demo image for screen mockup, you can put an image here, some HTML, an animation, video, or anything else! -->
+<<<<<<< HEAD
                                 <img style="height: 100%;" src="../img/phone1.jpg" class="img-responsive"
                                      id="1phoneimage" alt="" />
+=======
+                                <img style="height: 100%;" src="/../img/phone1.jpg" class="img-responsive" id="1phoneimage" alt="" />
+>>>>>>> 8fb0ddbd0012e692efd35ad620e7a0839bf8db4b
                             </div>
                             <div class="button">
                                     <!-- You can hook the "home button" to some JavaScript events or just remove it -->
@@ -204,7 +280,11 @@
                 <h2 class="section-heading">Discover what all the buzz is about!</h2>
                 <p>Our app is available on any mobile or tablet device </p>
 
+<<<<<<< HEAD
                 <a th:href="@{/login}"><button    id="button" class="btn btn-outline btn-xl page-scroll">Login!</button></a>
+=======
+                <a id="midbutton" class="btn btn-outline btn-xl page-scroll"  th:href="@{/login}">Login!</a>
+>>>>>>> 8fb0ddbd0012e692efd35ad620e7a0839bf8db4b
 
 
                 <!--<div class="login">-->
@@ -251,8 +331,15 @@
                         <div class="device">
                             <div class="screen">
                                 <!-- Demo image for screen mockup, you can put an image here, some HTML, an animation, video, or anything else! -->
+<<<<<<< HEAD
                                 <img style="height: 100%;" src="../img/res3.jpg" class="img-responsive" alt="" />
                                 <div class="button"></div>
+=======
+                                <img style="height: 100%;" src="/../img/res3.jpg" class="img-responsive" alt=""/>
+
+                            </div>
+                            <div class="button">
+>>>>>>> 8fb0ddbd0012e692efd35ad620e7a0839bf8db4b
                                     <!-- You can hook the "home button" to some JavaScript events or just remove it -->
                                 </div>
                         </div>
@@ -265,7 +352,11 @@
                         <div class="col-md-6">
                             <div class="feature-item">
                                 <!--<i class="icon-screen text-primary" ></i>-->
+<<<<<<< HEAD
                                 <img style="height: 8vw;" src="../img/wallet.svg" />
+=======
+                                <img  id="wallet"  src="/../img/wallet.svg"/>
+>>>>>>> 8fb0ddbd0012e692efd35ad620e7a0839bf8db4b
                                 <h3>Easier on the Wallet</h3>
                                 <p class="text-muted">Get exclusive member discounts !</p>
                             </div>
@@ -273,7 +364,11 @@
                         <div class="col-md-6">
                             <div class="feature-item">
                                 <!--<i class="icon-camera text-primary"></i>-->
+<<<<<<< HEAD
                                 <img style="height: 8vw;" src="../img/city.svg" />
+=======
+                                <img id="city" src="/../img/city.svg"/>
+>>>>>>> 8fb0ddbd0012e692efd35ad620e7a0839bf8db4b
                                 <h3>Help the Cause</h3>
                                 <p class="text-muted">You get to support your local San Antonio economy !</p>
                             </div>
@@ -282,7 +377,11 @@
                     <div class="row">
                         <div class="col-md-6">
                             <div class="feature-item">
+<<<<<<< HEAD
                                 <img style="height: 8vw;" src="../img/party.svg" />
+=======
+                                <img  src="/../img/party.svg"/>
+>>>>>>> 8fb0ddbd0012e692efd35ad620e7a0839bf8db4b
                                 <!--<i class="icon-present text-primary"></i>-->
                                 <h3>New and Exciting Places</h3>
                                 <p class="text-muted">Explore new restaurants and bars to meet up with your friends
@@ -291,7 +390,11 @@
                         </div>
                         <div class="col-md-6">
                             <div class="feature-item">
+<<<<<<< HEAD
                                 <img style="height: 8vw;" src="../img/piggybank.svg" />
+=======
+                                <img id="pig" src="/../img/piggybank.svg"/>
+>>>>>>> 8fb0ddbd0012e692efd35ad620e7a0839bf8db4b
                                 <!--<i class="icon-lock-open text-primary"></i>-->
                                 <h3>Enjoy Life Conveniently</h3>
                                 <p class="text-muted">Completely Free !</p>
@@ -307,27 +410,36 @@
 <section class="burger" id="burgerdiv">
     <div>
         <div class="container">
+<<<<<<< HEAD
             <h2 id="stopwaiting">Stop waiting.<br />Start Exploring.</h2>
             <a href="#contact" class="btn btn-outline btn-xl page-scroll">Let's Get Started!</a>
+=======
+            <h2 id="stopwaiting">Stop waiting.<br/>Start Exploring.</h2>
+            <a th:href="@{/login}" class="btn btn-outline btn-xl page-scroll">Let's Get Started!</a>
+>>>>>>> 8fb0ddbd0012e692efd35ad620e7a0839bf8db4b
         </div>
     </div>
-    <div class="overlay"></div>
+    <!--<div class="overlay"></div>-->
 </section>
 
-<section id="contact" class="contact bg-primary">
+<section id="#contact" class="contact bg-primary">
     <div class="container">
         <h2>We <i class="fa fa-heart"></i> new friends!</h2>
+<<<<<<< HEAD
         <br />
+=======
+        <br/>
+>>>>>>> 8fb0ddbd0012e692efd35ad620e7a0839bf8db4b
         <h2>Meet the Developers</h2>
         <ul class="list-inline list-social">
             <li class="josh">
-                <a href="#"><i></i></a>
+                <a href="https://jsr7.github.io/"><i></i></a>
             </li>
             <li class="del">
-                <a href="#"><i></i></a>
+                <a href="https://github.com/suffa07"><i></i></a>
             </li>
             <li class="moses">
-                <a href="#"><i></i></a>
+                <a href="https://github.com/mrmosesf"><i></i></a>
             </li>
         </ul>
     </div>
@@ -336,21 +448,37 @@
 <footer>
     <div class="container">
         <p>&copy; 2017 Whatsup Project</p>
-        <ul class="list-inline">
-            <li>
-                <a href="#">Privacy</a>
-            </li>
-            <li>
-                <a href="#">Terms</a>
-            </li>
-            <li>
-                <a href="#">FAQ</a>
-            </li>
-        </ul>
+        <!--<ul class="list-inline">-->
+            <!--<li>-->
+                <!--<a href="#">Privacy</a>-->
+            <!--</li>-->
+            <!--<li>-->
+                <!--<a href="#">Terms</a>-->
+            <!--</li>-->
+            <!--<li>-->
+                <!--<a href="#">FAQ</a>-->
+            <!--</li>-->
+        <!--</ul>-->
     </div>
 </footer>
+<<<<<<< HEAD
 <div th:replace="fragments :: scripts" />
 
+=======
+
+<!-- jQuery -->
+<!--<script src="/../lib/jquery/jquery.min.js"></script>-->
+
+<!-- Bootstrap Core JavaScript -->
+<!--<script src="/../lib/bootstrap/js/bootstrap.min.js"></script>-->
+
+<!-- Plugin JavaScript -->
+<!--<script src="../https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js"></script>-->
+
+<!-- Theme JavaScript -->
+<!--<script src="/../js/new-age.min.js"></script>-->
+<div th:replace="fragments/fragments :: scripts"/>
+>>>>>>> 8fb0ddbd0012e692efd35ad620e7a0839bf8db4b
 </body>
 
 </html>

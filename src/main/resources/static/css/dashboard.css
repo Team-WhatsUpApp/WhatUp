@@ -1,0 +1,47 @@
+@media only screen and (min-width: 1120px) {
+
+    body {
+        color: white;
+        text-align: center;
+        background: url(../img/bg-pattern.png), linear-gradient(to left, lightpink, blue);
+    }
+
+    select {
+        color: black;
+    }
+
+    input {
+        height: 3vh;
+        width: auto;
+        border-radius: 32px;
+        color: black;
+    }
+
+    #dashdiv {
+        text-align: center;
+    }
+
+    #map-display {
+        height: 500px;
+        width: 800px;
+        border: 2px solid red;
+        margin: auto;
+    }
+
+    .header {
+        font-size: 5vw;
+    }
+}
+
+
+
+
+
+
+
+
+@media only screen and (min-width: 480px) {
+
+
+
+}
