@@ -1,6 +1,6 @@
 package com.whatsup.model;
 
-import com.whatsup.model.User;
+
 
 import javax.persistence.*;
 
@@ -31,6 +31,8 @@ public class Vendor {
         this.owner = owner;
         this.displayName = displayName;
     }
+
+    public Vendor() {}
 
     public long getId() {
         return id;

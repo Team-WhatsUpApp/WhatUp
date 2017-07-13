@@ -1,53 +1,54 @@
 package com.whatsup.controller;
 
+import com.fasterxml.jackson.annotation.JsonView;
 import com.whatsup.model.User;
+import com.whatsup.repository.UserRepository;
 import com.whatsup.repository.UserService;
-import com.whatsup.repository.UsersRepository;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
+import org.springframework.data.jpa.datatables.mapping.DataTablesInput;
+import org.springframework.data.jpa.datatables.mapping.DataTablesOutput;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.List;
+import javax.validation.Valid;
 
 /**
  * Created by DelMonroe on 7/11/17.
  */
-@Controller
+@RestController
 public class UserController {
 
     @Autowired
-    private UsersRepository usersRepository;
+    private UserRepository userRepository;
 
     @Autowired
     private UserService userService;
 
 //    Show all users
-
-    @GetMapping("/users")
-    public String getAllUsers(Model model) {
-        model.addAttribute(userService.getAllUsers());
-        return "dashboard";
+    @GetMapping("/userstable")
+    public @ResponseBody Iterable<User> getAllUsers() {
+        return userRepository.findAll();
     }
 
 //    Edit a user
 
     @PutMapping(value = "/user/{id}")
     public User update(@PathVariable Long id, @RequestBody User user) {
-        User existingUser = usersRepository.findOne(id);
+        User existingUser = userRepository.findOne(id);
         BeanUtils.copyProperties(user, existingUser);
-        return usersRepository.saveAndFlush(existingUser);
+        return userRepository.saveAndFlush(existingUser);
     }
 
 //    Delete a user
 
     @DeleteMapping("/user/{id}")
     public User delete(@PathVariable Long id) {
-        User existingUser = usersRepository.findOne(id);
-        usersRepository.delete(existingUser);
+        User existingUser = userRepository.findOne(id);
+        userRepository.delete(existingUser);
         return existingUser;
     }
+
+
 
 
 }

@@ -1,16 +1,14 @@
 package com.whatsup.controller;
 
 import com.whatsup.model.User;
-import com.whatsup.repository.UsersRepository;
+import com.whatsup.repository.UserRepository;
 import com.whatsup.svcs.UserWithRoles;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.ComponentScan;
-import org.springframework.http.HttpStatus;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.*;
 
 
@@ -23,7 +21,7 @@ import org.springframework.web.bind.annotation.*;
 public class AuthenticationController {
 
     @Autowired
-    private UsersRepository usersRepository;
+    private UserRepository userRepository;
     @Autowired
     private PasswordEncoder passwordEncoder;
 
@@ -42,7 +40,7 @@ public class AuthenticationController {
     @PostMapping("/register")
     public String create(@ModelAttribute User user) {
         user.setPassword(passwordEncoder.encode(user.getPassword()));
-        usersRepository.saveAndFlush(user);
+        userRepository.save(user);
         return "login";
     }
 

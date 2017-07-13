@@ -1,6 +1,7 @@
 package com.whatsup.controller;
 
 import com.whatsup.model.Coupon;
+import com.whatsup.model.User;
 import com.whatsup.repository.CouponsRepository;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,8 +21,8 @@ public class CouponController {
 
 //    List all coupons
 
-    @GetMapping("/coupons")
-    public List<Coupon> list() {
+    @GetMapping("/couponstable")
+    public @ResponseBody Iterable<Coupon> getAllCoupons() {
         return couponsRepository.findAll();
     }
 

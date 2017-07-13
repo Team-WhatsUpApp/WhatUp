@@ -62,4 +62,52 @@ public class Coupon {
         this.restrictions = coupon.restrictions;
         this.remainingUses = coupon.remainingUses;
     }
+
+    public long getId() {
+        return this.id;
+    }
+
+    public void setId(long id) {
+        this.id = id;
+    }
+
+    public Vendor owner() {return this.owner;}
+
+    public void setOwner(Vendor owner) {this.owner = owner;}
+
+    public String getCouponCode() {return this.couponCode;}
+
+    public void setCouponCode(String couponCode) {this.couponCode = couponCode;}
+
+    public Date getStartDatetime() {return this.startDatetime;}
+
+    public void setStartDatetime(Date startDatetime) {this.startDatetime = startDatetime;}
+
+    public Date getEndDatetime() {return this.endDatetime;}
+
+    public void setEndDatetime(Date endDatetime) {this.endDatetime = endDatetime;}
+
+    public String getTitle() {return this.title;}
+
+    public void setTitle(String title) {this.title = title;}
+
+    public String getValue() {return this.value;}
+
+    public void setValue(String value) {this.value = value;}
+
+    public String getDescription() {return this.description;}
+
+    public void setDescription(String description) {this.description = description;}
+
+    public String getRestrictions() {return this.restrictions;}
+
+    public void setRestrictions(String restrictions) {this.restrictions = restrictions;}
+
+    public int getRemainingUses() {return this.remainingUses;}
+
+    public void setRemainingUses(int remainingUses) {this.remainingUses = remainingUses;}
+
+
+
+
 }

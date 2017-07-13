@@ -6,6 +6,20 @@
     <div id="results"></div>
 
     <div th:replace="fragments :: scripts" />
+    <script>
+        $.ajax({
+            method: "POST",
+            url: "https://api.yelp.com/oauth2/token",
+            data: {
+                grant_type: "client_credentials",
+                client_id: 'qoki5XUClSAHUg-8xN8eTg',
+                client_secret: "fMXre7kUwan40vX4gvBKVYirqX8s9tYFvPlKF9ZbCBA3uQTYn1fpsxyP7WBEUhxJ",
+            },
+            success: function(data,textStatus,jqXHR) {
+                console.log(data,textStatus,jqXHR);
+            }
+        })
+    </script>
 
   <!--<script>
         $(document).ready(function() {

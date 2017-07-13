@@ -1,6 +1,7 @@
 package com.whatsup.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonView;
 import org.hibernate.annotations.CreationTimestamp;
 
 import javax.persistence.*;

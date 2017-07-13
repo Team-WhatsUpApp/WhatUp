@@ -5,8 +5,8 @@ package com.whatsup.svcs;
  */
 import com.whatsup.model.User;
 import com.whatsup.repository.Roles;
+import com.whatsup.repository.UserRepository;
 import com.whatsup.repository.UserService;
-import com.whatsup.repository.UsersRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
@@ -20,20 +20,20 @@ import java.util.List;
 public class UserDetailsLoader implements UserService, UserDetailsService {
 
     @Autowired
-    private final UsersRepository usersRepository;
+    private final UserRepository userRepository;
 
     @Autowired
     private final Roles roles;
 
     @Autowired
-    public UserDetailsLoader(UsersRepository users, Roles roles) {
-        this.usersRepository = users;
+    public UserDetailsLoader(UserRepository users, Roles roles) {
+        this.userRepository = users;
         this.roles = roles;
     }
 
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-        User user = usersRepository.findByUsername(username);
+        User user = userRepository.findByUsername(username);
         if (user == null) {
             throw new UsernameNotFoundException("No user found for " + username);
         }
@@ -43,12 +43,14 @@ public class UserDetailsLoader implements UserService, UserDetailsService {
     }
 
     @Override
-    public List<User> getAllUsers() {
-        return usersRepository.findAll();
+    public Iterable<User> getAllUsers() {
+        return userRepository.findAll();
     }
 
     @Override
     public User getUserById(long id) {
         return null;
     }
+
+
 }
