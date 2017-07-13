@@ -26,10 +26,10 @@ public class Vendor {
 	@Column(name = "validated")
 	private boolean isValidated;
 
-	@OneToMany(cascade = CascadeType.ALL, mappedBy = "id")
+	@OneToMany(cascade = CascadeType.ALL, mappedBy = "owner")
 	private List<Coupon> couponList;
 
-	@OneToMany(cascade = CascadeType.ALL, mappedBy = "id")
+	@OneToMany(cascade = CascadeType.ALL, mappedBy = "vendor")
 	private List<Location> locationList;
 
 	public Vendor() {

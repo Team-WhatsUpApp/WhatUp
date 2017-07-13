@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4">
+<head th:include="fragments/fragments :: head(title)"></head>
+<meta charset="UTF-8"/>
+<title>Create a coupon</title>
+<body>
+<nav th:include="fragments/fragments :: navbar"></nav>
+<div class="container">
+    <form
+            th:action="@{/coupon/create}"
+            th:method="POST"
+            th:object="${coupon}"
+            th:include="fragments/fragments :: couponForm"
+    >
+    </form>
+</div>
+
+<script th:include="fragments/fragments :: scripts"></script>
+</body>
+</html>
