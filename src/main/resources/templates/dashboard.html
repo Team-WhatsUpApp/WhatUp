@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4">
+<head th:replace="fragments/fragments :: head('Sign In')" />
+<body id="dashdiv">
+
+    <nav th:replace="fragments/fragments :: navbar" />
+
+    <div>
+
+
+        <p class="header">What's Up! What do you feel like doing?</p>
+        <br/>
+        <label class="dropdown1" for="activity"></label>
+        <select id="activity" name="activity">
+            <option value="australia">Eating</option>
+            <option value="canada">Drinking</option>
+            <option value="usa">Dancing</option>
+        </select>
+        <br/>
+            <br/>
+        <div >
+            <input id="zipcode"  placeholder="Enter Your Zipcode"/>
+
+
+                   <!--th:field="*{zipcode}" />-->
+        </div>
+
+        <br/>
+            <br/>
+
+
+            <div id="map-display"></div>
+
+
+    </div>
+
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCxIPbNd4ljI6NdSyP5ugk4XoKDzw2VEZM"></script>
+    <link href="/../js/dashboard.js" rel="javascript" />
+
+</body>
+</html>

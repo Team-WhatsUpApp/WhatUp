@@ -1,0 +1,154 @@
+body{
+    background-image: url("../img/SanAntonio.jpeg");
+    background-size: cover;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    height:auto;
+}
+#registerdiv{
+    text-align: center;
+    /*border:2px solid blue;*/
+    color: white;
+    font-family:Catamaran ;
+}
+
+p{
+    margin:0;
+    font-size:4vw;
+}
+/*button{*/
+    /*background-color: orange;*/
+    /*border-radius: 32px;*/
+    /*width:8vw;*/
+    /*height:2.5vw;*/
+/*}*/
+/*.header{*/
+    /*font-family: "Catamaran";*/
+    /*font-size: 5vw;*/
+    /*margin: 0;*/
+    /*font-weight: 200;*/
+    /*letter-spacing: 1px;*/
+/*}*/
+
+#bgoverlay {
+width: 100vw;
+height: 100%;
+background-color: rgba(0, 0, 0, .4);
+position: fixed;
+z-index:-100;
+    top:0;
+    bottom:0;
+    right:0;
+    left:0;
+    background-attachment: fixed;
+
+}
+
+.attention {
+    color: red;
+    font-family: "Catamaran";
+    letter-spacing: 1px;
+    text-align: center;
+    /*font-size:3vw;*/
+}
+
+
+/*input{*/
+    /*height: 3vh;*/
+    /*width: 40vw;*/
+    /*border-radius: 32px;*/
+/*}*/
+/*#vendor{*/
+    /*width: auto;*/
+    /*height:auto;*/
+/*}*/
+
+
+
+
+@media only screen and (min-width: 310px) {
+
+
+    p{
+        margin:0;
+        font-size:8vw;
+    }
+    .header{
+        font-family: "Catamaran";
+        font-size: 10vw;
+        margin: 0;
+        margin-top:6vw;
+        font-weight: 200;
+        letter-spacing: 1px;
+    }
+    input{
+        height: 5.2vw;
+        width: 50vw;
+        border-radius: 32px;
+    }
+
+    #menu {
+        height: 8vw;
+        width:15vw;
+    }
+
+    .username{
+        font-size: 4vw;
+    }
+
+    button{
+        background-color: orange;
+        border-radius: 32px;
+        width:23vw;
+        height:8vw;
+    }
+    .signin{
+        font-size: 3.8vw;
+    }
+    #vendor {
+        font-size:1vw;
+    }
+}
+
+/*@media only screen and (min-width: 736px) {}*/
+
+@media only screen and (min-width: 1120px) {
+    p{
+        margin:0;
+        font-size:4vw;
+    }
+    .username{
+        font-size: 1.4vw;
+    }
+    input{
+        height: 3vh;
+        width: 20vw;
+        border-radius: 32px;
+    }
+    .header{
+        font-family: "Catamaran";
+        font-size: 5vw;
+        margin: 0;
+        margin-top:3vw;
+        font-weight: 200;
+        letter-spacing: 1px;
+    }
+    button{
+        background-color: orange;
+        border-radius: 32px;
+        width:8vw;
+        height:2.5vw;
+    }
+    .signin{
+        font-size: 1.5vw;
+    }
+
+
+  }
+
+
+
+
+
+
+
