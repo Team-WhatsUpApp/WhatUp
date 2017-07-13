@@ -79,13 +79,39 @@
     <button class="btn btn-default">Save</button>
 </form>-->
 
-<!--<form th:fragment="couponForm">
+<form th:fragment="couponForm">
     <div class="form-group">
         <label for="title">Title</label>
         <input id="title" class="form-control" th:field="*{title}"/>
         <div class="alert alert-warning alert-dismissible" role="alert" th:if="${#fields.hasErrors('title')}">
             <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
             <span th:errors="*{title}" />
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="couponCode">Code</label>
+        <input id="couponCode" class="form-control" th:field="*{couponCode}"/>
+        <div class="alert alert-warning alert-dismissible" role="alert" th:if="${#fields.hasErrors('couponCode')}">
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            <span th:errors="*{couponCode}" />
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="startDatetime">Start time</label>
+        <div class='input-group date' id='startDatetime'>
+            <input type='text' class="form-control" th:field="*{startDatetime}"/>
+            <span class="input-group-addon">
+                <span class="glyphicon glyphicon-calendar"></span>
+            </span>
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="endDatetime">Expires</label>
+        <div class='input-group date' id='endDatetime'>
+            <input type='text' class="form-control" th:field="*{endDatetime}"/>
+            <span class="input-group-addon">
+                <span class="glyphicon glyphicon-calendar"></span>
+            </span>
         </div>
     </div>
     <div class="form-group">
@@ -97,11 +123,27 @@
         </div>
     </div>
     <div class="form-group">
+        <label for="value">Value</label>
+        <input id="value" class="form-control" th:field="*{value}"/>
+        <div class="alert alert-warning alert-dismissible" role="alert" th:if="${#fields.hasErrors('value')}">
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            <span th:errors="*{value}" />
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="restriction">Restrictions</label>
+        <input id="restriction" class="form-control" th:field="*{restrictions}"/>
+        <div class="alert alert-warning alert-dismissible" role="alert" th:if="${#fields.hasErrors('restrictions')}">
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            <span th:errors="*{restrictions}" />
+        </div>
+    </div>
+    <div class="form-group">
         <label for="file">Image</label>
         <input type="file" class="form-control" name="file" id="file" />
     </div>
     <button class="btn btn-default">Save</button>
-</form>-->
+</form>
 
 <div th:fragment="scripts">
     <script src="http://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
