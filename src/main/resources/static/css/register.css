@@ -2,7 +2,7 @@ body{
     background-image: url("../img/SanAntonio.jpeg");
     background-size: cover;
     /*background-repeat: no-repeat;*/
-    /*height:100vh;*/
+    height:100vw;
 }
 #registerdiv{
     text-align: center;
@@ -29,13 +29,13 @@ p{
     /*letter-spacing: 1px;*/
 /*}*/
 
-#bgoverlay {
-width: 100vw;
-height: 100vh;
-background-color: rgba(0, 0, 0, .4);
-position: fixed;
-z-index:-100;
-}
+/*#bgoverlay {*/
+/*width: 100vw;*/
+/*height: 100vh;*/
+/*background-color: rgba(0, 0, 0, .4);*/
+/*position: fixed;*/
+/*z-index:-100;*/
+/*}*/
 
 .attention {
     color: red;
@@ -59,7 +59,7 @@ z-index:-100;
 
 
 
-@media only screen and (min-width: 350px) {
+@media only screen and (min-width: 310px) {
 
 
     p{
@@ -70,6 +70,7 @@ z-index:-100;
         font-family: "Catamaran";
         font-size: 14vw;
         margin: 0;
+        margin-top:17vw;
         font-weight: 200;
         letter-spacing: 1px;
     }
@@ -92,9 +93,9 @@ z-index:-100;
     .signin{
         font-size: 3.8vw;
     }
-    /*#vendor {*/
-        /*font-size:1vw;*/
-    /*}*/
+    #vendor {
+        font-size:1vw;
+    }
 }
 
 /*@media only screen and (min-width: 736px) {}*/
@@ -116,6 +117,7 @@ z-index:-100;
         font-family: "Catamaran";
         font-size: 5vw;
         margin: 0;
+        margin-top:3vw;
         font-weight: 200;
         letter-spacing: 1px;
     }

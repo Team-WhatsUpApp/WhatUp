@@ -4,6 +4,9 @@
 /*background-color: rgba(0, 0, 0, .5);*/
 /*}*/
 
+
+
+
 .sa {
     background-image: url("../img/sa6.jpg");
     background-size: cover;
@@ -66,6 +69,17 @@ button:hover {
     background-color:#fdcc52;
 }
 
+#wallet{
+    height:8vw;
+}
+#city{
+    height:8vw;
+}
+#pig{
+    height:8vw;
+}
+
+
 header {
     background: url(../img/bg-pattern.png), linear-gradient(to left, lightpink, blue);
 }
@@ -77,6 +91,7 @@ section {
     #firstphone {
         margin-top: 6vw;
     }
+
 }
 
 @media only screen  and (max-width: 1366px) {
@@ -84,5 +99,14 @@ section {
     #firstphone {
         margin-top: 10vw;
     }
+
+
 }
+
+
+@media only screen  and (max-width: 736px) {
+
+
+}
+
 
