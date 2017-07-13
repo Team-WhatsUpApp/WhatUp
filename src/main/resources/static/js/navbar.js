@@ -5,10 +5,10 @@
 
     $("#wu").click(function () {
         console.log("click");
-        $("#home").fadeToggle(1000);
-        $("#login").fadeToggle(1000);
-        $("#register").fadeToggle(1000);
-        $("#contact").fadeToggle(1000);
+        $("#home").fadeToggle(500);
+        $("#login").fadeToggle(500);
+        $("#register").fadeToggle(500);
+        $("#contact").fadeToggle(500);
 
     });
 

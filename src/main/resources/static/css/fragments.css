@@ -12,6 +12,9 @@ ul.topnav li a {
     display: block;
     color: white;
     /*text-align: center;*/
+    font-family:Catamaran;
+    font-weight: 200;
+    letter-spacing: 1px;
     padding: 1px 16px;
     text-decoration: none;
 }
@@ -25,15 +28,20 @@ ul.topnav li.right {float: right;}
 
 #home{
     display: none;
+
 }
 #login{
     display: none;
+
 }
 #register{
     display: none;
+
 }
+
 #contact{
     display: none;
+
 }
 
 @media screen and (max-width: 736px){
