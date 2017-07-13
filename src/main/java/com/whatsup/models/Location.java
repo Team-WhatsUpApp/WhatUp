@@ -1,6 +1,8 @@
 package com.whatsup.models;
 
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonProperty;
 import com.vividsolutions.jts.geom.Point;
 
 import javax.persistence.*;
@@ -46,6 +48,7 @@ public class Location implements Serializable{
 	private Vendor vendor;
 
 	@Column(name = "location")
+	@JsonIgnore
 	private Point location;
 
 	@ManyToMany(cascade = CascadeType.ALL)
@@ -54,6 +57,7 @@ public class Location implements Serializable{
 			joinColumns={@JoinColumn(name="location_id")},
 			inverseJoinColumns={@JoinColumn(name="coupon_id")}
 	)
+	@JsonIgnore
 	private List<Coupon> couponList;
 
 	private double x;
@@ -67,14 +71,17 @@ public class Location implements Serializable{
 		this.location = location;
 	}
 
+	@JsonProperty("x")
 	public double getX() {
 		return this.location.getX();
 	}
+
 
 	public void setX(double x) {
 		this.x = x;
 	}
 
+	@JsonProperty("y")
 	public double getY() {
 		return this.location.getY();
 	}

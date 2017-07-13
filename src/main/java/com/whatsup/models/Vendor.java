@@ -1,5 +1,7 @@
 package com.whatsup.models;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.persistence.*;
 import java.util.List;
 
@@ -27,9 +29,11 @@ public class Vendor {
 	private boolean isValidated;
 
 	@OneToMany(cascade = CascadeType.ALL, mappedBy = "id")
+	@JsonIgnore
 	private List<Coupon> couponList;
 
 	@OneToMany(cascade = CascadeType.ALL, mappedBy = "id")
+	@JsonIgnore
 	private List<Location> locationList;
 
 	public Vendor() {
