@@ -11,6 +11,7 @@
         }
     </style>
 </head>
+
 <body>
 <nav th:include="fragments/fragments :: navbar"></nav>
 <script th:include="fragments/fragments :: scripts"></script>
@@ -22,5 +23,30 @@
     <h2>X: <span th:text="${location.x}"></span></h2>
     <h2>Y: <span th:text="${location.y}"></span></h2>
 </div>
+<div id="map"></div>
+
+<script th:replace="fragments/fragments :: scripts"></script>
+<script>
+    /*<![CDATA[*/
+    var request = $.ajax('/locations/-98.489576/29.426786/1');
+    request.done(function(locations) {
+        console.log(locations);
+    });
+    function initMap() {
+        var uluru = {lat: -25.363, lng: 131.044};
+        var map = new google.maps.Map(document.getElementById('map'), {
+            zoom: 4,
+            center: uluru
+        });
+        var marker = new google.maps.Marker({
+            position: uluru,
+            map: map
+        });
+    }
+</script>
+<script async defer
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDWaILCW6S7JZjUx7MVdlBqq6YNNwxRvCk&callback=initMap">
+    /*]]>*/
+</script>
 </body>
 </html>
