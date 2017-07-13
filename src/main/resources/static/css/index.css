@@ -3,9 +3,19 @@
 /*height: auto;*/
 /*background-color: rgba(0, 0, 0, .5);*/
 /*}*/
+#features{
+    background-color: white;
+    /*background: url(../img/bg-pattern.png);*/
+}
+#midbutton{
+width: 15vw;
+height: 3vw;
 
+}
 
-
+h3{
+    color: black;
+}
 
 .sa {
     background-image: url("../img/sa6.jpg");
@@ -86,10 +96,25 @@ header {
 section {
     padding: 90px 0 10px 0;
 }
+/*#menu {*/
+    /*height: 8vw;*/
+    /*width:15vw;*/
+/*}*/
+
+
 
 @media only screen  and (max-width: 1024px) {
     #firstphone {
         margin-top: 6vw;
+    }
+    #wallet{
+        height:16vw;
+    }
+    #city{
+        height:16vw;
+    }
+    #pig{
+        height:11vw;
     }
 
 }
@@ -106,7 +131,20 @@ section {
 
 @media only screen  and (max-width: 736px) {
 
+    #wallet{
+        height:30vw;
+    }
+    #city{
+        height:30vw;
+    }
+    #pig{
+        height:30vw;
+    }
+    #midbutton{
+        width: 54vw;
+        height: 5vw;
 
+    }
 }
 
 

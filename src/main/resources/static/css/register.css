@@ -1,8 +1,9 @@
 body{
     background-image: url("../img/SanAntonio.jpeg");
     background-size: cover;
-    /*background-repeat: no-repeat;*/
-    height:100vw;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    height:auto;
 }
 #registerdiv{
     text-align: center;
@@ -29,13 +30,19 @@ p{
     /*letter-spacing: 1px;*/
 /*}*/
 
-/*#bgoverlay {*/
-/*width: 100vw;*/
-/*height: 100vh;*/
-/*background-color: rgba(0, 0, 0, .4);*/
-/*position: fixed;*/
-/*z-index:-100;*/
-/*}*/
+#bgoverlay {
+width: 100vw;
+height: 100%;
+background-color: rgba(0, 0, 0, .4);
+position: fixed;
+z-index:-100;
+    top:0;
+    bottom:0;
+    right:0;
+    left:0;
+    background-attachment: fixed;
+
+}
 
 .attention {
     color: red;
@@ -68,9 +75,9 @@ p{
     }
     .header{
         font-family: "Catamaran";
-        font-size: 14vw;
+        font-size: 10vw;
         margin: 0;
-        margin-top:17vw;
+        margin-top:6vw;
         font-weight: 200;
         letter-spacing: 1px;
     }
@@ -78,8 +85,13 @@ p{
         height: 5.2vw;
         width: 50vw;
         border-radius: 32px;
-
     }
+
+    #menu {
+        height: 8vw;
+        width:15vw;
+    }
+
     .username{
         font-size: 4vw;
     }
@@ -88,7 +100,7 @@ p{
         background-color: orange;
         border-radius: 32px;
         width:23vw;
-        height:6vw;
+        height:8vw;
     }
     .signin{
         font-size: 3.8vw;
