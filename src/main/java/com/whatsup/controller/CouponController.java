@@ -28,10 +28,10 @@ public class CouponController {
 
 //    Create a coupon
 
-    @PostMapping("/coupons")
-    public Coupon create(@RequestBody Coupon coupon) {
-        return couponsRepository.saveAndFlush(coupon);
-    }
+   /* @GetMapping("/coupon/coupon")
+    public
+*/
+
 
 //    Find one coupon
 

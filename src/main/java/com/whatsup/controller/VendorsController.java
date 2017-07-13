@@ -5,6 +5,7 @@ import com.whatsup.repository.UserRepository;
 import com.whatsup.repository.VendorRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 /**
@@ -21,4 +22,5 @@ public class VendorsController {
         return "coupons/create";
 
     }
+
 }
