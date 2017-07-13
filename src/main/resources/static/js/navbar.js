@@ -3,7 +3,14 @@
  */
 (function() {
 
+    $("#WU").click(function () {
 
+        $("#home").show(1000);
+        $("#login").fadeToggle(1000);
+        $("#register").fadeToggle(1000);
+        $("#contact").fadeToggle(1000);
+
+    });
 
 
 
