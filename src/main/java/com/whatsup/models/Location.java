@@ -59,6 +59,14 @@ public class Location implements Serializable{
 	private double x;
 	private double y;
 
+	public Location() {
+	}
+
+	public Location(Vendor vendor, Point location) {
+		this.vendor = vendor;
+		this.location = location;
+	}
+
 	public double getX() {
 		return this.location.getX();
 	}
@@ -73,14 +81,6 @@ public class Location implements Serializable{
 
 	public void setY(double y) {
 		this.y = y;
-	}
-
-	public Location(Vendor vendor, Point location) {
-		this.vendor = vendor;
-		this.location = location;
-	}
-
-	public Location() {
 	}
 
 	public Point getLocation() {
