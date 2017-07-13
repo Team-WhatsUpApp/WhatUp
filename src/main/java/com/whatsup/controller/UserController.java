@@ -1,43 +1,54 @@
 package com.whatsup.controller;
 
-import com.whatsup.models.User;
-import com.whatsup.repositories.UsersRepository;
+import com.fasterxml.jackson.annotation.JsonView;
+import com.whatsup.model.User;
+import com.whatsup.repository.UserRepository;
+import com.whatsup.repository.UserService;
+import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.crypto.password.PasswordEncoder;
-import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.data.jpa.datatables.mapping.DataTablesInput;
+import org.springframework.data.jpa.datatables.mapping.DataTablesOutput;
+import org.springframework.web.bind.annotation.*;
+
+import javax.validation.Valid;
 
 /**
- * Created by mosesfranco on 7/12/17
- * Codeup
- * Pinnacles
+ * Created by DelMonroe on 7/11/17.
  */
-
-@Controller
+@RestController
 public class UserController {
 
-	@Autowired
-	private UsersRepository usersRepository;
+    @Autowired
+    private UserRepository userRepository;
 
-	@Autowired
-	private PasswordEncoder passwordEncoder;
+    @Autowired
+    private UserService userService;
 
-	@GetMapping("/yelp")
-	public String shownewYelpAPI() {
-		return "yelpAPI";
-	}
+//    Show all users
+    @GetMapping("/userstable")
+    public @ResponseBody Iterable<User> getAllUsers() {
+        return userRepository.findAll();
+    }
 
-	@PostMapping("/register")
-	public String create(@ModelAttribute User user) {
-		user.setPassword(passwordEncoder.encode(user.getPassword()));
-		usersRepository.saveAndFlush(user);
-		return "login";
-	}
+//    Edit a user
 
-	@GetMapping("/dashboard")
-	public String showDashboard() {
-		return "dashboard";
-	}
+    @PutMapping(value = "/user/{id}")
+    public User update(@PathVariable Long id, @RequestBody User user) {
+        User existingUser = userRepository.findOne(id);
+        BeanUtils.copyProperties(user, existingUser);
+        return userRepository.saveAndFlush(existingUser);
+    }
+
+//    Delete a user
+
+    @DeleteMapping("/user/{id}")
+    public User delete(@PathVariable Long id) {
+        User existingUser = userRepository.findOne(id);
+        userRepository.delete(existingUser);
+        return existingUser;
+    }
+
+
+
+
 }

@@ -1,46 +1,64 @@
 package com.whatsup.controller;
 
-import com.sun.tools.corba.se.idl.ValueEntry;
-import com.whatsup.models.Coupon;
-import com.whatsup.models.User;
-import com.whatsup.models.Vendor;
-import com.whatsup.repositories.CouponsRepository;
-import com.whatsup.repositories.UsersRepository;
-import com.whatsup.repositories.VendorsRepository;
+import com.whatsup.model.Coupon;
+import com.whatsup.model.User;
+import com.whatsup.repository.CouponsRepository;
+import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 /**
- * Created by mosesfranco on 7/12/17
- * Codeup
- * Pinnacles
+ * Created by DelMonroe on 7/10/17.
  */
 @Controller
 public class CouponController {
-	@Autowired
-	CouponsRepository couponDao;
-	@Autowired
-	UsersRepository userDao;
-	@Autowired
-	VendorsRepository vendorDao;
 
-	@GetMapping("/coupon/create")
-	public String formsCoupon(Model model) {
-		model.addAttribute("coupon", new Coupon());
-		return "coupon/create";
-	}
+    @Autowired
+    private CouponsRepository couponsRepository;
 
-	@PostMapping("/coupon/create")
-	public String createCoupon(@ModelAttribute Coupon coupon) {
-		User user = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
-		Vendor vendor = vendorDao.findByOwner(user);
-		coupon.setOwner(vendor);
-		couponDao.save(coupon);
-		return "coupon";
-	}
+//    List all coupons
+
+    @GetMapping("/couponstable")
+    public @ResponseBody Iterable<Coupon> getAllCoupons() {
+        return couponsRepository.findAll();
+    }
+
+//    Create a coupon
+
+   /* @GetMapping("/coupon/coupon")
+    public
+*/
+
+
+//    Find one coupon
+
+    @GetMapping("/coupon/{id}")
+    public Coupon get(@PathVariable Long id) {
+        return couponsRepository.findOne(id);
+    }
+
+
+
+//    Edit a coupon
+
+    @PutMapping("/coupon/{id}")
+    public Coupon update(@PathVariable Long id, @RequestBody Coupon coupon) {
+        Coupon existingCoupon = couponsRepository.findOne(id);
+        BeanUtils.copyProperties(coupon, existingCoupon);
+        return couponsRepository.saveAndFlush(existingCoupon);
+    }
+
+//    Delete coupon
+
+    @DeleteMapping("coupon/{id}")
+    public Coupon delete(@PathVariable Long id) {
+        Coupon existingShipwreck = couponsRepository.findOne(id);
+        couponsRepository.delete(existingShipwreck);
+        return existingShipwreck;
+    }
 }
+
+

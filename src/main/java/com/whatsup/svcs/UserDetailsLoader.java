@@ -16,13 +16,11 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 
 
-@Service("customUserDetailsService")
-public class UserDetailsLoader implements UserDetailsService {
+@Service("userService")
+public class UserDetailsLoader implements UserService, UserDetailsService {
 
-	@Autowired
-	private final UsersRepository users;
-	@Autowired
-	private final Roles roles;
+    private final UsersRepository users;
+    private final Roles roles;
 
 	@Autowired
 	public UserDetailsLoader(UsersRepository users, Roles roles) {
@@ -37,7 +35,19 @@ public class UserDetailsLoader implements UserDetailsService {
 			throw new UsernameNotFoundException("No user found for " + username);
 		}
 
-		List<String> userRoles = roles.ofUserWith(username);
-		return new UserWithRoles(user, userRoles);
-	}
+        List<String> userRoles = roles.ofUserWith(username);
+        return new UserWithRoles(user, userRoles);
+    }
+
+    @Override
+    public Iterable<User> getAllUsers() {
+        return userRepository.findAll();
+    }
+
+    @Override
+    public User getUserById(long id) {
+        return null;
+    }
+
+
 }
