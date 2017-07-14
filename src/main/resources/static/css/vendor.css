@@ -30,6 +30,7 @@ h1 {
     .btn, .navbar-default .nav>li>a {
         font-family: Lato,Helvetica,Arial,sans-serif;
         text-transform: uppercase;
-        letter-spacing: 1px;
+        letter-spacing: 3vw;
+
     }
 }
