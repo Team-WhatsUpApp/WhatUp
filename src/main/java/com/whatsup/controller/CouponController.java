@@ -33,7 +33,7 @@ public class CouponController {
     public String viewAllCoupons(Model model) {
         Iterable<Coupon> coupons = couponSvc.findAll();
         model.addAttribute("coupons", coupons);
-        return "dashboard_vendor.html";
+        return "dashboard_vendor";
     }
 
 //    Create a coupon

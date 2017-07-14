@@ -14,9 +14,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 
 
-/**
- * Created by fer on 6/23/17.
- */
+
 @EnableWebSecurity
 @Controller
 @ComponentScan(basePackageClasses = UserWithRoles.class)
@@ -28,6 +26,11 @@ public class AuthenticationController {
     @Autowired
     private PasswordEncoder passwordEncoder;
 
+    @GetMapping("/")
+    public String showHome() {
+        return "index";
+    }
+
     @GetMapping("/login")
     public String showLoginForm() {
         return "login";
@@ -37,7 +40,6 @@ public class AuthenticationController {
     public String shownewYelpAPI() {
         return "yelpAPI";
     }
-
 
 
     @PostMapping("/register")
@@ -52,25 +54,6 @@ public class AuthenticationController {
         model.addAttribute("user", new User());
         return "register";
     }
-
-
-    @GetMapping("/dashboard")
-    public String showDashboard() {
-        return "dashboard";
-    }
-
-
-
-    @GetMapping("")
-    public String showAppPage() {
-        return "index";
-    }
-
-
-	@GetMapping("/")
-	public String showHome() {
-		return "index";
-	}
 
 }
 
