@@ -8,7 +8,7 @@
 <nav th:include="fragments/fragments :: navbar"></nav>
 <div class="container">
     <form
-            th:action="${/coupon/{coupon.id}/edit}"
+            th:action="@{/coupon/{id}/edit(id=${coupon.id})}"
             th:method="POST"
             th:object="${coupon}"
             th:include="fragments/fragments :: couponForm"

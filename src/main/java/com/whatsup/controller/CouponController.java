@@ -37,7 +37,8 @@ public class CouponController {
     }*/
 
     @RequestMapping(path="/vendor", method = RequestMethod.GET)
-    public String couponPage(){
+    public String couponPage(Model model){
+        model.addAttribute("coupons", couponsRepository.findAll());
         return "dashboard_vendor";
     }
 
@@ -68,25 +69,27 @@ public class CouponController {
 
 //    Edit a coupon
     @GetMapping("/coupon/{id}/edit")
-    public String showEdit(Long id , Model model) {
+    public String showEdit(@PathVariable Long id , Model model) {
         model.addAttribute("coupon", couponsRepository.findOne(id));
         return "coupon/edit";
 }
 
-    @PutMapping("/coupon/{id}/edit")
-    public Coupon updateCoupon(@PathVariable Long id, @RequestBody Coupon coupon) {
+    @PostMapping("/coupon/{id}/edit")
+    public String updateCoupon(@PathVariable long id, @ModelAttribute Coupon coupon, Model model) {
         Coupon existingCoupon = couponsRepository.findOne(id);
         BeanUtils.copyProperties(coupon, existingCoupon);
-        return couponsRepository.save(existingCoupon);
+        couponsRepository.save(coupon);
+        model.addAttribute("coupon", coupon);
+        return "redirect:/vendor";
     }
 
 //    Delete coupon
 
-    @DeleteMapping("coupon/{id}/delete")
-    public Coupon deleteCoupon(@PathVariable Long id) {
+    @PostMapping("/coupon/{id}/delete")
+    public String deleteCoupon(@PathVariable Long id) {
         Coupon existingCoupon = couponsRepository.findOne(id);
         couponsRepository.delete(existingCoupon);
-        return existingCoupon;
+        return "redirect:/vendor";
     }
 }
 
