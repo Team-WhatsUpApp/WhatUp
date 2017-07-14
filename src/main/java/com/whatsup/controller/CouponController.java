@@ -14,7 +14,7 @@ import java.util.List;
 /**
  * Created by DelMonroe on 7/10/17.
  */
-@RestController
+@Controller
 public class CouponController {
 
 
@@ -28,31 +28,53 @@ public class CouponController {
     }
 
 //    List all coupons
-
-    /*@GetMapping("/coupons")
+/*
+    @GetMapping("/coupons")
     public String viewAllCoupons(Model model) {
         Iterable<Coupon> coupons = couponSvc.findAll();
         model.addAttribute("coupons", coupons);
         return "dashboard_vendor";
     }*/
 
+    @RequestMapping(path="/vendor", method = RequestMethod.GET)
+    public String couponPage(){
+        return "dashboard_vendor";
+    }
 
     @GetMapping("/coupons")
     public @ResponseBody Iterable<Coupon> getAllCoupons() {
         return couponsRepository.findAll();
     }
 
+
     @GetMapping("/coupon/{id}")
     public Coupon get(@PathVariable Long id) {
         return couponsRepository.findOne(id);
     }
 
+    @GetMapping("/coupon/create")
+    public String showCreate(Model model) {
+        model.addAttribute("coupon", new Coupon());
+        return "coupon/create";
+    }
+
+    @PostMapping("/coupon/create")
+    public String createCoupon(@ModelAttribute Coupon coupon) {
+        couponsRepository.save(coupon);
+        return "redirect:/vendor";
+    }
+
 
 
 //    Edit a coupon
+    @GetMapping("/coupon/{id}/edit")
+    public String showEdit(Long id , Model model) {
+        model.addAttribute("coupon", couponsRepository.findOne(id));
+        return "coupon/edit";
+}
 
-    @PutMapping("/coupon/{id}")
-    public Coupon update(@PathVariable Long id, @RequestBody Coupon coupon) {
+    @PutMapping("/coupon/{id}/edit")
+    public Coupon updateCoupon(@PathVariable Long id, @RequestBody Coupon coupon) {
         Coupon existingCoupon = couponsRepository.findOne(id);
         BeanUtils.copyProperties(coupon, existingCoupon);
         return couponsRepository.save(existingCoupon);
@@ -60,8 +82,8 @@ public class CouponController {
 
 //    Delete coupon
 
-    @DeleteMapping("coupon/{id}")
-    public Coupon delete(@PathVariable Long id) {
+    @DeleteMapping("coupon/{id}/delete")
+    public Coupon deleteCoupon(@PathVariable Long id) {
         Coupon existingCoupon = couponsRepository.findOne(id);
         couponsRepository.delete(existingCoupon);
         return existingCoupon;

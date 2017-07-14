@@ -40,10 +40,10 @@
 
 <h4>Coupons</h4>
 <div class="container-fluid">
-    <button class="btn btn-default" id="vcreate" type="submit">New</button>
-    <button class="btn btn-default" id="vedit" type="submit">Edit</button>
-    <button class="btn btn-default" id="vdelete" type="submit">Delete</button>
-    <table id="vendorTable" class="display" cellspacing="0" width="100%">
+    <a href="/coupon/create" class="btn btn-default" id="vcreate" type="submit">New</a>
+    <a href="/coupon/{id}/edit" class="btn btn-default" id="vedit" type="submit">Edit</a>
+    <a href="/coupon/delete" class="btn btn-default" id="vdelete" type="submit">Delete</a>
+    <table id="vendorTable" class="display" cellspacing="0" width="50%">
         <thead>
         <!-- Header Table -->
         <tr>
@@ -85,7 +85,7 @@
             "columnDefs": [ {
                 "orderable": false,
                 "className": 'select-checkbox',
-                "targets":   5
+                "targets": 0
             } ],
             "select": {
                 "style": 'os',
@@ -93,7 +93,7 @@
             },
             "sAjaxSource": "/coupons",
             "sAjaxDataProp": "",
-            "order": [[ 0, "asc" ]],
+            "order": [[ 1, "asc" ]],
             "aoColumns": [                    /*These column names correspond with names in the User model*/
                 { "mData": "title"},
                 { "mData": "description" },
