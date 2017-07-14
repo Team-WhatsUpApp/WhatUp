@@ -14,7 +14,7 @@ import java.util.List;
 /**
  * Created by DelMonroe on 7/10/17.
  */
-@Controller
+@RestController
 public class CouponController {
 
 
@@ -29,14 +29,18 @@ public class CouponController {
 
 //    List all coupons
 
-    @GetMapping("/coupons")
+    /*@GetMapping("/coupons")
     public String viewAllCoupons(Model model) {
         Iterable<Coupon> coupons = couponSvc.findAll();
         model.addAttribute("coupons", coupons);
         return "dashboard_vendor";
+    }*/
+
+
+    @GetMapping("/coupons")
+    public @ResponseBody Iterable<Coupon> getAllCoupons() {
+        return couponsRepository.findAll();
     }
-
-
 
     @GetMapping("/coupon/{id}")
     public Coupon get(@PathVariable Long id) {
