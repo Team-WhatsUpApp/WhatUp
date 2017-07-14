@@ -36,13 +36,7 @@ public class CouponController {
         return "dashboard_vendor";
     }
 
-//    Create a coupon
 
-  /*  @GetMapping("/coupon/coupon")
-    public*/
-
-
-//    Find one coupon
 
     @GetMapping("/coupon/{id}")
     public Coupon get(@PathVariable Long id) {
