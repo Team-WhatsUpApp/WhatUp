@@ -1,52 +1,48 @@
-<!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org"
-      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4">
-<head th:include="fragments/fragments :: head('Testing')">
-    <meta charset="UTF-8"/>
-    <title>Title</title>
-    <style>
-        #map {
-            height: 400px;
-            width: 100%;
-        }
-    </style>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
 </head>
 
 <body>
-<nav th:include="fragments/fragments :: navbar"></nav>
-<script th:include="fragments/fragments :: scripts"></script>
-
-
-<div th:each="location : ${results}">
-    <h2>Name: <span th:text="${location.vendor.displayName}"></span></h2>
-    <h2>Owner: <span th:text="${location.vendor.owner.firstName}"></span></h2>
-    <h2>X: <span th:text="${location.x}"></span></h2>
-    <h2>Y: <span th:text="${location.y}"></span></h2>
-</div>
-<div id="map"></div>
-
+<div id="googleMap" style="width:500px;height:380px;"></div>
+<script src="http://maps.googleapis.com/maps/api/js?key=AIzaSyDWaILCW6S7JZjUx7MVdlBqq6YNNwxRvCk&amp;sensor=false"></script>
 <script th:replace="fragments/fragments :: scripts"></script>
-<script>
-    /*<![CDATA[*/
-    var request = $.ajax('/locations/-98.489576/29.426786/1');
-    request.done(function(locations) {
-        console.log(locations);
-    });
-    function initMap() {
-        var uluru = {lat: -25.363, lng: 131.044};
-        var map = new google.maps.Map(document.getElementById('map'), {
-            zoom: 4,
-            center: uluru
+<script th:inline="javascript">
+
+    function getPoints() {
+        var res;
+        $.ajax({
+            url:'/locations.json/-98.489576/29.426786/1',
+            type:"GET",
+            success: function(data){
+                res = data;
+            }
         });
-        var marker = new google.maps.Marker({
-            position: uluru,
-            map: map
+        return res;
+    }
+
+    function initialize() {
+        var mapProp = {
+            center: new google.maps.LatLng(29.426786, -98.489576),
+            zoom: 15,
+            mapTypeId: google.maps.MapTypeId.ROADMAP
+        };
+
+        var map = new google.maps.Map(document.getElementById("googleMap"), mapProp);
+
+        $.each(getPoints(), function (key, location) {
+            console.log(key);
+            console.log(location);
+            console.log(location.x);
+            console.log(location.y);
+            var tempMarker = new google.maps.Marker({
+                position: new google.maps.LatLng(location.y, location.x),
+                map: map
+            });
         });
     }
-</script>
-<script async defer
-        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDWaILCW6S7JZjUx7MVdlBqq6YNNwxRvCk&callback=initMap">
-    /*]]>*/
+
+    google.maps.event.addDomListener(window, 'load', initialize);
+
 </script>
 </body>
 </html>
