@@ -3,37 +3,18 @@
 <head th:replace="fragments/fragments :: head('Users Dashboard')" />
 
 
-<!--&lt;!&ndash; Bootstrap Core CSS &ndash;&gt;-->
-<!--&lt;!&ndash;<link href="../static/lib/bootstrap/css/bootstrap.min.css" rel="stylesheet"/>&ndash;&gt;-->
-
-<!--&lt;!&ndash; Custom Fonts &ndash;&gt;-->
-<!--<link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet"/>-->
-<!--<link href="https://fonts.googleapis.com/css?family=Catamaran:100,200,300,400,500,600,700,800,900"-->
-      <!--rel="stylesheet"/>-->
-<!--<link href="https://fonts.googleapis.com/css?family=Muli" rel="stylesheet"/>-->
-
-<!--&lt;!&ndash; Plugin CSS &ndash;&gt;-->
-<!--<link rel="stylesheet" href="../lib/font-awesome/css/font-awesome.min.css"/>-->
-<!--<link rel="stylesheet" href="../lib/simple-line-icons/css/simple-line-icons.css"/>-->
-<!--<link rel="stylesheet" href="../lib/device-mockups/device-mockups.min.css"/>-->
-
-<!--&lt;!&ndash; Theme CSS &ndash;&gt;-->
-<!--<link href="../css/new-age.min.css" rel="stylesheet"/>-->
-<!--&lt;!&ndash;<link href="../static/css/whatsup.css" rel="stylesheet" />&ndash;&gt;-->
-
-
-
 
 
 <body>
 <nav th:replace="fragments/fragments :: navbar" />
+<div id="bgoverlay"></div>
 
 <h1 id="udash">Users Dashboard</h1>
 
 
-<div class="container-fluid">
+<div class="container-fluid col-lg-12">
 
-    <table id="userTable" class="display" cellspacing="0" width="40%">
+    <table id="userTable" class="display col-lg-12" cellspacing="0" width="100%">
         <h4 id="udashtwo">Active Coupons</h4>
 
         <thead>

@@ -1,2 +1,16 @@
-@import url(//fonts.googleapis.com/css?family=Catamaran);
-@import url(//fonts.googleapis.com/css?family=Lato);
+
+
+
+
+body{
+    background: url(../img/bg-pattern.png), linear-gradient(to left, lightpink, blue);
+    color: white;
+    /*background-size: cover;*/
+    /*background-attachment: fixed;*/
+    /*background-repeat: no-repeat;*/
+    /*height:auto;*/
+
+    text-align: center;
+
+}
+
