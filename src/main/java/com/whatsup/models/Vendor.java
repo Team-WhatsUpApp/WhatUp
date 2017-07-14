@@ -28,11 +28,11 @@ public class Vendor {
 	@Column(name = "validated")
 	private boolean isValidated;
 
-	@OneToMany(cascade = CascadeType.ALL, mappedBy = "id")
+	@OneToMany(cascade = CascadeType.ALL, mappedBy = "owner")
 	@JsonIgnore
 	private List<Coupon> couponList;
 
-	@OneToMany(cascade = CascadeType.ALL, mappedBy = "id")
+	@OneToMany(cascade = CascadeType.ALL, mappedBy = "vendor")
 	@JsonIgnore
 	private List<Location> locationList;
 

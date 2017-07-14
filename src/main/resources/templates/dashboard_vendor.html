@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4">
+<head th:replace="fragments/fragments :: head('Vendor Dashboard')" />
+
+
+<!-- Bootstrap Core CSS -->
+<!--<link href="../static/lib/bootstrap/css/bootstrap.min.css" rel="stylesheet"/>-->
+
+<!-- Custom Fonts -->
+<link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css?family=Catamaran:100,200,300,400,500,600,700,800,900"
+      rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css?family=Muli" rel="stylesheet"/>
+
+<!-- Plugin CSS -->
+<link rel="stylesheet" href="../lib/font-awesome/css/font-awesome.min.css"/>
+<link rel="stylesheet" href="../lib/simple-line-icons/css/simple-line-icons.css"/>
+<link rel="stylesheet" href="../lib/device-mockups/device-mockups.min.css"/>
+
+<!-- Theme CSS -->
+<link href="../css/new-age.min.css" rel="stylesheet"/>
+<!--<link href="../static/css/whatsup.css" rel="stylesheet" />-->
+
+<style>
+
+
+    body{
+        color: white;
+        background: url(../img/bg-pattern.png), linear-gradient(to left, lightpink, blue);
+
+    }
+</style>
+
+
+
+<body>
+<nav th:replace="fragments/fragments :: navbar" />
+
+<h1>Vendors Dashboard</h1>
+
+<h4>Coupons</h4>
+<div class="container-fluid">
+    <button class="btn btn-default" id="vcreate" type="submit">New</button>
+    <button class="btn btn-default" id="vedit" type="submit">Edit</button>
+    <button class="btn btn-default" id="vdelete" type="submit">Delete</button>
+    <table id="vendorTable" class="display" cellspacing="0" width="100%">
+        <thead>
+        <!-- Header Table -->
+        <tr>
+            <th>Title</th>
+            <th>Description</th>
+            <th>Coupon Code</th>
+            <th>Restrictions</th>
+            <th>Coupon Value</th>
+            <th>Remaining Uses</th>
+            <th>Start Date</th>
+            <th>End Date</th>
+        </tr>
+        </thead>
+
+        <!-- Footer Table -->
+        <tfoot>
+        <tr>
+            <th>Title</th>
+            <th>Description</th>
+            <th>Coupon Code</th>
+            <th>Restrictions</th>
+            <th>Coupon Value</th>
+            <th>Remaining Uses</th>
+            <th>Start Date</th>
+            <th>End Date</th>
+        </tr>
+        </tfoot>
+    </table>
+</div>
+<div th:replace="fragments/fragments :: scripts" />
+<script type="text/javascript">
+    $(document).ready( function () {
+        "use strict";
+
+        var table = $('#vendorTable').DataTable({
+            "responsive": true,
+            "searching": true,
+            "bLengthChange": false,
+            "columnDefs": [ {
+                "orderable": false,
+                "className": 'select-checkbox',
+                "targets":   5
+            } ],
+            "select": {
+                "style": 'os',
+                "selector": 'td:first-child'
+            },
+            "sAjaxSource": "/couponstable",
+            "sAjaxDataProp": "",
+            "order": [[ 0, "asc" ]],
+            "aoColumns": [                    /*These column names correspond with names in the User model*/
+                { "mData": "title"},
+                { "mData": "description" },
+                { "mData": "couponCode" },
+                { "mData": "restrictions" },
+                { "mData": "value" },
+                { "mData": "remainingUses" },
+                { "mData": "startDatetime", "type": "date" },
+                { "mData": "endDatetime", "type": "date" }
+
+            ]
+        })
+
+//        table.ajax().url('/userstable').load();
+
+        setInterval( function () {
+            table.ajax.reload();
+        }, 30000 );
+    });
+
+</script>
+</body>
+</html>

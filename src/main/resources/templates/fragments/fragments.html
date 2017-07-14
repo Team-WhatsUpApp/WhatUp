@@ -47,6 +47,9 @@
     <link href="/../css/index.css" rel="stylesheet"/>
 
 
+    <!-- JQuery DataTabales -->
+
+
 
 
 <!--old header below-->
@@ -84,8 +87,6 @@
     <!--<link href="/../css/new-age.min.css" rel="stylesheet"/>-->
 
     <!--<title th:text="${title}">#WhatsUP!</title>-->
-
-
 
 
 </head>
@@ -261,7 +262,7 @@
     <button class="btn btn-default">Save</button>
 </form>-->
 
-<!--<form th:fragment="couponForm">
+<form th:fragment="couponForm">
     <div class="form-group">
         <label for="title">Title</label>
         <input id="title" class="form-control" th:field="*{title}"/>
@@ -271,6 +272,32 @@
         </div>
     </div>
     <div class="form-group">
+        <label for="couponCode">Code</label>
+        <input id="couponCode" class="form-control" th:field="*{couponCode}"/>
+        <div class="alert alert-warning alert-dismissible" role="alert" th:if="${#fields.hasErrors('couponCode')}">
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            <span th:errors="*{couponCode}" />
+        </div>
+    </div>
+    <!--<div class="form-group">
+        <label for="startDatetime">Start time</label>
+        <div class='input-group date' id='startDatetime'>
+            <input type='text' class="form-control" th:field="*{startDatetime}"/>
+            <span class="input-group-addon">
+                <span class="glyphicon glyphicon-calendar"></span>
+            </span>
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="endDatetime">Expires</label>
+        <div class='input-group date' id='endDatetime'>
+            <input type='text' class="form-control" th:field="*{endDatetime}"/>
+            <span class="input-group-addon">
+                <span class="glyphicon glyphicon-calendar"></span>
+            </span>
+        </div>
+    </div>-->
+    <div class="form-group">
         <label for="description">Description</label>
         <input id="description" class="form-control" th:field="*{description}"/>
         <div class="alert alert-warning alert-dismissible" role="alert" th:if="${#fields.hasErrors('description')}">
@@ -279,11 +306,27 @@
         </div>
     </div>
     <div class="form-group">
+        <label for="value">Value</label>
+        <input id="value" class="form-control" th:field="*{value}"/>
+        <div class="alert alert-warning alert-dismissible" role="alert" th:if="${#fields.hasErrors('value')}">
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            <span th:errors="*{value}" />
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="restriction">Restrictions</label>
+        <input id="restriction" class="form-control" th:field="*{restrictions}"/>
+        <div class="alert alert-warning alert-dismissible" role="alert" th:if="${#fields.hasErrors('restrictions')}">
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            <span th:errors="*{restrictions}" />
+        </div>
+    </div>
+    <div class="form-group">
         <label for="file">Image</label>
         <input type="file" class="form-control" name="file" id="file" />
     </div>
     <button class="btn btn-default">Save</button>
-</form>-->
+</form>
 
 
 
@@ -292,14 +335,13 @@
 
 
 <div th:fragment="scripts">
-    <script th:src="@{/lib/jquery/jquery.min.js}"></script>
-    <script th:src="@{http://code.jquery.com/jquery-2.2.4.min.js}" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
-    <script th:src="@{https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js}" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
-    <script th:src="@{/lib/bootstrap/js/bootstrap.min.js}"></script>
-    <script th:src="@{https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js}"></script>
-
-    <script th:src="@{/js/navbar.js}"></script>
-    <script th:src="@{/js/new-age.min.js}"></script>
+    <script src="/lib/jquery/jquery.min.js"></script>
+    <script src="/http://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
+    <script src="/https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+    <script src="/lib/bootstrap/js/bootstrap.min.js"></script>
+    <script src="/https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js"></script>
+    <script src="/js/navbar.js"></script>
+    <script src="/js/new-age.min.js"></script>
 </div>
 
 <div th:fragment="mapping">

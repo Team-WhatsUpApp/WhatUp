@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4">
+<head th:replace="fragments/fragments :: head('Users Dashboard')" />
+
+
+<!-- Bootstrap Core CSS -->
+<!--<link href="../static/lib/bootstrap/css/bootstrap.min.css" rel="stylesheet"/>-->
+
+<!-- Custom Fonts -->
+<link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css?family=Catamaran:100,200,300,400,500,600,700,800,900"
+      rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css?family=Muli" rel="stylesheet"/>
+
+<!-- Plugin CSS -->
+<link rel="stylesheet" href="../lib/font-awesome/css/font-awesome.min.css"/>
+<link rel="stylesheet" href="../lib/simple-line-icons/css/simple-line-icons.css"/>
+<link rel="stylesheet" href="../lib/device-mockups/device-mockups.min.css"/>
+
+<!-- Theme CSS -->
+<link href="../css/new-age.min.css" rel="stylesheet"/>
+<!--<link href="../static/css/whatsup.css" rel="stylesheet" />-->
+
+<style>
+
+
+    body{
+        color: white;
+        background: url(../img/bg-pattern.png), linear-gradient(to left, lightpink, blue);
+
+    }
+</style>
+
+
+
+<body>
+<nav th:replace="fragments/fragments :: navbar" />
+
+<h1 id="udash">Users Dashboard</h1>
+
+
+<div class="container-fluid">
+
+    <table id="userTable" class="display" cellspacing="0" width="40%">
+        <h4 id="udashtwo">Active Coupons</h4>
+
+        <thead>
+        <!-- Header Table -->
+        <tr>
+
+            <th>Active Coupons</th>
+            <th>Restrictions</th>
+        </tr>
+        </thead>
+
+        <!-- Footer Table -->
+        <tfoot>
+        <tr>
+            <th>Active Coupons</th>
+            <th>Restrictions</th>
+
+        </tr>
+        </tfoot>
+    </table>
+</div>
+<div th:replace="fragments/fragments :: scripts" />
+<script type="text/javascript">
+    var editor;
+
+    $(document).ready( function () {
+        "use strict";
+
+        editor = new $.fn.dataTable.Editor({
+            "ajax": "/couponstable",
+            "table": "#userTable"
+        });
+
+        $('a.editor_create').on('click', function (e) {
+            e.preventDefault();
+
+            editor.create({
+                "title": 'Create new record',
+                "buttons": 'Add'
+
+            });
+        });
+
+
+        var table = $('#userTable').DataTable({
+            "responsive": true,
+            "searching": false,
+            "bLengthChange": false,
+            "bPaginate": false,
+            "bInfo": false,
+            "columnDefs": [ {
+                "orderable": false,
+                "className": 'select-checkbox',
+                "targets":   1
+            } ],
+
+            "select": {
+                "style": 'os',
+                "selector": 'td:first-child'
+            },
+
+            /*"dom": 'Bfrtip',
+            "buttons": [
+                { extend: 'create', editor: editor },
+                { extend: 'edit',   editor: editor },
+                { extend: 'remove', editor: editor }
+            ],*/
+
+            "sAjaxSource": "/couponstable",
+            "sAjaxDataProp": "",
+            "order": [[ 0, "asc" ]],
+            "aoColumns": [                    /*These column names correspond with names in the User model*/
+                { "mData": "description" },
+                { "mData": "restrictions" }
+
+
+            ]
+        });
+
+//        table.ajax().url('/userstable').load();
+
+        setInterval( function () {
+            table.ajax.reload();
+        }, 30000 );
+
+
+    });
+
+</script>
+</body>
+</html>
