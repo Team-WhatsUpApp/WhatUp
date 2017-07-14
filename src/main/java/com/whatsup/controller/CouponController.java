@@ -1,11 +1,12 @@
 package com.whatsup.controller;
 
-import com.whatsup.model.Coupon;
-import com.whatsup.model.User;
-import com.whatsup.repository.CouponsRepository;
+import com.whatsup.models.Coupon;
+import com.whatsup.repositories.CouponsRepository;
+import com.whatsup.svcs.CouponSvc;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -16,21 +17,29 @@ import java.util.List;
 @Controller
 public class CouponController {
 
+
+    private final CouponsRepository couponsRepository;
+    private final CouponSvc couponSvc;
+
     @Autowired
-    private CouponsRepository couponsRepository;
+    public CouponController(CouponsRepository couponsRepository, CouponSvc couponSvc) {
+        this.couponsRepository = couponsRepository;
+        this.couponSvc = couponSvc;
+    }
 
 //    List all coupons
 
-    @GetMapping("/couponstable")
-    public @ResponseBody Iterable<Coupon> getAllCoupons() {
-        return couponsRepository.findAll();
+    @GetMapping("/coupons")
+    public String viewAllCoupons(Model model) {
+        Iterable<Coupon> coupons = couponSvc.findAll();
+        model.addAttribute("coupons", coupons);
+        return "dashboard_vendor.html";
     }
 
 //    Create a coupon
 
-   /* @GetMapping("/coupon/coupon")
-    public
-*/
+  /*  @GetMapping("/coupon/coupon")
+    public*/
 
 
 //    Find one coupon
@@ -48,16 +57,16 @@ public class CouponController {
     public Coupon update(@PathVariable Long id, @RequestBody Coupon coupon) {
         Coupon existingCoupon = couponsRepository.findOne(id);
         BeanUtils.copyProperties(coupon, existingCoupon);
-        return couponsRepository.saveAndFlush(existingCoupon);
+        return couponsRepository.save(existingCoupon);
     }
 
 //    Delete coupon
 
     @DeleteMapping("coupon/{id}")
     public Coupon delete(@PathVariable Long id) {
-        Coupon existingShipwreck = couponsRepository.findOne(id);
-        couponsRepository.delete(existingShipwreck);
-        return existingShipwreck;
+        Coupon existingCoupon = couponsRepository.findOne(id);
+        couponsRepository.delete(existingCoupon);
+        return existingCoupon;
     }
 }
 
