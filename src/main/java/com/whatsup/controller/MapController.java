@@ -38,7 +38,7 @@ public class MapController {
 	}
 
 
-	@GetMapping("/locations/{lon}/{lat}/{dist}")
+	@GetMapping("/locations.json/{lon}/{lat}/{dist}")
 	public @ResponseBody Iterable<Location>  locations(@PathVariable double lon, @PathVariable double lat, @PathVariable double dist, Model model) throws JSONException{
 		return locationsDao.getLocationsMap(lon, lat, dist/2);
 		//model.addAttribute("results", results);
