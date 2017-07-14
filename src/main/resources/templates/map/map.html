@@ -1,0 +1,79 @@
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="fragments/fragments :: head('Map')" />
+
+<body>
+<div id="googleMap" style="width:90%;height:500px;margin: auto"></div>
+<script src="http://maps.googleapis.com/maps/api/js?key=AIzaSyDWaILCW6S7JZjUx7MVdlBqq6YNNwxRvCk&amp;sensor=false"></script>
+<script th:replace="fragments/fragments :: scripts"></script>
+<script th:inline="javascript">
+
+    var map;
+    var lat;
+    var lon;
+    var madeUrl = '';
+
+//
+
+    function getLocation() {
+        if (navigator.geolocation) {
+            navigator.geolocation.getCurrentPosition(showPosition);
+        } else {
+            console.log("Geolocation is not supported by this browser.");
+        }
+    }
+    getLocation();
+
+    function showPosition(position) {
+        lat = position.coords.latitude;
+        lon = position.coords.longitude;
+        madeUrl = '/locations.json/'+lon+'/'+lat+'/1';
+        initialize();
+    }
+
+    function getData(url) {
+        $.ajax({
+            url: madeUrl,
+            type: "GET",
+            async: false,
+            success: function (data) {
+                console.log("ajaxdata: " + data);
+                $.each(data, function (key, location) {
+                    var myLatLng = {lat: location.y, lng: location.x};
+                    var key = new google.maps.Marker({
+                        position: myLatLng,
+                        map: map
+//                        label: location.vendor.displayName
+                    });
+                    key.setMap(map);
+                    var infowindow = new google.maps.InfoWindow({
+                        content: location.vendor.displayName
+                    });
+                });
+                var locMarker = new google.maps.Marker({
+                    position: new google.maps.LatLng(lat, lon),
+                    map: map,
+                    label: "Current position"
+                });
+                locMarker.setIcon('http://maps.google.com/mapfiles/ms/icons/blue-dot.png')
+            }
+        });
+    }
+
+//    google.maps.event.addDomListener(window, 'load', initialize);
+
+    function initialize() {
+        getLocation();
+        var mapProp = {
+            center: new google.maps.LatLng(lat, lon),
+            zoom: 16,
+            mapTypeId: google.maps.MapTypeId.ROADMAP
+        };
+
+        map = new google.maps.Map(document.getElementById("googleMap"), mapProp);
+        getData();
+    }
+
+
+</script>
+</body>
+</html>
