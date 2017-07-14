@@ -17,7 +17,7 @@ import java.util.List;
 
 
 @Service("userService")
-public class UserDetailsLoader implements UserService, UserDetailsService {
+public class UserDetailsLoader implements UserDetailsService {
 
     private final UsersRepository users;
     private final Roles roles;
@@ -39,15 +39,6 @@ public class UserDetailsLoader implements UserService, UserDetailsService {
         return new UserWithRoles(user, userRoles);
     }
 
-    @Override
-    public Iterable<User> getAllUsers() {
-        return userRepository.findAll();
-    }
-
-    @Override
-    public User getUserById(long id) {
-        return null;
-    }
 
 
 }

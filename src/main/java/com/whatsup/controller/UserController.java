@@ -1,9 +1,8 @@
 package com.whatsup.controller;
 
 import com.fasterxml.jackson.annotation.JsonView;
-import com.whatsup.model.User;
-import com.whatsup.repository.UserRepository;
-import com.whatsup.repository.UserService;
+import com.whatsup.models.User;
+import com.whatsup.repositories.UsersRepository;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.jpa.datatables.mapping.DataTablesInput;
@@ -19,10 +18,9 @@ import javax.validation.Valid;
 public class UserController {
 
     @Autowired
-    private UserRepository userRepository;
+    private UsersRepository userRepository;
 
-    @Autowired
-    private UserService userService;
+
 
 //    Show all users
     @GetMapping("/userstable")

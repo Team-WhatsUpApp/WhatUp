@@ -1,11 +1,8 @@
 package com.whatsup.controller;
 
-import com.whatsup.model.Vendor;
-import com.whatsup.repository.UserRepository;
-import com.whatsup.repository.VendorRepository;
+import com.whatsup.repositories.VendorsRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 /**
@@ -15,7 +12,7 @@ import org.springframework.web.bind.annotation.RestController;
 public class VendorsController {
 
     @Autowired
-    private VendorRepository vendorRepository;
+    private VendorsRepository vendorRepository;
 
     @GetMapping("/coupon/create")
     public String createCoupon() {

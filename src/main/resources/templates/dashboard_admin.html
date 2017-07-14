@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4">
-<head th:replace="fragments :: head('Dashboard')" />
+<head th:replace="fragments/fragments :: head('Dashboard')" />
 
 
 
@@ -19,7 +19,7 @@ background: url(../img/bg-pattern.png), linear-gradient(to left, lightpink, blue
 
 
 <body>
-<nav th:replace="fragments :: navbar" />
+<nav th:replace="fragments/fragments :: navbar" />
 
 <h1>Admin Dashboard</h1>
 
@@ -56,7 +56,7 @@ background: url(../img/bg-pattern.png), linear-gradient(to left, lightpink, blue
         </tfoot>
     </table>
 </div>
-<div th:replace="fragments :: scripts" />
+<div th:replace="fragments/fragments :: scripts" />
 <script type="text/javascript">
     var editor;
     $(document).ready( function () {
