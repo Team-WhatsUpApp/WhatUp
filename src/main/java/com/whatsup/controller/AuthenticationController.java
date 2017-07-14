@@ -15,9 +15,8 @@ import org.springframework.web.bind.annotation.PostMapping;
 
 
 
-@EnableWebSecurity
+
 @Controller
-@ComponentScan(basePackageClasses = UserWithRoles.class)
 public class AuthenticationController {
 
 
