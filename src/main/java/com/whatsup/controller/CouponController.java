@@ -28,14 +28,24 @@ public class CouponController {
     }
 
 //    List all coupons
-
+/*
     @GetMapping("/coupons")
     public String viewAllCoupons(Model model) {
         Iterable<Coupon> coupons = couponSvc.findAll();
         model.addAttribute("coupons", coupons);
         return "dashboard_vendor";
+    }*/
+
+    @RequestMapping(path="/vendor", method = RequestMethod.GET)
+    public String couponPage(Model model){
+        model.addAttribute("coupons", couponsRepository.findAll());
+        return "dashboard_vendor";
     }
 
+    @GetMapping("/coupons")
+    public @ResponseBody Iterable<Coupon> getAllCoupons() {
+        return couponsRepository.findAll();
+    }
 
 
     @GetMapping("/coupon/{id}")
@@ -43,24 +53,43 @@ public class CouponController {
         return couponsRepository.findOne(id);
     }
 
+    @GetMapping("/coupon/create")
+    public String showCreate(Model model) {
+        model.addAttribute("coupon", new Coupon());
+        return "coupon/create";
+    }
+
+    @PostMapping("/coupon/create")
+    public String createCoupon(@ModelAttribute Coupon coupon) {
+        couponsRepository.save(coupon);
+        return "redirect:/vendor";
+    }
+
 
 
 //    Edit a coupon
+    @GetMapping("/coupon/{id}/edit")
+    public String showEdit(@PathVariable Long id , Model model) {
+        model.addAttribute("coupon", couponsRepository.findOne(id));
+        return "coupon/edit";
+}
 
-    @PutMapping("/coupon/{id}")
-    public Coupon update(@PathVariable Long id, @RequestBody Coupon coupon) {
+    @PostMapping("/coupon/{id}/edit")
+    public String updateCoupon(@PathVariable long id, @ModelAttribute Coupon coupon, Model model) {
         Coupon existingCoupon = couponsRepository.findOne(id);
         BeanUtils.copyProperties(coupon, existingCoupon);
-        return couponsRepository.save(existingCoupon);
+        couponsRepository.save(coupon);
+        model.addAttribute("coupon", coupon);
+        return "redirect:/vendor";
     }
 
 //    Delete coupon
 
-    @DeleteMapping("coupon/{id}")
-    public Coupon delete(@PathVariable Long id) {
+    @PostMapping("/coupon/{id}/delete")
+    public String deleteCoupon(@PathVariable Long id) {
         Coupon existingCoupon = couponsRepository.findOne(id);
         couponsRepository.delete(existingCoupon);
-        return existingCoupon;
+        return "redirect:/vendor";
     }
 }
 

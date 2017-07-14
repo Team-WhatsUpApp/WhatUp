@@ -37,10 +37,6 @@ public class MVCController {
         return "dashboard_admin";
     }
 
-    @RequestMapping(path="/vendor", method = RequestMethod.GET)
-    public String couponPage(){
-        return "dashboard_vendor";
-    }
 
     @RequestMapping(path="/users", method = RequestMethod.GET)
     public String userPage() { return "dashboard_user";}

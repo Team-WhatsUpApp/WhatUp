@@ -14,10 +14,4 @@ public class VendorsController {
     @Autowired
     private VendorsRepository vendorRepository;
 
-    @GetMapping("/coupon/create")
-    public String createCoupon() {
-        return "coupons/create";
-
-    }
-
 }
