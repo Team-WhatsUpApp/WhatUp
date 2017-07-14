@@ -21,11 +21,14 @@
 
     <a href="/coupon/create" class="btn btn-default" id="vcreate" type="submit">New</a>
     
-    <a href="/coupon/delete" class="btn btn-default" id="vdelete" type="submit">Delete</a>-->
-    <table id="vendorTable" class="display" cellspacing="0" width="50%">
+   
+   
+
+
 
     
     <table id="vendorTable" class="display" cellspacing="0" width="100%">
+
         <thead>
         <!-- Header Table -->
         <tr>
@@ -74,7 +77,9 @@
         
 
     </table>
+
 </div>
+
 <div th:replace="fragments/fragments :: scripts" />
 <script type="text/javascript">
     $(document).ready( function () {
@@ -85,14 +90,14 @@
             "searching": true,
             "bLengthChange": false,
             "columnDefs": [ {
-                "orderable": false,
-                /*"className": 'select-checkbox',
-                "targets": 0*/
+                "orderable": false
+//                "className": 'select-checkbox',
+//                "targets": 1
             } ],
-            "select": {
-                "style": 'os',
-                "selector": 'td:first-child'
-            },
+//            "select": {
+//                "style": 'os',
+//                "selector": 'td:first-child'
+//            },
             //"sAjaxSource": "/coupons",
             //"sAjaxDataProp": "",
             "order": [[ 1, "asc" ]]
