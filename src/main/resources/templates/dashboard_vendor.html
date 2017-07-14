@@ -3,39 +3,10 @@
 <head th:replace="fragments/fragments :: head('Vendor Dashboard')" />
 
 
-<!-- Bootstrap Core CSS -->
-<!--<link href="../static/lib/bootstrap/css/bootstrap.min.css" rel="stylesheet"/>-->
-
-<!-- Custom Fonts -->
-<link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet"/>
-<link href="https://fonts.googleapis.com/css?family=Catamaran:100,200,300,400,500,600,700,800,900"
-      rel="stylesheet"/>
-<link href="https://fonts.googleapis.com/css?family=Muli" rel="stylesheet"/>
-
-<!-- Plugin CSS -->
-<link rel="stylesheet" href="../lib/font-awesome/css/font-awesome.min.css"/>
-<link rel="stylesheet" href="../lib/simple-line-icons/css/simple-line-icons.css"/>
-<link rel="stylesheet" href="../lib/device-mockups/device-mockups.min.css"/>
-
-<!-- Theme CSS -->
-<link href="../css/new-age.min.css" rel="stylesheet"/>
-<!--<link href="../static/css/whatsup.css" rel="stylesheet" />-->
-
-<style>
-
-
-    body{
-        color: white;
-        background: url(../img/bg-pattern.png), linear-gradient(to left, lightpink, blue);
-
-    }
-</style>
-
-
 
 <body>
 <nav th:replace="fragments/fragments :: navbar" />
-
+<!--<div id="bgoverlay"></div>-->
 <h1>Vendors Dashboard</h1>
 
 <h4>Coupons</h4>
@@ -43,7 +14,7 @@
     <button class="btn btn-default" id="vcreate" type="submit">New</button>
     <button class="btn btn-default" id="vedit" type="submit">Edit</button>
     <button class="btn btn-default" id="vdelete" type="submit">Delete</button>
-    <table id="vendorTable" class="display" cellspacing="0" width="100%">
+    <table id="vendorTable" class="display" cellspacing="10" width="100%">
         <thead>
         <!-- Header Table -->
         <tr>
@@ -57,6 +28,7 @@
             <th>End Date</th>
         </tr>
         </thead>
+
 
         <!-- Footer Table -->
         <tfoot>

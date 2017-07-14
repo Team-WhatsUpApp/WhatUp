@@ -4,27 +4,14 @@
 
 
 
-<style>
-
-
-body{
-color: white;
-
-background: url(../img/bg-pattern.png), linear-gradient(to left, lightpink, blue);
-
-}
-</style>
-
-
-
-
 <body>
 <nav th:replace="fragments/fragments :: navbar" />
+<div id="bgoverlay"></div>
 
 <h1>Admin Dashboard</h1>
 
 <h4>Users</h4>
-<div class="container-fluid">
+<div class="container-fluid col-lg-12">
     <button class="btn btn-default" id="acreate" type="submit">New</button>
     <button class="btn btn-default" id="aedit" type="submit">Edit</button>
     <button class="btn btn-default" id="adelete" type="submit">Delete</button>
