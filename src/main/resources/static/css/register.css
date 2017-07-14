@@ -1,5 +1,7 @@
+
+
 body{
-    background-image: url("../img/SanAntonio.jpeg");
+    background-image: url("/img/SanAntonio.jpeg");
     background-size: cover;
     background-attachment: fixed;
     background-repeat: no-repeat;
@@ -16,19 +18,24 @@ p{
     margin:0;
     font-size:4vw;
 }
-/*button{*/
-    /*background-color: orange;*/
-    /*border-radius: 32px;*/
-    /*width:8vw;*/
-    /*height:2.5vw;*/
-/*}*/
-/*.header{*/
-    /*font-family: "Catamaran";*/
-    /*font-size: 5vw;*/
-    /*margin: 0;*/
-    /*font-weight: 200;*/
-    /*letter-spacing: 1px;*/
-/*}*/
+
+
+::-webkit-input-placeholder {
+    text-align: center;
+}
+
+:-moz-placeholder { /* Firefox 18- */
+    text-align: center;
+}
+
+::-moz-placeholder {  /* Firefox 19+ */
+    text-align: center;
+}
+
+:-ms-input-placeholder {
+    text-align: center;
+}
+
 
 #bgoverlay {
 width: 100vw;
@@ -142,13 +149,9 @@ z-index:-100;
     .signin{
         font-size: 1.5vw;
     }
-
+    #vendor {
+        width:2vw;
+    }
 
   }
-
-
-
-
-
-
 

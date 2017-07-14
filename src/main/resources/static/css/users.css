@@ -1,0 +1,32 @@
+
+
+
+
+body{
+    background: url(../img/bg-pattern.png), linear-gradient(to left, lightpink, blue);
+    color: white;
+    background-size: cover;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    height:auto;
+}
+
+input {
+    height: 3vh;
+    width: 20vw;
+    border-radius: 32px;
+}
+h1 {
+    font-family: "Catamaran";
+    font-size: 6vw;
+    margin-top:3vw;
+    font-weight: 200;
+    letter-spacing: 1px;
+}
+p{
+    font-family: "Catamaran";
+    /*font-size: 6vw;*/
+    /*margin-top:3vw;*/
+    /*font-weight: 200;*/
+    /*letter-spacing: 1px;*/
+}
