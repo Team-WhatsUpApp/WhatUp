@@ -1,8 +1,6 @@
-@import url(//fonts.googleapis.com/css?family=Catamaran);
-@import url(//fonts.googleapis.com/css?family=Lato);
+
 
 body {
-
     color: white;
     background-image: url("/../img/drinks.jpg");
     background-size: cover;
@@ -10,6 +8,21 @@ body {
     /*height: 100vw;*/
 }
 
+::-webkit-input-placeholder {
+    text-align: center;
+}
+
+:-moz-placeholder { /* Firefox 18- */
+    text-align: center;
+}
+
+::-moz-placeholder {  /* Firefox 19+ */
+    text-align: center;
+}
+
+:-ms-input-placeholder {
+    text-align: center;
+}
 
 div {
     text-align: center;
@@ -18,12 +31,23 @@ div {
 a {
     color: lightskyblue;
     text-decoration: none;
-    font-family: Lato;
+    /*font-family: Lato;*/
+    font-family: "Catamaran";
     letter-spacing: 2px;
     font-size: 1vw;
     text-decoration: none;
 
 }
+
+h1 {
+    font-family: "Catamaran";
+    font-size: 8vw;
+    margin: 0;
+    margin-top:3vw;
+    font-weight: 200;
+    letter-spacing: 1px;
+}
+
 
 a:hover {
     color: orange;
@@ -51,15 +75,13 @@ button {
 
 .attention {
     color: red;
-
     font-family: "Catamaran";
-
     letter-spacing: 2px;
 }
 
 h1 {
     font-family: "Catamaran";
-    font-size: 6vw;
+    font-size: 8vw;
     margin-top:3vw;
     font-weight: 200;
     letter-spacing: 1px;
@@ -187,22 +209,15 @@ p {
     a {
         font-size: 1.5vw;
     }
+    h1 {
+        font-family: "Catamaran";
+        font-size: 8vw;
+        margin: 0;
+        margin-top:3vw;
+        font-weight: 200;
+        letter-spacing: 1px;
+    }
+
+
+
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

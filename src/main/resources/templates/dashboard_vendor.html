@@ -3,50 +3,29 @@
 <head th:replace="fragments/fragments :: head('Vendor Dashboard')" />
 
 
-<!-- Bootstrap Core CSS -->
-<!--<link href="../static/lib/bootstrap/css/bootstrap.min.css" rel="stylesheet"/>-->
-
-<!-- Custom Fonts -->
-<link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet"/>
-<link href="https://fonts.googleapis.com/css?family=Catamaran:100,200,300,400,500,600,700,800,900"
-      rel="stylesheet"/>
-<link href="https://fonts.googleapis.com/css?family=Muli" rel="stylesheet"/>
-
-<!-- Plugin CSS -->
-<link rel="stylesheet" href="../lib/font-awesome/css/font-awesome.min.css"/>
-<link rel="stylesheet" href="../lib/simple-line-icons/css/simple-line-icons.css"/>
-<link rel="stylesheet" href="../lib/device-mockups/device-mockups.min.css"/>
-
-<!-- Theme CSS -->
-<link href="../css/new-age.min.css" rel="stylesheet"/>
-<!--<link href="../static/css/whatsup.css" rel="stylesheet" />-->
-
-<style>
-
-
-    body{
-        color: white;
-        background: url(../img/bg-pattern.png), linear-gradient(to left, lightpink, blue);
-
-    }
-</style>
-
-
 
 <body>
 <nav th:replace="fragments/fragments :: navbar" />
 
+<h3>Vendors Dashboard</h3>
+<!--<div id="bgoverlay"></div>-->
 <h1>Vendors Dashboard</h1>
 
 <h4>Coupons</h4>
 <div class="container-fluid">
+    <a href="/coupon/create" class="btn btn-default" id="vcreate" type="submit">New</a>
+    <!--<a href="/coupon/{id}/edit" class="btn btn-default" id="vedit" type="submit">Edit</a>
+    <a href="/coupon/delete" class="btn btn-default" id="vdelete" type="submit">Delete</a>-->
+    <table id="vendorTable" class="display" cellspacing="0" width="50%">
     <button class="btn btn-default" id="vcreate" type="submit">New</button>
     <button class="btn btn-default" id="vedit" type="submit">Edit</button>
     <button class="btn btn-default" id="vdelete" type="submit">Delete</button>
-    <table id="vendorTable" class="display" cellspacing="0" width="100%">
+    <table id="vendorTable" class="display" cellspacing="10" width="100%">
         <thead>
         <!-- Header Table -->
         <tr>
+            <th>Edit</th>
+            <th>Delete</th>
             <th>Title</th>
             <th>Description</th>
             <th>Coupon Code</th>
@@ -58,9 +37,34 @@
         </tr>
         </thead>
 
+        <tbody>
+            <tr th:each="coupon : ${coupons}">
+                <td>
+                    <a class="btn btn-primary" th:href="@{/coupon/{id}/edit(id=${coupon.id})}">
+                        Edit
+                    </a>
+                </td>
+                <td>
+                    <form th:action="@{/coupon/{id}/delete(id=${coupon.id})}" th:method="post">
+                        <button class="btn btn-danger">Delete</button>
+                    </form>
+                </td>
+                <td th:text="${coupon.title}"></td>
+                <td th:text="${coupon.description}"></td>
+                <td th:text="${coupon.couponCode}"></td>
+                <td th:text="${coupon.restrictions}"></td>
+                <td th:text="${coupon.value}"></td>
+                <td th:text="${coupon.remainingUses}"></td>
+                <td th:text="${coupon.startDatetime}"></td>
+                <td th:text="${coupon.endDatetime}"></td>
+            </tr>
+        </tbody>
+
+
         <!-- Footer Table -->
         <tfoot>
         <tr>
+            <th>Edit</th>
             <th>Title</th>
             <th>Description</th>
             <th>Coupon Code</th>
@@ -84,17 +88,17 @@
             "bLengthChange": false,
             "columnDefs": [ {
                 "orderable": false,
-                "className": 'select-checkbox',
-                "targets":   5
+                /*"className": 'select-checkbox',
+                "targets": 0*/
             } ],
             "select": {
                 "style": 'os',
                 "selector": 'td:first-child'
             },
-            "sAjaxSource": "/couponstable",
-            "sAjaxDataProp": "",
-            "order": [[ 0, "asc" ]],
-            "aoColumns": [                    /*These column names correspond with names in the User model*/
+            //"sAjaxSource": "/coupons",
+            //"sAjaxDataProp": "",
+            "order": [[ 1, "asc" ]]
+            /*"aoColumns": [                    /!*These column names correspond with names in the User model*!/
                 { "mData": "title"},
                 { "mData": "description" },
                 { "mData": "couponCode" },
@@ -104,14 +108,14 @@
                 { "mData": "startDatetime", "type": "date" },
                 { "mData": "endDatetime", "type": "date" }
 
-            ]
-        })
+            ]*/
+        });
 
 //        table.ajax().url('/userstable').load();
 
-        setInterval( function () {
+        /*setInterval( function () {
             table.ajax.reload();
-        }, 30000 );
+        }, 30000 );*/
     });
 
 </script>
