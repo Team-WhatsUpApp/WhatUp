@@ -30,10 +30,10 @@ public class MapController {
 	@Autowired
 	private LocationsRepository locationsDao;
 
-	@GetMapping("/maps/{lon}/{lat}/{dist}")
-	public String loadMap(@PathVariable double lon, @PathVariable double lat, @PathVariable double dist, Model model) throws JSONException{
-		Iterable<Location> results = locationsDao.getLocationsMap(lon, lat, dist/2);
-		model.addAttribute("results", results);
+	@GetMapping("/maps/geo")
+	public String loadMap(/*@PathVariable double lon, @PathVariable double lat, @PathVariable double dist, Model model*/) throws JSONException{
+//		Iterable<Location> results = locationsDao.getLocationsMap(lon, lat, dist/2);
+//		model.addAttribute("results", results);
 		return "map/map";
 	}
 
