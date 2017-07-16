@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4">
+<head th:replace="fragments/fragments :: head('Places')">
+    <meta charset="UTF-8"/>
+</head>
+<body>
+<div th:each="location : ${locations}">
+
+    <div class="place">
+        <h2>Name: <span th:text="${location.vendor.displayName}"></span></h2>
+
+    </div>
+</div>
+
+</body>
+<script th:include="fragments/fragments :: scripts"></script>
+</html>
