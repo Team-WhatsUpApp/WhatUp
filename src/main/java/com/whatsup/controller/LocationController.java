@@ -11,8 +11,10 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
+import javax.print.URIException;
 import java.io.IOException;
 import java.net.URISyntaxException;
 
@@ -38,8 +40,23 @@ public class LocationController {
 		return "location/index";
 	}
 
+
+	@GetMapping("places/{id}")
+	public String singleLocation(@PathVariable long id, Model model){
+		Location location = locationsDao.findOne(id);
+		model.addAttribute("locations", location);
+		return "location/show";
+	}
+
+
+	@GetMapping("places/create")
+	public String createLocation(){
+		return "location/create";
+	}
+
+
 	@PostMapping("/places/create")
-	public String createLocation(@ModelAttribute Location location, Model model){
+	public String saveLocation(@ModelAttribute Location location, Model model){
 		User user = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
 		Vendor vendor = vendorsDao.findByOwner(user);
 		location.setVendor(vendor);
