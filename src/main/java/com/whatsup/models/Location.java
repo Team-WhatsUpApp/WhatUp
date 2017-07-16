@@ -42,6 +42,8 @@ public class Location implements Serializable{
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private long id;
 
+	private String name;
+
 	private String yelpId;
 
 	@OneToOne
@@ -59,6 +61,11 @@ public class Location implements Serializable{
 	)
 	@JsonIgnore
 	private List<Coupon> couponList;
+
+	private String streetAddress;
+	private String phoneNumber;
+	private String yelpUrl;
+	private String imageUrl;
 
 	private double x;
 	private double y;
@@ -128,5 +135,45 @@ public class Location implements Serializable{
 
 	public void setCouponList(List<Coupon> couponList) {
 		this.couponList = couponList;
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public String getStreetAddress() {
+		return streetAddress;
+	}
+
+	public void setStreetAddress(String streetAddress) {
+		this.streetAddress = streetAddress;
+	}
+
+	public String getPhoneNumber() {
+		return phoneNumber;
+	}
+
+	public void setPhoneNumber(String phoneNumber) {
+		this.phoneNumber = phoneNumber;
+	}
+
+	public String getYelpUrl() {
+		return yelpUrl;
+	}
+
+	public void setYelpUrl(String yelpUrl) {
+		this.yelpUrl = yelpUrl;
+	}
+
+	public String getImageUrl() {
+		return imageUrl;
+	}
+
+	public void setImageUrl(String imageUrl) {
+		this.imageUrl = imageUrl;
 	}
 }
