@@ -35,6 +35,11 @@ public class AuthenticationController {
         return "login";
     }
 
+   /* @GetMapping("/PasswordReset")
+    public String showForgotPasswordForm() {
+        return "forgot_password";
+    }*/
+
     @GetMapping("/yelp")
     public String shownewYelpAPI() {
         return "yelpAPI";
