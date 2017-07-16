@@ -31,7 +31,7 @@ public class MapController {
 	@GetMapping("/locations.json/{lon}/{lat}/{dist}")
 	public @ResponseBody
 	Iterable<Location> locations(@PathVariable double lon, @PathVariable double lat, @PathVariable double dist, Model model) {
-		return locationsDao.getLocationsMap(lon, lat, dist / 2);
+		return locationsDao.getLocationsMap(lon, lat, dist);
 		//model.addAttribute("results", results);
 		//return "map/map";
 	}
