@@ -42,7 +42,7 @@ public class TestController {
 
 
 //		Create users
-		User user1 = new User("user1", "user1@email.com", "password", "John", "Smith", 2105551234);
+/*		User user1 = new User("user1", "user1@email.com", "password", "John", "Smith", 2105551234);
 		User user2 = new User("user2", "user2@email.com", "password", "John", "Doe", 2105552345);
 		User user3 = new User("user3", "user3@email.com", "password", "Jane", "Smith", 2105553456);
 		User user4 = new User("user4", "user4@email.com", "password", "Jane", "Doe", 2105554567);
@@ -121,7 +121,7 @@ public class TestController {
 
 		List<Coupon> couponList5 = new ArrayList<>();
 		couponList5.add(coupon5);
-		downtown5.setCouponList(couponList5);
+		downtown5.setCouponList(couponList5);*/
 
 
 //		usersDao.save(user1);

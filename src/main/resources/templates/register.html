@@ -31,22 +31,25 @@
                     <br/>
 
                         <div>
-                            <input  type="password" class="custom-control-indicator nsearch-input username" placeholder=" Enter Your Password" th:field="*{password}" />
+                            <input  class="username" type="password"  placeholder=" Enter Your Password" th:field="*{password}" />
                         </div>
 
                     <br/>
                     <div>
-                        <input  class="username" type="password"  placeholder=" Confirm Password" th:field="*{password}" />
+                        <input  class="username" type="password"  placeholder=" Confirm Password"  />
                     </div>
 
                     <br/>
                     <div>
-                        <input class="username" type="text"  placeholder=" Phone Number" th:field="*{phoneNumber}" />
+                        <input class="username" type="text"  placeholder="Phone Number" th:field="*{phoneNumber}" />
                     </div>
 
                     <br/>
 
-                    <input id="vendor" type="checkbox" name="vendor" value="vendor"/>Vendor Profile?
+
+                    <input id="vendor" type="checkbox" name="vendor" value="vendor" th:checked="${flag}" />
+                    <p>Vendor Profile?</p>
+
 
                     <br/>
                         <!--<input id="rbutton" class="btn" type="submit" />-->

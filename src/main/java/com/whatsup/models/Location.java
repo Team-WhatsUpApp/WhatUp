@@ -1,6 +1,8 @@
 package com.whatsup.models;
 
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonProperty;
 import com.vividsolutions.jts.geom.Point;
 
 import javax.persistence.*;
@@ -40,10 +42,15 @@ public class Location implements Serializable{
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private long id;
 
+	private String name;
+
+	private String yelpId;
+
 	@OneToOne
 	private Vendor vendor;
 
 	@Column(name = "location")
+	@JsonIgnore
 	private Point location;
 
 	@ManyToMany(cascade = CascadeType.ALL)
@@ -52,18 +59,64 @@ public class Location implements Serializable{
 			joinColumns={@JoinColumn(name="location_id")},
 			inverseJoinColumns={@JoinColumn(name="coupon_id")}
 	)
+	@JsonIgnore
 	private List<Coupon> couponList;
+
+	private String streetAddress;
+	private String phoneNumber;
+	private String yelpUrl;
+	private String imageUrl;
+
+	private double x;
+	private double y;
+
+	public Location() {
+	}
 
 	public Location(Vendor vendor, Point location) {
 		this.vendor = vendor;
 		this.location = location;
 	}
 
-	public Location() {
+	public Location(String name, String yelpId, Point location, String streetAddress, String phoneNumber, String yelpUrl, String imageUrl) {
+		this.name = name;
+		this.yelpId = yelpId;
+		this.location = location;
+		this.streetAddress = streetAddress;
+		this.phoneNumber = phoneNumber;
+		this.yelpUrl = yelpUrl;
+		this.imageUrl = imageUrl;
+	}
+
+	@JsonProperty("x")
+	public double getX() {
+		return this.location.getX();
+	}
+
+
+	public void setX(double x) {
+		this.x = x;
+	}
+
+	@JsonProperty("y")
+	public double getY() {
+		return this.location.getY();
+	}
+
+	public void setY(double y) {
+		this.y = y;
 	}
 
 	public Point getLocation() {
 		return location;
+	}
+
+	public String getYelpId() {
+		return yelpId;
+	}
+
+	public void setYelpId(String yelpId) {
+		this.yelpId = yelpId;
 	}
 
 	public void setLocation(Point location) {
@@ -92,5 +145,50 @@ public class Location implements Serializable{
 
 	public void setCouponList(List<Coupon> couponList) {
 		this.couponList = couponList;
+	}
+
+	@JsonProperty("name")
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	@JsonProperty("address")
+	public String getStreetAddress() {
+		return streetAddress;
+	}
+
+	public void setStreetAddress(String streetAddress) {
+		this.streetAddress = streetAddress;
+	}
+
+	@JsonProperty("phone")
+	public String getPhoneNumber() {
+		return phoneNumber;
+	}
+
+	public void setPhoneNumber(String phoneNumber) {
+		this.phoneNumber = phoneNumber;
+	}
+
+	@JsonProperty("url")
+	public String getYelpUrl() {
+		return yelpUrl;
+	}
+
+	public void setYelpUrl(String yelpUrl) {
+		this.yelpUrl = yelpUrl;
+	}
+
+	@JsonProperty("image")
+	public String getImageUrl() {
+		return imageUrl;
+	}
+
+	public void setImageUrl(String imageUrl) {
+		this.imageUrl = imageUrl;
 	}
 }

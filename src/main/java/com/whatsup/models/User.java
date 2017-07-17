@@ -43,8 +43,9 @@ public class User {
 	private String lastName;
 
 	@Column(name = "phone_number")
-	private int phoneNumber;
+	private String phoneNumber;
 
+	@JsonIgnore
 	@ManyToMany(cascade = CascadeType.ALL)
 	@JoinTable(
 			name = "user_has_coupons",
@@ -57,6 +58,7 @@ public class User {
 	}
 
 	public User(User user) {
+		this.id = user.id;
 		this.username = user.username;
 		this.email = user.email;
 		this.password = user.password;
@@ -65,7 +67,7 @@ public class User {
 		this.phoneNumber = user.phoneNumber;
 	}
 
-	public User(String username, String email, String password, String firstName, String lastName, int phoneNumber) {
+	public User(String username, String email, String password, String firstName, String lastName, String phoneNumber) {
 		this.username = username;
 		this.email = email;
 		this.password = password;
@@ -130,11 +132,11 @@ public class User {
 		this.lastName = lastName;
 	}
 
-	public int getPhoneNumber() {
+	public String getPhoneNumber() {
 		return phoneNumber;
 	}
 
-	public void setPhoneNumber(int phoneNumber) {
+	public void setPhoneNumber(String phoneNumber) {
 		this.phoneNumber = phoneNumber;
 	}
 

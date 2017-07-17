@@ -21,6 +21,10 @@ public class UserWithRoles extends User implements UserDetails {
         this.userRoles = userRoles;
     }
 
+    public List<String> getUserRoles() {
+        return userRoles;
+    }
+
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
         String roles = StringUtils.collectionToCommaDelimitedString(userRoles);

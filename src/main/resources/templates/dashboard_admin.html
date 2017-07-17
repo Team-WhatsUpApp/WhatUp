@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4">
+<head th:replace="fragments/fragments :: head('Dashboard')" />
+
+
+
+<body>
+<nav th:replace="fragments/fragments :: navbar" />
+<div id="bgoverlay"></div>
+
+<h1>Admin Dashboard</h1>
+
+<h4>Users</h4>
+<div class="container-fluid col-lg-12">
+    <a href="/user/create" class="btn btn-default" id="ucreate" type="submit">New</a>
+    <table id="usersTable" class="display" cellspacing="10" width="100%">
+    <thead>
+        <!-- Header Table -->
+        <tr>
+            <th>Edit</th>
+            <th>Delete</th>
+            <th>Id</th>
+            <th>First</th>
+            <th>Last</th>
+            <th>Username</th>
+            <th>Email</th>
+            <th>Phone</th>
+            <th>Date Created</th>
+        </tr>
+    </thead>
+
+        <tbody>
+        <tr th:each="user : ${users}">
+            <td>
+                <a class="btn btn-primary" th:href="@{/user/{id}/edit(id=${user.id})}">
+                    Edit
+                </a>
+            </td>
+            <td>
+                <form th:action="@{/user/{id}/delete(id=${user.id})}" th:method="post">
+                    <a class="btn btn-danger">Delete</a>
+                </form>
+            </td>
+            <td th:text="${user.id}"></td>
+            <td th:text="${user.firstName}"></td>
+            <td th:text="${user.lastName}"></td>
+            <td th:text="${user.username}"></td>
+            <td th:text="${user.email}"></td>
+            <td th:text="${user.phoneNumber}"></td>
+            <td th:text="${user.createTime}"></td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+<div th:replace="fragments/fragments :: scripts" />
+<script type="text/javascript">
+    $(document).ready( function () {
+        "use strict";
+
+
+        var table = $('#usersTable').DataTable({
+            "responsive": true,
+            "searching": true,
+            "bLengthChange": false,
+            /*"mRender": function (data) {
+                return 'Add';
+            },*/
+            "columnDefs": [ {
+                "orderable": false
+               /* "className": 'select-checkbox',
+                "targets":  0*/
+            } ],
+            "select": {
+                "style": 'os',
+                "selector": ':not(:last-child)'
+            },
+
+            "order": [[0, "asc"]]
+
+        });
+
+
+
+    });
+
+</script>
+</body>
+</html>

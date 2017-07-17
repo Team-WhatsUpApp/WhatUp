@@ -1,8 +1,6 @@
-/*.bgoverlay {*/
-/*width: 100%;*/
-/*height: auto;*/
-/*background-color: rgba(0, 0, 0, .5);*/
-/*}*/
+
+
+
 #features{
     background-color: white;
     /*background: url(../img/bg-pattern.png);*/
@@ -145,6 +143,18 @@ section {
         height: 5vw;
 
     }
+
+    @media only screen  and (max-width: 736px) {
+
+        #midbutton {
+            width: 37vw;
+            height: 9vw;
+            font-size:3vw;
+        }
+
+    }
+
+
 }
 
 
