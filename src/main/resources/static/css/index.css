@@ -1,118 +1,103 @@
-
-
-
-#features{
+#features {
     background-color: white;
     /*background: url(../img/bg-pattern.png);*/
 }
-#midbutton{
-width: 15vw;
-height: 3vw;
 
+#midbutton {
+    width: 15vw;
+    height: 3vw;
 }
-
-h3{
+h3 {
     color: black;
 }
-
 .sa {
     background-image: url("../img/sa6.jpg");
     background-size: cover;
 }
-
 .josh {
     background-image: url("../img/josh.png");
     background-size: cover;
 }
-
 .del {
     background-image: url("../img/del.jpg");
     background-size: cover;
 }
-
 .moses {
     background-image: url("../img/moses.png");
     background-size: cover;
 }
-
 #1phoneimage {
     background-size: cover;
 }
-
 .burger {
     background-image: url("../img/res2.jpg");
     background-size: cover;
 }
-
 #burgerdiv {
     height: 84vh;
     width: auto;
-
 }
 
 h2 {
     color: white;
 }
-
 #stopwaiting {
     font-size: 8vw;
-
 }
 
 .device-mockup > .device {
     height: 100%
 }
-
-
 button:hover {
     opacity: 0.8;
 }
-.login{
+
+.login {
     color: darkorange;
 }
-#button{
-    background-color:transparent;
-}
-#button:hover{
-    background-color:#fdcc52;
+#button {
+    background-color: transparent;
 }
 
-#wallet{
-    height:8vw;
-}
-#city{
-    height:8vw;
-}
-#pig{
-    height:8vw;
+#button:hover {
+    background-color: #fdcc52;
 }
 
+#wallet {
+    height: 8vw;
+}
+
+#city {
+    height: 8vw;
+}
+
+#pig {
+    height: 8vw;
+}
 
 header {
     background: url(../img/bg-pattern.png), linear-gradient(to left, lightpink, blue);
 }
+
 section {
     padding: 90px 0 10px 0;
 }
-/*#menu {*/
-    /*height: 8vw;*/
-    /*width:15vw;*/
-/*}*/
-
-
 
 @media only screen  and (max-width: 1024px) {
     #firstphone {
         margin-top: 6vw;
     }
-    #wallet{
-        height:16vw;
+
+    #wallet {
+        height: 16vw;
     }
-    #city{
-        height:16vw;
+
+    #city {
+        height: 16vw;
     }
-    #pig{
-        height:11vw;
+
+    #pig {
+        height: 11vw;
     }
 
 }
@@ -123,22 +108,23 @@ section {
         margin-top: 10vw;
     }
 
-
 }
-
 
 @media only screen  and (max-width: 736px) {
 
-    #wallet{
-        height:30vw;
+    #wallet {
+        height: 30vw;
     }
-    #city{
-        height:30vw;
+
+    #city {
+        height: 30vw;
     }
-    #pig{
-        height:30vw;
+
+    #pig {
+        height: 30vw;
     }
-    #midbutton{
+
+    #midbutton {
         width: 54vw;
         height: 5vw;
 
@@ -149,11 +135,10 @@ section {
         #midbutton {
             width: 37vw;
             height: 9vw;
-            font-size:3vw;
+            font-size: 3vw;
         }
 
     }
-
 
 }
 
