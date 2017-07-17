@@ -54,7 +54,8 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
                         "/user/?/delete",
                         "/user/?/savecoupon",
                         "/vendors",
-                        "/vendor/?/profile"
+                        "/vendor/?/profile",
+                        "/users"
 
 
 
