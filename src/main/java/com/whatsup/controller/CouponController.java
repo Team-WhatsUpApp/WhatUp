@@ -64,7 +64,7 @@ public class CouponController {
     @PostMapping("/coupon/create")
     public String createCoupon(@ModelAttribute Coupon coupon) {
         couponsRepository.save(coupon);
-        return "redirect:/vendor";
+        return "redirect:/dashboards";
     }
 
 
@@ -82,7 +82,7 @@ public class CouponController {
         BeanUtils.copyProperties(coupon, existingCoupon);
         couponsRepository.save(coupon);
         model.addAttribute("coupon", coupon);
-        return "redirect:/vendor";
+        return "redirect:/dashboards";
     }
 
 //    Delete coupon
@@ -91,7 +91,7 @@ public class CouponController {
     public String deleteCoupon(@PathVariable Long id) {
         Coupon existingCoupon = couponsRepository.findOne(id);
         couponsRepository.delete(existingCoupon);
-        return "redirect:/vendor";
+        return "redirect:/dashboards";
     }
 }
 
