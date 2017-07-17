@@ -74,8 +74,6 @@ z-index:-100;
 
 
 @media only screen and (min-width: 310px) {
-
-
     p{
         margin:0;
         font-size:8vw;
@@ -89,7 +87,7 @@ z-index:-100;
         letter-spacing: 1px;
     }
     input{
-        height: 5.2vw;
+        height: 8vw;
         width: 50vw;
         border-radius: 32px;
     }
