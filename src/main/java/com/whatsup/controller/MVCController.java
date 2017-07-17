@@ -1,6 +1,13 @@
 package com.whatsup.controller;
 
 import com.fasterxml.jackson.annotation.JsonView;
+import com.vividsolutions.jts.geom.Coordinate;
+import com.vividsolutions.jts.geom.GeometryFactory;
+import com.vividsolutions.jts.geom.Point;
+import com.whatsup.models.Location;
+import com.whatsup.models.Vendor;
+import com.whatsup.repositories.LocationsRepository;
+import com.whatsup.repositories.VendorsRepository;
 import org.apache.http.Consts;
 import org.apache.http.NameValuePair;
 import org.apache.http.client.entity.UrlEncodedFormEntity;
@@ -11,12 +18,12 @@ import org.apache.http.client.utils.URIBuilder;
 import org.apache.http.impl.client.CloseableHttpClient;
 import org.apache.http.impl.client.HttpClients;
 import org.apache.http.message.BasicNameValuePair;
+import org.codehaus.jackson.map.ObjectMapper;
+import org.json.JSONArray;
 import org.json.JSONObject;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -31,6 +38,7 @@ import java.util.List;
  */
 @Controller
 public class MVCController {
+
 
 
 
@@ -80,5 +88,18 @@ public class MVCController {
 
         return "yelpAPI";
     }
+
+	@RequestMapping(path = "/admin", method = RequestMethod.GET)
+	public String adminPage() {
+		return "dashboard_admin";
+	}
+
+
+	@RequestMapping(path = "/users", method = RequestMethod.GET)
+	public String userPage() {
+		return "dashboard_user";
+	}
+
+
 }
 

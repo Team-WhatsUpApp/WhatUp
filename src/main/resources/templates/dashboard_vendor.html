@@ -9,6 +9,7 @@
 <div id="bgoverlay"></div>
 <h2>Vendors Dashboard</h2>
 
+<<<<<<< HEAD
 <h3>Discounts</h3>
 <div class="container-fluid col-lg-6 col-sm-4">
 
@@ -21,25 +22,34 @@
 
     <a href="/coupon/create" class="btn btn-default" id="vcreate" type="submit">New</a>
 
-    
+=======
+<h4>Discounts</h4>
+<div class="container-fluid Col-lg-12">
+
+
+
+
+
+  <a href="/coupon/create" class="btn btn-default" id="vcreate" type="submit">New</a>
+
+    <a href="/coupon/delete" class="btn btn-default" id="vdelete" type="submit">Delete</a>
+
     <table id="vendorTable" class="display" cellspacing="0" width="100%">
 
         <thead>
         <!-- Header Table -->
         <tr>
 
-
             <th>Edit</th>
             <th>Delete</th>
-            
-            
-            
-
             <th>Description</th>
+            <th>Restrictions</th>
+            <th>Code</th>
             <th>Value</th>
-            
             <th>Start</th>
             <th>End</th>
+
+
         </tr>
         </thead>
 
@@ -57,10 +67,9 @@
                 </td>
 
                 <td th:text="${coupon.description}"></td>
-                <!--<td th:text="${coupon.couponCode}"></td>-->
-                <!--<td th:text="${coupon.restrictions}"></td>-->
+                <td th:text="${coupon.restrictions}"></td>
+                <td th:text="${coupon.couponCode}"></td>
                 <td th:text="${coupon.value}"></td>
-                <!--<td th:text="${coupon.remainingUses}"></td>-->
                 <td th:text="${coupon.startDatetime}"></td>
                 <td th:text="${coupon.endDatetime}"></td>
             </tr>

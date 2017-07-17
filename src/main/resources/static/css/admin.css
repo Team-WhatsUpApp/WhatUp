@@ -10,3 +10,14 @@ body{
 
 }
 
+
+
+
+@media only screen and (max-width: 736px) {
+
+    .btn {
+        border-radius: 300px;
+        font-size: 3vw;
+    }
+
+}
