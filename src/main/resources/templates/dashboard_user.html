@@ -44,38 +44,40 @@
 
         </form>
 
-        <div>
-
-        </div>
-
-        <table id="userTable" class="display col-sm-4" cellspacing="0" width="30%">
-            <h4 id="udashtwo">My Coupons</h4>
-
-            <thead>
-            <tr>
-
-                <th>Coupon</th>
-                <th>End Date</th>
-            </tr>
-            </thead>
-            <tbody>
-            <tr th:each="coupon : ${userCoupons}">
-
-
-                <td th:text="${coupon.description}"></td>
-                <td th:text="${coupon.endDatetime}"></td>
-            </tr>
-            </tbody>
-
-        </table>
 
     </div>
+    <div id="googleMap" style="width:90%;height:500px;margin: auto"></div>
+
+
+    <table id="userTable" class="display col-sm-4" cellspacing="0" width="30%">
+        <h4 id="udashtwo">My Coupons</h4>
+
+        <thead>
+        <tr>
+
+            <th>Coupon</th>
+            <th>End Date</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="coupon : ${userCoupons}">
+
+
+            <td th:text="${coupon.description}"></td>
+            <td th:text="${coupon.endDatetime}"></td>
+        </tr>
+        </tbody>
+
+    </table>
+
 </div>
 
 
 <!-- ========== Javascript ============ -->
+<script src="http://maps.googleapis.com/maps/api/js?key=AIzaSyDWaILCW6S7JZjUx7MVdlBqq6YNNwxRvCk&amp;sensor=false"></script>
 
 <div th:replace="fragments/fragments :: scripts"/>
+<script th:src="@{/js/map.js}"></script>
 
 <script>
     $(document).ready(function () {

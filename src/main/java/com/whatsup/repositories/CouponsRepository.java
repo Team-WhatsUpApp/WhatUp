@@ -1,6 +1,7 @@
 package com.whatsup.repositories;
 
 import com.whatsup.models.Coupon;
+import com.whatsup.models.Vendor;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
@@ -23,5 +24,7 @@ public interface CouponsRepository extends CrudRepository<Coupon, Long> {
     Iterable<Coupon> notSelectedByUser(long userId);
 
 	List<Coupon> findAll();
+
+	List<Coupon> findByOwner(Vendor owner);
 
 }

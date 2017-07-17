@@ -38,10 +38,9 @@ public class VendorsController {
 //    Show a Vendor page
     @GetMapping("/vendor/{id}/profile")
     public String showVendor(@PathVariable long id, Model model) {
-        User vendor = usersRepository.findOne(id);
-        Iterable<Coupon> coupons = couponsRepository.findAll();
-        model.addAttribute("vendor",vendor);
-        model.addAttribute("coupons", coupons);
+        Vendor vendor = vendorRepository.findOne(id);
+        model.addAttribute("vendor",vendor.getOwner());
+        model.addAttribute("coupons", vendor.getCouponList());
         return  "dashboard_vendor";
     }
 

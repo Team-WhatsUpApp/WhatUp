@@ -114,8 +114,6 @@
 <ul class="topnav">
     <li id="wu"><a   class="active">#WhatsUP!</a></li>
     <li><a id="home" th:href="@{/}">Home</a></li>
-
-
     <li sec:authorize="!isAuthenticated()">
         <a id="login"  th:href="@{/login}">Login</a>
     </li>
@@ -129,7 +127,6 @@
     </li>
 
     <li  id="contact" class="right"><a th:href="@{#contact}">Contact Us</a></li>
-
 </ul>
 </nav>
 
