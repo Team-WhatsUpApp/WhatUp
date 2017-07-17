@@ -20,7 +20,7 @@ public class MapController {
 	@Autowired
 	private LocationsRepository locationsDao;
 
-	@GetMapping("/maps/geo")
+	@GetMapping("/maps")
 	public String loadMap(/*@PathVariable double lon, @PathVariable double lat, @PathVariable double dist, Model model*/) {
 //		Iterable<Location> results = locationsDao.getLocationsMap(lon, lat, dist/2);
 //		model.addAttribute("results", results);
