@@ -25,4 +25,6 @@ public interface LocationsRepository extends CrudRepository<Location, Long> {
 
 	List<Location> getLocationsByVendor(Vendor vendor);
 
+	List<Location> getLocationById(long id);
+
 }
