@@ -51,9 +51,10 @@ public class MVCController {
 	}
 
 
-	@RequestMapping(path = "/yelp/{term}", method = RequestMethod.GET)
-	@ResponseBody
-	public Location getYelpId(@PathVariable String term/*@PathVariable String lat, @PathVariable String lon*/) throws IOException, URISyntaxException {
+//	@Deprecated
+//	@RequestMapping(path = "/yelp/{term}", method = RequestMethod.GET)
+//	@ResponseBody
+	/*public Location getYelpInfo(@PathVariable String term*//*@PathVariable String lat, @PathVariable String lon*//*) throws IOException, URISyntaxException {
 		CloseableHttpClient client = HttpClients.createDefault();
 
 		List<NameValuePair> formparams = new ArrayList<NameValuePair>();
@@ -88,7 +89,7 @@ public class MVCController {
 		}
 		JSONObject jsonObject = new JSONObject(json);
 		String token = jsonObject.getString("access_token");
-//		System.out.println(token);
+		System.out.println(token);
 
 		URIBuilder builder = new URIBuilder();
 		builder.setScheme("https").setHost("api.yelp.com").setPath("/v3/businesses/search")
@@ -129,7 +130,7 @@ public class MVCController {
 //		Vendor vendor = vendorsDao.findById(5);
 //		System.out.println(vendor.getId());
 
-//		Concat together the street adress from the location object
+//		Concat together the street address from the location object
 		JSONObject address = business.getJSONObject("location");
 		streetAddress += address.getString("address1") + ", ";
 		streetAddress += address.getString("city") + ", ";
@@ -154,7 +155,8 @@ public class MVCController {
 		url = business.getString("url");
 		imageUrl = business.getString("image_url");
 
-		return new Location(businessName, resultId, point, streetAddress, phoneNumber, url, imageUrl);
-	}
+		Location location = new Location(businessName, resultId, point, streetAddress, phoneNumber, url, imageUrl);
+		return location;
+	}*/
 }
 
