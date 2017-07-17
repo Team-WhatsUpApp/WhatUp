@@ -1,6 +1,5 @@
 package com.whatsup.controller;
 
-import com.fasterxml.jackson.annotation.JsonView;
 import com.whatsup.models.Coupon;
 import com.whatsup.models.User;
 import com.whatsup.repositories.CouponsRepository;
@@ -8,14 +7,11 @@ import com.whatsup.repositories.UsersRepository;
 import com.whatsup.svcs.CouponSvc;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.jpa.datatables.mapping.DataTablesInput;
-import org.springframework.data.jpa.datatables.mapping.DataTablesOutput;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
-import javax.validation.Valid;
 
 /**
  * Created by DelMonroe on 7/11/17.

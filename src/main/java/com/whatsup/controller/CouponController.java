@@ -1,10 +1,14 @@
 package com.whatsup.controller;
 
 import com.whatsup.models.Coupon;
+import com.whatsup.models.User;
+import com.whatsup.models.Vendor;
 import com.whatsup.repositories.CouponsRepository;
+import com.whatsup.repositories.VendorsRepository;
 import com.whatsup.svcs.CouponSvc;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -20,11 +24,14 @@ public class CouponController {
 
     private final CouponsRepository couponsRepository;
     private final CouponSvc couponSvc;
+    private VendorsRepository vendorsRepository;
+
 
     @Autowired
-    public CouponController(CouponsRepository couponsRepository, CouponSvc couponSvc) {
+    public CouponController(CouponsRepository couponsRepository, CouponSvc couponSvc, VendorsRepository vendorsRepository) {
         this.couponsRepository = couponsRepository;
         this.couponSvc = couponSvc;
+        this.vendorsRepository = vendorsRepository;
     }
 
 //    List all coupons
@@ -63,6 +70,9 @@ public class CouponController {
 
     @PostMapping("/coupon/create")
     public String createCoupon(@ModelAttribute Coupon coupon) {
+        User user = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        Vendor vendor = vendorsRepository.findByOwner(user);
+        coupon.setOwner(vendor);
         couponsRepository.save(coupon);
         return "redirect:/dashboards";
     }
