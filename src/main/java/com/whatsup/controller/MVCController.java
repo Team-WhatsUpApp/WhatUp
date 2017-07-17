@@ -39,11 +39,6 @@ import java.util.List;
 @Controller
 public class MVCController {
 
-	@Autowired
-	VendorsRepository vendorsDao;
-	@Autowired
-	LocationsRepository locationDao;
-
 	@RequestMapping(path = "/admin", method = RequestMethod.GET)
 	public String adminPage() {
 		return "dashboard_admin";
@@ -58,7 +53,7 @@ public class MVCController {
 
 	@RequestMapping(path = "/yelp/{term}", method = RequestMethod.GET)
 	@ResponseBody
-	public String getYelpId(@PathVariable String term/*@PathVariable String lat, @PathVariable String lon*/) throws IOException, URISyntaxException {
+	public Location getYelpId(@PathVariable String term/*@PathVariable String lat, @PathVariable String lon*/) throws IOException, URISyntaxException {
 		CloseableHttpClient client = HttpClients.createDefault();
 
 		List<NameValuePair> formparams = new ArrayList<NameValuePair>();
@@ -78,10 +73,15 @@ public class MVCController {
 		String resultId = "";
 		String streetAddress = "";
 		String phoneNumber = "";
+		String businessName = "";
 		String url = "";
 		String imageUrl = "";
+		String preparedTerm = term.replaceAll(" ", "-");
 		double lat = 0;
 		double lon = 0;
+
+		System.out.println(preparedTerm);
+
 //		System.out.println("Output from Server .... \n");
 		while ((output = br.readLine()) != null) {
 			json += output;
@@ -96,7 +96,7 @@ public class MVCController {
 //				.setParameter("access_token", token)
 //				.setParameter("latitude", lat)
 //				.setParameter("longitude", lon)
-				.setParameter("term", term);
+				.setParameter("term", preparedTerm);
 		URI uri = builder.build();
 
 		HttpGet get = new HttpGet(uri);
@@ -107,42 +107,54 @@ public class MVCController {
 			rawData = output;
 		}
 
-		System.out.println(rawData);
+//		System.out.println(rawData);
 
-//		JSONObject jsonBusiness = new JSONObject(rawData);
-//		JSONArray businesses;
-//
-//		businesses = jsonBusiness.getJSONArray("businesses");
-//
-//		JSONObject business = businesses.getJSONObject(0);
-//		resultId = business.getString("id");
-//		JSONObject address = business.getJSONObject("location");
-//		streetAddress += address.getString("address1") + ", ";
-//		streetAddress += address.getString("city")+ ", ";
-//		streetAddress += address.getString("state")+ " ";
-//		streetAddress += address.getString("zip_code");
-//		phoneNumber += business.getString("phone");
-//		JSONObject coords = business.getJSONObject("coordinates");
-//		lat = coords.getDouble("latitude");
-//		lon = coords.getDouble("longitude");
-//
-//
-//		Location location = new Location();
-//		location.setYelpId(resultId);
-//		GeometryFactory geometryFactory = new GeometryFactory();
-//		Coordinate coordinate = new Coordinate(lon, lat);
-//		Point point = geometryFactory.createPoint(coordinate);
-//		location.setLocation(point);
-//		Vendor vendor = vendorsDao.findById(7);
-//		location.setVendor(vendor);
-//		System.out.println(business.getString("name"));
-//		System.out.println(streetAddress);
-//		System.out.println(phoneNumber);
-//		System.out.println(business.getString("url"));
-//		System.out.println(business.getString("image_url"));
-////		locationDao.save(location);
+//		JSON object created from the raw data
+		JSONObject jsonBusiness = new JSONObject(rawData);
 
-		return rawData;
+//		Make an array from the previous JSONObject
+		JSONArray businesses;
+		businesses = jsonBusiness.getJSONArray("businesses");
+
+//		Get the first result
+		JSONObject business = businesses.getJSONObject(0);
+
+//		Name
+		businessName = business.getString("name");
+
+//		Yelp ID
+		resultId = business.getString("id");
+
+//		Vendor TODO: Make this actually functional, instead of just a test for now
+//		Vendor vendor = vendorsDao.findById(5);
+//		System.out.println(vendor.getId());
+
+//		Concat together the street adress from the location object
+		JSONObject address = business.getJSONObject("location");
+		streetAddress += address.getString("address1") + ", ";
+		streetAddress += address.getString("city") + ", ";
+		streetAddress += address.getString("state") + " ";
+		streetAddress += address.getString("zip_code");
+
+//		Phone number
+		phoneNumber = business.getString("phone");
+
+//		Getting the coordinates so we can make a point later.
+		JSONObject coords = business.getJSONObject("coordinates");
+		lat = coords.getDouble("latitude");
+		lon = coords.getDouble("longitude");
+
+
+//		And creating that point here.
+		GeometryFactory geometryFactory = new GeometryFactory();
+		Coordinate coordinate = new Coordinate(lon, lat);
+		Point point = geometryFactory.createPoint(coordinate);
+
+//		Yelp and Yelp image URLs
+		url = business.getString("url");
+		imageUrl = business.getString("image_url");
+
+		return new Location(businessName, resultId, point, streetAddress, phoneNumber, url, imageUrl);
 	}
 }
 
