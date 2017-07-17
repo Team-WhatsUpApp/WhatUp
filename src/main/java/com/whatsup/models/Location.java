@@ -78,6 +78,16 @@ public class Location implements Serializable{
 		this.location = location;
 	}
 
+	public Location(String name, String yelpId, Point location, String streetAddress, String phoneNumber, String yelpUrl, String imageUrl) {
+		this.name = name;
+		this.yelpId = yelpId;
+		this.location = location;
+		this.streetAddress = streetAddress;
+		this.phoneNumber = phoneNumber;
+		this.yelpUrl = yelpUrl;
+		this.imageUrl = imageUrl;
+	}
+
 	@JsonProperty("x")
 	public double getX() {
 		return this.location.getX();
@@ -137,6 +147,7 @@ public class Location implements Serializable{
 		this.couponList = couponList;
 	}
 
+	@JsonProperty("name")
 	public String getName() {
 		return name;
 	}
@@ -145,6 +156,7 @@ public class Location implements Serializable{
 		this.name = name;
 	}
 
+	@JsonProperty("address")
 	public String getStreetAddress() {
 		return streetAddress;
 	}
@@ -153,6 +165,7 @@ public class Location implements Serializable{
 		this.streetAddress = streetAddress;
 	}
 
+	@JsonProperty("phone")
 	public String getPhoneNumber() {
 		return phoneNumber;
 	}
@@ -161,6 +174,7 @@ public class Location implements Serializable{
 		this.phoneNumber = phoneNumber;
 	}
 
+	@JsonProperty("url")
 	public String getYelpUrl() {
 		return yelpUrl;
 	}
@@ -169,6 +183,7 @@ public class Location implements Serializable{
 		this.yelpUrl = yelpUrl;
 	}
 
+	@JsonProperty("image")
 	public String getImageUrl() {
 		return imageUrl;
 	}
