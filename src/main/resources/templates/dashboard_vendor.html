@@ -1,94 +1,92 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4">
-<head th:replace="fragments/fragments :: head('Vendor Dashboard')" />
+<head th:replace="fragments/fragments :: head('Vendor Dashboard')"/>
 
 
 <body>
-<nav th:replace="fragments/fragments :: navbar" />
+<nav th:replace="fragments/fragments :: navbar"/>
 
 <div id="bgoverlay"></div>
-<h2>Vendors Dashboard</h2>
+<h2>Your Vendor Dashboard</h2>
 
 
 <h3>Discounts</h3>
 <div class="container-fluid col-lg-6 col-sm-4">
-
     <div sec:authorize="hasRole('VENDOR')">
         <div th:object="${vendor}">
             <h4 id="welcomeUser">Welcome, <span th:text="*{firstName}"></span></h4>
         </div>
         <br/>
 
-    <a href="/coupon/create" class="btn btn-default" id="vcreate" type="submit">New</a>
+        <a href="/coupon/create" class="btn btn-default" id="vcreate" type="submit">New</a>
 
 
-<h4>Discounts</h4>
-<div class="container-fluid Col-lg-12">
+        <h4>Discounts</h4>
+        <div class="container-fluid Col-lg-12">
 
 
+            <table id="vendorTable" class="display" cellspacing="0" width="100%">
 
-    <table id="vendorTable" class="display" cellspacing="0" width="100%">
+                <thead>
+                <!-- Header Table -->
+                <tr>
 
-        <thead>
-        <!-- Header Table -->
-        <tr>
-
-            <th>Edit</th>
-            <th>Delete</th>
-            <th>Description</th>
-            <th>Restrictions</th>
-            <th>Code</th>
-            <th>Value</th>
-            <th>Start</th>
-            <th>End</th>
-
-
-        </tr>
-        </thead>
-
-        <tbody>
-            <tr th:each="coupon : ${coupons}">
-                <td>
-                    <a class="btn btn-primary" th:href="@{/coupon/{id}/edit(id=${coupon.id})}">
-                        Edit
-                    </a>
-                </td>
-                <td>
-                    <form th:action="@{/coupon/{id}/delete(id=${coupon.id})}" th:method="post">
-                        <a class="btn btn-danger">Delete</a>
-                    </form>
-                </td>
-
-                <td th:text="${coupon.description}"></td>
-                <td th:text="${coupon.restrictions}"></td>
-                <td th:text="${coupon.couponCode}"></td>
-                <td th:text="${coupon.value}"></td>
-                <td th:text="${coupon.startDatetime}"></td>
-                <td th:text="${coupon.endDatetime}"></td>
-            </tr>
-        </tbody>
+                    <th>Edit</th>
+                    <th>Delete</th>
+                    <th>Description</th>
+                    <th>Restrictions</th>
+                    <th>Code</th>
+                    <th>Value</th>
+                    <th>Start</th>
+                    <th>End</th>
 
 
-    </table>
+                </tr>
+                </thead>
+
+                <tbody>
+                <tr th:each="coupon : ${coupons}">
+                    <td>
+                        <a class="btn btn-primary" th:href="@{/coupon/{id}/edit(id=${coupon.id})}">
+                            Edit
+                        </a>
+                    </td>
+                    <td>
+                        <form th:action="@{/coupon/{id}/delete(id=${coupon.id})}" th:method="post">
+                            <a class="btn btn-danger">Delete</a>
+                        </form>
+                    </td>
+
+                    <td th:text="${coupon.description}"></td>
+                    <td th:text="${coupon.restrictions}"></td>
+                    <td th:text="${coupon.couponCode}"></td>
+                    <td th:text="${coupon.value}"></td>
+                    <td th:text="${coupon.startDatetime}"></td>
+                    <td th:text="${coupon.endDatetime}"></td>
+                </tr>
+                </tbody>
+
+
+            </table>
+        </div>
     </div>
 </div>
-</div>
 
-<div th:replace="fragments/fragments :: scripts" />
+<div th:replace="fragments/fragments :: scripts"/>
 <script type="text/javascript">
-    $(document).ready( function () {
+    $(document).ready(function () {
         "use strict";
 
         var table = $('#vendorTable').DataTable({
             "responsive": true,
             "searching": true,
             "bLengthChange": false,
-            "columnDefs": [ {
+            "columnDefs": [{
                 "orderable": false
 //                "className": 'select-checkbox',
 //                "targets": 1
-            } ],
-            "order": [[ 1, "asc" ]]
+            }],
+            "order": [[1, "asc"]]
 
         });
 
