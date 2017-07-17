@@ -31,9 +31,10 @@ public class CouponSvc {
         return coupon;
     }
 
+//    public Coupon findOwner(long id) { return couponsRepository.}
+
     public void deleteCoupon(long id){
         couponsRepository.delete(id);
     }
-
 
 }

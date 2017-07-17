@@ -218,3 +218,21 @@ p {
         letter-spacing: 1px;
     }
 }
+
+/* ======== Forgot Password CSS ======== */
+
+#forgotPasswordLabel {
+    color: black;
+    float: right;
+    padding-right: 7vw;
+
+}
+
+#modalClose {
+
+}
+
+.modal {
+    margin-top: 11vw;
+
+}

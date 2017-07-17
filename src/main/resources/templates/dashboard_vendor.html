@@ -7,7 +7,21 @@
 <nav th:replace="fragments/fragments :: navbar" />
 
 <div id="bgoverlay"></div>
-<h1>Vendors Dashboard</h1>
+<h2>Vendors Dashboard</h2>
+
+
+<h3>Discounts</h3>
+<div class="container-fluid col-lg-6 col-sm-4">
+
+
+    <div sec:authorize="hasRole('VENDOR')">
+        <div th:object="${vendor}">
+            <h4 id="welcomeUser">Welcome, <span th:text="*{firstName}"></span></h4>
+        </div>
+        <br/>
+
+    <a href="/coupon/create" class="btn btn-default" id="vcreate" type="submit">New</a>
+
 
 <h4>Discounts</h4>
 <div class="container-fluid Col-lg-12">
@@ -19,6 +33,7 @@
   <a href="/coupon/create" class="btn btn-default" id="vcreate" type="submit">New</a>
 
     <a href="/coupon/delete" class="btn btn-default" id="vdelete" type="submit">Delete</a>
+
     
     <table id="vendorTable" class="display" cellspacing="0" width="100%">
 
@@ -26,11 +41,20 @@
         <!-- Header Table -->
         <tr>
 
+
+
             <th>Title</th>
             <th>Description</th>
             <th>Code</th>
             <th>Edit</th>
             <th>Delete</th>
+
+            
+            
+            
+
+            <th>Description</th>
+
             <th>Restrictions</th>
             <th>Value</th>
             <th>Start</th>
@@ -47,15 +71,15 @@
                 </td>
                 <td>
                     <form th:action="@{/coupon/{id}/delete(id=${coupon.id})}" th:method="post">
-                        <button class="btn btn-danger">Delete</button>
+                        <a class="btn btn-danger">Delete</a>
                     </form>
                 </td>
-                <td th:text="${coupon.title}"></td>
+
                 <td th:text="${coupon.description}"></td>
-                <td th:text="${coupon.couponCode}"></td>
-                <td th:text="${coupon.restrictions}"></td>
+                <!--<td th:text="${coupon.couponCode}"></td>-->
+                <!--<td th:text="${coupon.restrictions}"></td>-->
                 <td th:text="${coupon.value}"></td>
-                <td th:text="${coupon.remainingUses}"></td>
+                <!--<td th:text="${coupon.remainingUses}"></td>-->
                 <td th:text="${coupon.startDatetime}"></td>
                 <td th:text="${coupon.endDatetime}"></td>
             </tr>
@@ -65,7 +89,7 @@
         
 
     </table>
-
+    </div>
 </div>
 
 <div th:replace="fragments/fragments :: scripts" />
@@ -82,31 +106,11 @@
 //                "className": 'select-checkbox',
 //                "targets": 1
             } ],
-//            "select": {
-//                "style": 'os',
-//                "selector": 'td:first-child'
-//            },
-            //"sAjaxSource": "/coupons",
-            //"sAjaxDataProp": "",
             "order": [[ 1, "asc" ]]
-            /*"aoColumns": [                    /!*These column names correspond with names in the User model*!/
-                { "mData": "title"},
-                { "mData": "description" },
-                { "mData": "couponCode" },
-                { "mData": "restrictions" },
-                { "mData": "value" },
-                { "mData": "remainingUses" },
-                { "mData": "startDatetime", "type": "date" },
-                { "mData": "endDatetime", "type": "date" }
 
-            ]*/
         });
 
-//        table.ajax().url('/userstable').load();
 
-        /*setInterval( function () {
-            table.ajax.reload();
-        }, 30000 );*/
     });
 
 </script>
