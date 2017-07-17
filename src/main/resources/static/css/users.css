@@ -1,7 +1,3 @@
-
-
-
-
 body{
     background: url(../img/bg-pattern.png), linear-gradient(to left, lightpink, blue);
     color: white;
@@ -14,12 +10,16 @@ body{
     /*margin:auto;*/
 }
 
+h1{
+    text-align: center;
+}
+
 
 @media only screen and (max-width: 736px) {
 
     h1 {
         font-size: 13vw;
         margin-top: 17vw;
-        /* text-align: center; */
+         text-align: center; 
     }
 }

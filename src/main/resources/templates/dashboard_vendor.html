@@ -7,11 +7,11 @@
 <nav th:replace="fragments/fragments :: navbar"/>
 
 <div id="bgoverlay"></div>
-<h2>Your Vendor Dashboard</h2>
 
-
+<h1> Your Vendor Dashboard</h1>
 <h3>Discounts</h3>
 <div class="container-fluid col-lg-6 col-sm-4">
+
     <div sec:authorize="hasRole('VENDOR')">
         <div th:object="${vendor}">
             <h4 id="welcomeUser">Welcome, <span th:text="*{firstName}"></span></h4>
@@ -19,7 +19,6 @@
         <br/>
 
         <a href="/coupon/create" class="btn btn-default" id="vcreate" type="submit">New</a>
-
 
         <h4>Discounts</h4>
         <div class="container-fluid Col-lg-12">
@@ -41,8 +40,10 @@
                     <th>End</th>
 
 
+
                 </tr>
                 </thead>
+
 
                 <tbody>
                 <tr th:each="coupon : ${coupons}">
