@@ -79,7 +79,7 @@ public class LocationController {
 		Yelp yelp = new Yelp("qoki5XUClSAHUg-8xN8eTg", "fMXre7kUwan40vX4gvBKVYirqX8s9tYFvPlKF9ZbCBA3uQTYn1fpsxyP7WBEUhxJ");
 		List<Business> businessList = yelp.search(SearchCriteria.byLocation("Esquire-Tavern"));
 		for (Business business : businessList) {
-			System.out.println(business.id());
+//			System.out.println(business.id());
 		}
 //		System.out.println(businessList);
 		return "location/create";
@@ -198,6 +198,6 @@ public class LocationController {
 		Vendor vendor = vendorsDao.findById(1);
 		parsedLocation.setVendor(vendor);
 		locationsDao.save(parsedLocation);
-		return "redirect:/places";
+		return "redirect:/maps";
 	}
 }
