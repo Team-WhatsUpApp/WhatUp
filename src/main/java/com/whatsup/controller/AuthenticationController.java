@@ -64,12 +64,11 @@ public class AuthenticationController {
     @GetMapping("/dashboards")
     public String dashboard(HttpServletRequest request) {
         UserWithRoles user = (UserWithRoles) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
-        //user.getUserRoles().contains("VENDOR");
-        if (user.getUserRoles().contains("VENDOR")) {
+
+        if (user.getUserRoles().contains("ROLE_VENDOR")) {
             return "redirect:/vendor/" + user.getId() + "/profile";
-        } else {
-            return "redirect:/user/" + user.getId() + "/profile";
         }
+        return "redirect:/user/" + user.getId() + "/profile";
     }
 
 }
