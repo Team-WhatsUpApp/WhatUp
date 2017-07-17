@@ -8,6 +8,7 @@
         $("#home").fadeToggle(500);
         $("#login").fadeToggle(500);
         $("#register").fadeToggle(500);
+        $("#settings").fadeToggle(500);
         $("#contact").fadeToggle(500);
 
     });
