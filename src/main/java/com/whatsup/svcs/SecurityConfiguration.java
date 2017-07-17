@@ -64,7 +64,6 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
                         "/locations.json/{lon}/{lat}/{dist}",
                         "/maps",
                         "/maps/geo",
-                        "/register",
                         "/dashboards"
 
 
