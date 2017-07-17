@@ -2,28 +2,27 @@
 <html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4">
 
 
-<head th:replace="fragments/fragments :: head('Users Dashboard')" />
-
+<head th:replace="fragments/fragments :: head('Users Dashboard')"/>
 
 
 <body>
-<nav th:replace="fragments/fragments :: navbar" />
+<nav th:replace="fragments/fragments :: navbar"/>
 <div id="bgoverlay"></div>
 
+
 <h1 id="udash">Users Dashboard</h1>
+
 
 
 <div class="container-fluid col-lg-12">
 
 
     <!-- ============= Users Dashboard ================ -->
-
     <div sec:authorize="hasRole('USER')">
         <div th:object="${user}">
             <h3 id="welcomeUser">Welcome, <span th:text="*{username}"></span></h3>
         </div>
         <br/>
-
 
 
         <form id="saveCoup" th:action="@{/user/{id}/savecoupon(id=${user.id})}" th:method="POST">
@@ -32,11 +31,11 @@
                 <label class="mr-sm-2" for="custom-select">Active Coupons</label>
                 <select class="custom-select mb-2 mr-sm-2 mb-sm-0" id="custom-select" name="coupon_id">
 
-                <option th:each="coupon : ${coupons}" th:value="${coupon.id}" th:text="${coupon.description}" />
+                    <option th:each="coupon : ${coupons}" th:value="${coupon.id}" th:text="${coupon.description}"/>
 
                 </select>
                 <label class="custom-control custom-checkbox mb-2 mr-sm-2 mb-sm-0">
-                    <input type="checkbox" class="custom-control-input" />
+                    <input type="checkbox" class="custom-control-input"/>
                     <span class="custom-control-indicator"></span>
                     <span class="custom-control-description">Remember my preference</span>
                 </label>
@@ -74,16 +73,9 @@
 </div>
 
 
-
-
-
-
-
-
-
 <!-- ========== Javascript ============ -->
 
-<div th:replace="fragments/fragments :: scripts" />
+<div th:replace="fragments/fragments :: scripts"/>
 
 <script>
     $(document).ready(function () {
@@ -93,9 +85,8 @@
 <script type="text/javascript">
     var editor;
 
-    $(document).ready( function () {
+    $(document).ready(function () {
         "use strict";
-
 
 
         var table = $('#userTable').DataTable({
@@ -105,11 +96,9 @@
             "bPaginate": false,
             "bInfo": false,
 
-            "order": [[ 0, "asc" ]]
+            "order": [[0, "asc"]]
 
         });
-
-
 
 
     });

@@ -20,6 +20,15 @@
 <div class="col-lg-12">
     <h1>Sign In!</h1>
 
+
+    <div th:if="${param.error}">
+        Invalid Username and Password.
+    </div>
+    <div th:if="${param.logout}">
+        You have been logged out.
+    </div>
+
+
     <form th:action="@{/login}" th:method="POST">
 
         <div>
