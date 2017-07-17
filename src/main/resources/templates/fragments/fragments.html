@@ -116,7 +116,8 @@
     <li><a id="home" th:href="@{/}">Home</a></li>
     <li><a id="login"  th:href="@{/login}">Login</a></li>
     <li><a  id="register"   th:href="@{/register}">Register</a></li>
-    <li  id="contact" class="right"><a th:href="@{#contact}">Contact Us</a></li>
+    <li><a  id="settings"   th:href="@{/user/edit_profile}">Settings</a></li>
+    <li  id="contact" class="right"><a th:href="@{/contact}">Contact Us</a></li>
 </ul>
 </nav>
 
@@ -128,7 +129,7 @@
         <input id="username" class="form-control" th:field="*{username}"/>
         <div class="alert alert-warning alert-dismissible" role="alert" th:if="${#fields.hasErrors('username')}">
             <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-            <span th:errors="*{username}" />
+            <span th:errors="*{username}"/>
         </div>
     </div>
     <div class="form-group">
@@ -136,7 +137,7 @@
         <input id="firstname" class="form-control" th:field="*{firstName}"/>
         <div class="alert alert-warning alert-dismissible" role="alert" th:if="${#fields.hasErrors('firstName')}">
             <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-            <span th:errors="*{firstName}" />
+            <span th:errors="*{firstName}"/>
         </div>
     </div>
     <div class="form-group">
@@ -144,7 +145,7 @@
         <input id="lastname" class="form-control" th:field="*{lastName}"/>
         <div class="alert alert-warning alert-dismissible" role="alert" th:if="${#fields.hasErrors('lastName')}">
             <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-            <span th:errors="*{lastName}" />
+            <span th:errors="*{lastName}"/>
         </div>
     </div>
     <div class="form-group">
@@ -152,7 +153,7 @@
         <input id="phone" class="form-control" th:field="*{phoneNumber}"/>
         <div class="alert alert-warning alert-dismissible" role="alert" th:if="${#fields.hasErrors('phoneNumber')}">
             <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-            <span th:errors="*{phoneNumber}" />
+            <span th:errors="*{phoneNumber}"/>
         </div>
     </div>
     <div class="form-group">
@@ -160,7 +161,7 @@
         <input id="email" class="form-control" th:field="*{email}"/>
         <div class="alert alert-warning alert-dismissible" role="alert" th:if="${#fields.hasErrors('email')}">
             <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-            <span th:errors="*{email}" />
+            <span th:errors="*{email}"/>
         </div>
     </div>
     <div class="form-group">
@@ -168,7 +169,7 @@
         <input id="password" class="form-control" th:field="*{password}"/>
         <div class="alert alert-warning alert-dismissible" role="alert" th:if="${#fields.hasErrors('password')}">
             <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-            <span th:errors="*{password}" />
+            <span th:errors="*{password}"/>
         </div>
     </div>
     <button class="btn btn-default">Save</button>
@@ -236,18 +237,7 @@
             <span th:errors="*{restrictions}" />
         </div>
     </div>
-    <div class="form-group row">
-        <label for="enddatetime-local-input" class="col-2 col-form-label">Start Date/Time</label>
-        <div class="col-10">
-            <input class="form-control" type="datetime-local" value="2011-08-19T13:45:00" id="startdatetime-local-input" th:field="*{startDatetime}" />
-        </div>
-    </div>
-    <div class="form-group row">
-        <label for="enddatetime-local-input" class="col-2 col-form-label">End Date/Time</label>
-        <div class="col-10">
-            <input class="form-control" type="datetime-local" value="2011-08-19T13:45:00" id="enddatetime-local-input" th:field="*{endDatetime}" />
-        </div>
-    </div>
+    
     <div class="form-group">
         <label for="file">Image</label>
         <input type="file" class="form-control" name="file" id="file" />
