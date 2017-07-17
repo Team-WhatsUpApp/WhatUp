@@ -36,7 +36,7 @@ import java.util.List;
 /**
  * Created by DelMonroe on 7/11/17.
  */
-@Controller
+/*@Controller
 public class MVCController {
 
 
@@ -89,17 +89,5 @@ public class MVCController {
         return "yelpAPI";
     }
 
-	@RequestMapping(path = "/admin", method = RequestMethod.GET)
-	public String adminPage() {
-		return "dashboard_admin";
-	}
-
-
-	@RequestMapping(path = "/users", method = RequestMethod.GET)
-	public String userPage() {
-		return "dashboard_user";
-	}
-
-
-}
+}*/
 
