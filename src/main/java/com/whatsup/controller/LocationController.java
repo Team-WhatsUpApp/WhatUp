@@ -67,7 +67,7 @@ public class LocationController {
 	@GetMapping("places/{id}")
 	public String singleLocation(@PathVariable long id, Model model) {
 		Location location = locationsDao.findOne(id);
-		model.addAttribute("locations", location);
+		model.addAttribute("location", location);
 		return "location/show";
 	}
 

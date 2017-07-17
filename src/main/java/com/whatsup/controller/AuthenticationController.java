@@ -6,14 +6,16 @@ import com.whatsup.svcs.UserWithRoles;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.crypto.password.PasswordEncoder;
+import org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestWrapper;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 
-
+import javax.servlet.http.HttpServletRequest;
 
 
 @Controller
@@ -57,6 +59,17 @@ public class AuthenticationController {
     public String showRegisterForm(Model model) {
         model.addAttribute("user", new User());
         return "register";
+    }
+
+    @GetMapping("/dashboards")
+    public String dashboard(HttpServletRequest request) {
+        UserWithRoles user = (UserWithRoles) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        //user.getUserRoles().contains("VENDOR");
+        if (user.getUserRoles().contains("VENDOR")) {
+            return "redirect:/vendor/" + user.getId() + "/profile";
+        } else {
+            return "redirect:/user/" + user.getId() + "/profile";
+        }
     }
 
 }
