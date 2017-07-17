@@ -1,10 +1,13 @@
 package com.whatsup.controller;
 
-import com.fasterxml.jackson.annotation.JsonView;
+import com.montealegreluis.yelpv3.Business;
+import com.montealegreluis.yelpv3.SearchCriteria;
+import com.montealegreluis.yelpv3.Yelp;
 import com.vividsolutions.jts.geom.Coordinate;
 import com.vividsolutions.jts.geom.GeometryFactory;
 import com.vividsolutions.jts.geom.Point;
 import com.whatsup.models.Location;
+import com.whatsup.models.User;
 import com.whatsup.models.Vendor;
 import com.whatsup.repositories.LocationsRepository;
 import com.whatsup.repositories.VendorsRepository;
@@ -18,13 +21,18 @@ import org.apache.http.client.utils.URIBuilder;
 import org.apache.http.impl.client.CloseableHttpClient;
 import org.apache.http.impl.client.HttpClients;
 import org.apache.http.message.BasicNameValuePair;
-import org.codehaus.jackson.map.ObjectMapper;
 import org.json.JSONArray;
 import org.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
 
+import javax.print.URIException;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -34,27 +42,50 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Created by DelMonroe on 7/11/17.
+ * Created by mosesfranco on 7/15/17
+ * Codeup
+ * Pinnacles
  */
+
 @Controller
-public class MVCController {
+public class LocationController {
 
-	@RequestMapping(path = "/admin", method = RequestMethod.GET)
-	public String adminPage() {
-		return "dashboard_admin";
+	@Autowired
+	VendorsRepository vendorsDao;
+
+	@Autowired
+	LocationsRepository locationsDao;
+
+	@GetMapping("/places")
+	public String vendorLocations(Model model) {
+		Iterable<Location> locations = locationsDao.findAll();
+		model.addAttribute("locations", locations);
+		return "location/index";
 	}
 
 
-	@RequestMapping(path = "/users", method = RequestMethod.GET)
-	public String userPage() {
-		return "dashboard_user";
+	@GetMapping("places/{id}")
+	public String singleLocation(@PathVariable long id, Model model) {
+		Location location = locationsDao.findOne(id);
+		model.addAttribute("locations", location);
+		return "location/show";
 	}
 
 
-//	@Deprecated
-//	@RequestMapping(path = "/yelp/{term}", method = RequestMethod.GET)
-//	@ResponseBody
-	/*public Location getYelpInfo(@PathVariable String term*//*@PathVariable String lat, @PathVariable String lon*//*) throws IOException, URISyntaxException {
+	@GetMapping("places/create")
+	public String createLocation(Model model) {
+		Location location = new Location();
+		model.addAttribute("location", location);
+		Yelp yelp = new Yelp("qoki5XUClSAHUg-8xN8eTg", "fMXre7kUwan40vX4gvBKVYirqX8s9tYFvPlKF9ZbCBA3uQTYn1fpsxyP7WBEUhxJ");
+		List<Business> businessList = yelp.search(SearchCriteria.byLocation("Esquire-Tavern"));
+		for (Business business : businessList) {
+//			System.out.println(business.id());
+		}
+//		System.out.println(businessList);
+		return "location/create";
+	}
+
+	public Location getYelpInfo(/*@PathVariable*/ String term/*@PathVariable String lat, @PathVariable String lon*/) throws IOException, URISyntaxException {
 		CloseableHttpClient client = HttpClients.createDefault();
 
 		List<NameValuePair> formparams = new ArrayList<NameValuePair>();
@@ -77,11 +108,11 @@ public class MVCController {
 		String businessName = "";
 		String url = "";
 		String imageUrl = "";
-		String preparedTerm = term.replaceAll(" ", "-");
+		String preparedTerm = term.replaceAll(" ", "-").toLowerCase();
 		double lat = 0;
 		double lon = 0;
 
-		System.out.println(preparedTerm);
+//		System.out.println(preparedTerm);
 
 //		System.out.println("Output from Server .... \n");
 		while ((output = br.readLine()) != null) {
@@ -89,7 +120,7 @@ public class MVCController {
 		}
 		JSONObject jsonObject = new JSONObject(json);
 		String token = jsonObject.getString("access_token");
-		System.out.println(token);
+//		System.out.println(token);
 
 		URIBuilder builder = new URIBuilder();
 		builder.setScheme("https").setHost("api.yelp.com").setPath("/v3/businesses/search")
@@ -157,6 +188,16 @@ public class MVCController {
 
 		Location location = new Location(businessName, resultId, point, streetAddress, phoneNumber, url, imageUrl);
 		return location;
-	}*/
-}
+	}
 
+
+	@PostMapping("/places/create")
+	public String saveLocation(@ModelAttribute Location location, Model model) throws IOException, URISyntaxException {
+		Location parsedLocation = getYelpInfo(location.getYelpId());
+//		User user = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+		Vendor vendor = vendorsDao.findById(1);
+		parsedLocation.setVendor(vendor);
+		locationsDao.save(parsedLocation);
+		return "redirect:/maps";
+	}
+}

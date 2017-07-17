@@ -331,6 +331,17 @@
     <button class="btn btn-default">Save</button>
 </form>
 
+<form th:fragment="placeForm">
+    <div class="form-group">
+        <label for="yelpId">Search here</label>
+        <input id="yelpId" class="form-control" th:field="*{yelpId}"/>
+        <div class="alert alert-warning alert-dismissible" role="alert" th:if="${#fields.hasErrors('yelpId')}">
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            <span th:errors="*{yelpId}" />
+        </div>
+    </div>
+</form>
+
 
 
 
