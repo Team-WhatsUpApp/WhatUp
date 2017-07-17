@@ -32,14 +32,7 @@ import java.util.List;
 @Controller
 public class MVCController {
 
-    @RequestMapping(path="/admin", method = RequestMethod.GET)
-    public String adminPage(){
-        return "dashboard_admin";
-    }
 
-
-    @RequestMapping(path="/users", method = RequestMethod.GET)
-    public String userPage() { return "dashboard_user";}
 
 
     @RequestMapping(path="/yelptest", method = RequestMethod.GET)

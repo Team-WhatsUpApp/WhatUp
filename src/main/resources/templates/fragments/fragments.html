@@ -122,148 +122,60 @@
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-<!--<nav id="mainNav" class="navbar navbar-default navbar-fixed-top">-->
-    <!--<div class="container">-->
-        <!--&lt;!&ndash; Brand and toggle get grouped for better mobile display &ndash;&gt;-->
-        <!--<div class="navbar-header">-->
-            <!--<button type="button" class="navbar-toggle collapsed" data-toggle="collapse"-->
-                    <!--data-target="#bs-example-navbar-collapse-1">-->
-                <!--<span class="sr-only">Toggle navigation</span> Menu <i class="fa fa-bars"></i>-->
-            <!--</button>-->
-            <!--<a class="navbar-brand page-scroll" href="#page-top">HOME</a>-->
-        <!--</div>-->
-
-        <!--&lt;!&ndash; Collect the nav links, forms, and other content for toggling &ndash;&gt;-->
-        <!--<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">-->
-            <!--<ul class="nav navbar-nav navbar-right">-->
-                <!--<li>-->
-                    <!--<a class="page-scroll" th:href="@{/login}">Log In</a>-->
-                <!--</li>-->
-                <!--<li>-->
-                    <!--<a class="page-scroll" th:href="@{/register}">Register</a>-->
-                <!--</li>-->
-                <!--<li>-->
-                    <!--<a class="page-scroll" href="/#contact">Contact Us</a>-->
-                <!--</li>-->
-            <!--</ul>-->
-        <!--</div>-->
-        <!-- /.navbar-collapse -->
-<!--</div>-->
-    <!--&lt;!&ndash; /.container-fluid &ndash;&gt;-->
-<!--</nav>-->
-
-
-
-
-
-
-
-<!--<nav th:fragment="navbar" id="mainNav" class="navbar navbar-default navbar-fixed-top">-->
-    <!--<div class="container">-->
-        <!--&lt;!&ndash; Brand and toggle get grouped for better mobile display &ndash;&gt;-->
-        <!--<div class="navbar-header">-->
-            <!--<button id="menu" type="button" class="navbar-toggle collapsed" data-toggle="collapse"-->
-                    <!--data-target="#bs-example-navbar-collapse-1">-->
-                <!--<span class="sr-only">Toggle navigation</span> Menu <i class="fa fa-bars"></i>-->
-            <!--</button>-->
-            <!--<a class="navbar-brand page-scroll" th:href="@{/}">HOME</a>-->
-        <!--</div>-->
-      <!--&lt;!&ndash;<ul>&ndash;&gt;-->
-        <!--&lt;!&ndash;<li sec:authorize="isAuthenticated()"><a href="#" class="btn-link btn">User Name<span sec:authentication="name"></span></a></li>&ndash;&gt;-->
-        <!--&lt;!&ndash;<li sec:authorize="isAuthenticated()">&ndash;&gt;-->
-            <!--&lt;!&ndash;<form th:action="@{/logout}" th:method="post">&ndash;&gt;-->
-                <!--&lt;!&ndash;<button class="btn-link btn" >Logout</button>&ndash;&gt;-->
-            <!--&lt;!&ndash;</form>&ndash;&gt;-->
-        <!--&lt;!&ndash;</li>&ndash;&gt;-->
-          <!--&lt;!&ndash;<li sec:authorize="!isAuthenticated()"><a href="/login">Sign-in</a></li>&ndash;&gt;-->
-          <!--&lt;!&ndash;<li sec:authorize="!isAuthenticated()"><a href="/register">Register</a></li>&ndash;&gt;-->
-      <!--&lt;!&ndash;</ul>&ndash;&gt;-->
-
-        <!--&lt;!&ndash; Collect the nav links, forms, and other content for toggling &ndash;&gt;-->
-        <!--<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">-->
-            <!--<ul class="nav navbar-nav navbar-right">-->
-                <!--<li>-->
-                    <!--<a class="page-scroll" th:href="@{/login}">Log In</a>-->
-                <!--</li>-->
-                <!--<li>-->
-                    <!--<a class="page-scroll" th:href="@{/register}">Register</a>-->
-                <!--</li>-->
-                <!--<li>-->
-                    <!--<a class="page-scroll" th:href="@{/}">Contact Us</a>-->
-                <!--</li>-->
-            <!--</ul>-->
-        <!--</div>-->
-        <!--&lt;!&ndash; /.navbar-collapse &ndash;&gt;-->
-    <!--</div>-->
-    <!--&lt;!&ndash; /.container-fluid &ndash;&gt;-->
-<!--</nav>-->
-
-
-
-
-
-
-
-
-
-
-
-
-<!--<nav th:fragment="navbar" id="mynav" class="navbar navbar-toggleable-md navbar-light bg-faded">-->
-    <!--<div class="container-fluid">-->
-
-        <!--<div class="navbar-header">-->
-            <!--<a class="navbar-brand" th:href="@{/index}">WhatsUp</a>-->
-        <!--</div>-->
-
-        <!--<div class="collapse navbar-collapse">-->
-            <!--<ul class="nav navbar-nav">-->
-
-                <!--<li sec:authorize="isAuthenticated()"><a href="#" class="btn-link btn">User Name<span sec:authentication="name"></span></a></li>-->
-                <!--<li sec:authorize="isAuthenticated()">-->
-                    <!--<form th:action="@{/logout}" th:method="post">-->
-                        <!--<button class="btn-link btn" style="margin-top: 8px">Logout</button>-->
-                    <!--</form>-->
-                <!--</li>-->
-
-                <!--<li sec:authorize="!isAuthenticated()"><a href="/login">Sign-in</a></li>-->
-                <!--<li sec:authorize="!isAuthenticated()"><a href="/register">Register</a></li>-->
-            <!--</ul>-->
-        <!--</div>&lt;!&ndash; /.navbar-collapse &ndash;&gt;-->
-
-    <!--</div>&lt;!&ndash; /.container-fluid &ndash;&gt;-->
-<!--</nav>-->
-
-
-
-
-
-
-
-
-
-<!--<form th:fragment="form">
+<form th:fragment="userForm">
     <div class="form-group">
-        <label for="title">Title</label>
-        <input id="title" type="text" th:field="*{title}"/>
+        <label for="username">Username</label>
+        <input id="username" class="form-control" th:field="*{username}"/>
+        <div class="alert alert-warning alert-dismissible" role="alert" th:if="${#fields.hasErrors('username')}">
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            <span th:errors="*{username}" />
+        </div>
     </div>
     <div class="form-group">
-        <label for="body">Body</label>
-        <input id="body" type="text" th:field="*{body}"/>
+        <label for="firstname">First Name</label>
+        <input id="firstname" class="form-control" th:field="*{firstName}"/>
+        <div class="alert alert-warning alert-dismissible" role="alert" th:if="${#fields.hasErrors('firstName')}">
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            <span th:errors="*{firstName}" />
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="lastname">Last Name</label>
+        <input id="lastname" class="form-control" th:field="*{lastName}"/>
+        <div class="alert alert-warning alert-dismissible" role="alert" th:if="${#fields.hasErrors('lastName')}">
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            <span th:errors="*{lastName}" />
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="phone">Phone Number</label>
+        <input id="phone" class="form-control" th:field="*{phoneNumber}"/>
+        <div class="alert alert-warning alert-dismissible" role="alert" th:if="${#fields.hasErrors('phoneNumber')}">
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            <span th:errors="*{phoneNumber}" />
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="email">Email</label>
+        <input id="email" class="form-control" th:field="*{email}"/>
+        <div class="alert alert-warning alert-dismissible" role="alert" th:if="${#fields.hasErrors('email')}">
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            <span th:errors="*{email}" />
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="password">Password</label>
+        <input id="password" class="form-control" th:field="*{password}"/>
+        <div class="alert alert-warning alert-dismissible" role="alert" th:if="${#fields.hasErrors('password')}">
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            <span th:errors="*{password}" />
+        </div>
     </div>
     <button class="btn btn-default">Save</button>
-</form>-->
+
+</form>
+
+
 
 <form th:fragment="couponForm">
     <div class="form-group">
@@ -322,6 +234,18 @@
         <div class="alert alert-warning alert-dismissible" role="alert" th:if="${#fields.hasErrors('restrictions')}">
             <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
             <span th:errors="*{restrictions}" />
+        </div>
+    </div>
+    <div class="form-group row">
+        <label for="enddatetime-local-input" class="col-2 col-form-label">Start Date/Time</label>
+        <div class="col-10">
+            <input class="form-control" type="datetime-local" value="2011-08-19T13:45:00" id="startdatetime-local-input" th:field="*{startDatetime}" />
+        </div>
+    </div>
+    <div class="form-group row">
+        <label for="enddatetime-local-input" class="col-2 col-form-label">End Date/Time</label>
+        <div class="col-10">
+            <input class="form-control" type="datetime-local" value="2011-08-19T13:45:00" id="enddatetime-local-input" th:field="*{endDatetime}" />
         </div>
     </div>
     <div class="form-group">

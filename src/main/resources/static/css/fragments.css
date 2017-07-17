@@ -56,21 +56,24 @@ ul.topnav li.right {float: right;}
 #userTable {
     color: black;
     opacity: .7;
-    margin-left: 85px;
-    margin-top: 44px;
+    float: right;
     padding: 0;
+    margin-top: -260px;
+    margin-right: 50px;
 }
 
-#udash {
-    margin-left: 50px;
-}
 
 #udashtwo {
-    margin-left: 85px;
-    margin-top: 30px;
-    margin-bottom: 0;
+    float: right;
+    margin-right: 212px;
+    margin-top: -280px;
 }
 
 .dt-button.buttons-create {
     margin-left: 85px;
+
+}
+
+#saveCoup {
+    padding: 0px;
 }
