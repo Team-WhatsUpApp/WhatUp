@@ -43,8 +43,10 @@ public class CouponController {
     }
 
     @GetMapping("/coupons")
-    public @ResponseBody Iterable<Coupon> getAllCoupons() {
-        return couponsRepository.findAll();
+    public String getAllCoupons(Model model) {
+        Iterable<Coupon> coupons = couponsRepository.findAll();
+        model.addAttribute("coupons", coupons);
+        return "coupon/index";
     }
 
 
