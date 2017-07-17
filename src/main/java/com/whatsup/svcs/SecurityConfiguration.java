@@ -47,16 +47,25 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
                 .and()
                 .authorizeRequests()
                 .antMatchers(
-                        "/coupons/create",
-                        "/coupons/?/edit",
+                        "/coupon/create",
+                        "/coupon/?/edit",
+                        "/coupon/?",
                         "/user/create",
                         "/user/?/edit",
                         "/user/?/delete",
                         "/user/?/savecoupon",
                         "/vendors",
                         "/vendor/?/profile",
-                        "/users"
-
+                        "/users",
+                        "/coupons",
+                        "/places",
+                        "/places/?",
+                        "/places/create",
+                        "/locations.json/{lon}/{lat}/{dist}",
+                        "/maps",
+                        "/maps/geo",
+                        "/register",
+                        "/dashboards"
 
 
                 )
