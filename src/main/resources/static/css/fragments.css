@@ -58,7 +58,7 @@ ul.topnav li.right {float: right;}
     opacity: .7;
     float: right;
     padding: 0;
-    margin-top: -260px;
+    margin-top: 60px;
     margin-right: 50px;
 }
 
@@ -66,7 +66,7 @@ ul.topnav li.right {float: right;}
 #udashtwo {
     float: right;
     margin-right: 212px;
-    margin-top: -280px;
+    margin-top: 80px;
 }
 
 .dt-button.buttons-create {
