@@ -6,7 +6,7 @@
 </head>
 <body>
 <div>
-    <div th:each="location : ${locations}" th:class="media">
+    <div th:class="media">
         <div th:class="media-left">
             <a href="#">
                 <img class="media-object" th:src="${location.imageUrl}" th:alt="${location.name}"/>
@@ -16,6 +16,9 @@
             <h4 th:class="media-heading"><span th:text="${location.name}"></span></h4>
             <h5><span th:text="${location.streetAddress}"></span></h5>
             <a th:href="@{|/places/${location.id}|}">More</a>
+        </div>
+        <div th:each="coupon : ${location.couponList}">
+            <div th:text="${coupon.title}"></div>
         </div>
     </div>
 </div>
