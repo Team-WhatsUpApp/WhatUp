@@ -3,13 +3,21 @@
       xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4">
 <head th:replace="fragments/fragments :: head('Places')">
     <meta charset="UTF-8"/>
+    <styl>
+
+    </styl>
 </head>
 <body>
-<div th:each="location : ${locations}">
+<div th:each="location : ${locations}" th:class="media">
 
-    <div class="place">
-        <h2>Name: <span th:text="${location.vendor.displayName}"></span></h2>
-
+    <div th:class="media-left">
+        <a href="#">
+            <img class="media-object" th:src="${location.imageUrl}" th:alt="${location.name}"/>
+        </a>
+    </div>
+    <div th:class="media-body">
+        <h4 th:class="media-heading"><span th:text="${location.name}"></span></h4>
+        <h5><span th:text="${location.streetAddress}"></span></h5>
     </div>
 </div>
 
