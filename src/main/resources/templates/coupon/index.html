@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4">
+<head th:replace="fragments/fragments :: head('Discounts')">
+    <meta charset="UTF-8"/>
+</head>
+<body>
+<div>
+    <div th:each="coupon : ${coupons}" th:class="media">
+        <div>
+            <h4><span th:text="${coupon.title}"></span></h4>
+            <h5><span th:text="${coupon.couponCode}"></span></h5>
+            <a th:href="@{|/coupon/${coupon.id}|}">More</a>
+        </div>
+    </div>
+</div>
+
+</body>
+<script th:include="fragments/fragments :: scripts"></script>
+</html>

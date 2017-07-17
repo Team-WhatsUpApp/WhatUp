@@ -45,6 +45,7 @@ public class User {
 	@Column(name = "phone_number")
 	private String phoneNumber;
 
+	@JsonIgnore
 	@ManyToMany(cascade = CascadeType.ALL)
 	@JoinTable(
 			name = "user_has_coupons",
@@ -57,6 +58,7 @@ public class User {
 	}
 
 	public User(User user) {
+		this.id = user.id;
 		this.username = user.username;
 		this.email = user.email;
 		this.password = user.password;
