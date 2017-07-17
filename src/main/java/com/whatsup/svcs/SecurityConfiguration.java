@@ -48,7 +48,14 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
                 .authorizeRequests()
                 .antMatchers(
                         "/coupons/create",
-                        "/coupons/?/edit"
+                        "/coupons/?/edit",
+                        "/user/create",
+                        "/user/?/edit",
+                        "/user/?/delete",
+                        "/user/?/savecoupon",
+                        "/vendors",
+                        "/vendor/?/profile"
+
 
 
                 )
