@@ -99,7 +99,21 @@
 			<version>20170516</version>
 		</dependency>
 
+		<!--Yelp Fusion API-->
+		<dependency>
+			<groupId>com.github.MontealegreLuis</groupId>
+			<artifactId>yelpv3-java-client</artifactId>
+			<version>1.0.0</version>
+		</dependency>
+
 	</dependencies>
+
+	<repositories>
+		<repository>
+			<id>jitpack.io</id>
+			<url>https://jitpack.io</url>
+		</repository>
+	</repositories>
 
 
 	<build>

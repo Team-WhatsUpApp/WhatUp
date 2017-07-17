@@ -1,6 +1,7 @@
 package com.whatsup.repositories;
 
 import com.whatsup.models.Location;
+import com.whatsup.models.Vendor;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.jpa.repository.query.Procedure;
 import org.springframework.data.repository.CrudRepository;
@@ -21,5 +22,9 @@ public interface LocationsRepository extends CrudRepository<Location, Long> {
 		nativeQuery = true
 	)
 	List<Location> getLocationsMap(@Param("lon") double lon, @Param("lat") double lat, @Param("dist")double dist);
+
+	List<Location> getLocationsByVendor(Vendor vendor);
+
+	List<Location> getLocationById(long id);
 
 }
