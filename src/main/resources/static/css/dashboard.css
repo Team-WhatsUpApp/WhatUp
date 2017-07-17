@@ -45,3 +45,23 @@
 
 
 }
+
+
+#welcomeUser {
+    color: white;
+    float: left;
+    margin-left: 15px;
+}
+
+#udash {
+    float: left;
+    margin-left: 15px;
+}
+
+#savedcoupon {
+    color: black;
+    margin-left: 0px;
+    margin-top: 60px;
+    width: auto;
+}
+

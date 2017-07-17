@@ -1,5 +1,7 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4">
+
+
 <head th:replace="fragments/fragments :: head('Users Dashboard')" />
 
 
@@ -8,53 +10,127 @@
 <nav th:replace="fragments/fragments :: navbar" />
 <div id="bgoverlay"></div>
 
-<h1 id="udash">Users Dashboard</h1>
+<h2 id="udash">Users Dashboard</h2>
 
 
 <div class="container-fluid col-lg-12">
 
+
+    <!-- ============= Users Dashboard ================ -->
+
+    <div sec:authorize="hasRole('USER')">
+        <div th:object="${user}">
+            <h3 id="welcomeUser">Welcome, <span th:text="*{username}"></span></h3>
+        </div>
+        <br/>
+
+
+
+        <form id="saveCoup" th:action="@{/user/{id}/savecoupon(id=${user.id})}" th:method="POST">
+
+            <div class="form-inline">
+                <label class="mr-sm-2" for="custom-select">Active Coupons</label>
+                <select class="custom-select mb-2 mr-sm-2 mb-sm-0" id="custom-select" name="coupon_id">
+
+                <option th:each="coupon : ${coupons}" th:value="${coupon.id}" th:text="${coupon.description}" />
+
+                </select>
+                <label class="custom-control custom-checkbox mb-2 mr-sm-2 mb-sm-0">
+                    <input type="checkbox" class="custom-control-input" />
+                    <span class="custom-control-indicator"></span>
+                    <span class="custom-control-description">Remember my preference</span>
+                </label>
+                <button type="submit" class="btn btn-primary">Save</button>
+            </div>
+
+        </form>
+
+        <div>
+        <form>
+            <br />
+            <div class="form-group row">
+                <div class="col-sm-4">
+                    <input class="form-control" type="text" placeholder="Username" id="username-text-input" />
+                </div>
+            </div>
+
+            <div class="form-group row">
+                <div class="col-sm-4">
+                    <input class="form-control" type="text" placeholder="First Name" id="fname-text-input" />
+                </div>
+            </div>
+
+            <div class="form-group row">
+                <div class="col-sm-4">
+                    <input class="form-control" type="text" placeholder="Last Name" id="lname-text-input" />
+                </div>
+            </div>
+            <div class="form-group row">
+                <div class="col-sm-4">
+                    <input class="form-control" type="email" placeholder="Email" id="email-text-input" />
+                </div>
+            </div>
+            <div class="form-group row">
+                <div class="col-sm-4">
+                    <input class="form-control" type="tel" placeholder="Phone" id="phone-text-input" />
+                </div>
+            </div>
+            <div class="form-group row">
+                <div class="col-sm-4">
+                    <input class="form-control" type="text" placeholder="Password" id="password-text-input" />
+                </div>
+            </div>
+        </form>
+        </div>
+
+        <table id="userTable" class="display col-sm-4" cellspacing="0" width="30%">
+            <h4 id="udashtwo">My Coupons</h4>
+
+            <thead>
+            <tr>
+
+                <th>Coupon</th>
+                <th>End Date</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="coupon : ${userCoupons}">
+
+
+                <td th:text="${coupon.description}"></td>
+                <td th:text="${coupon.endDatetime}"></td>
+            </tr>
+            </tbody>
+
+        </table>
+
+    </div>
+</div>
     <table id="userTable" class="display" cellspacing="0" width="50%">
         <h4 id="udashtwo">Active Coupons</h4>
 
-        <thead>
-        <!-- Header Table -->
-        <tr>
 
-            <th>Active Discounts</th>
-            <th>Restrictions</th>
-        </tr>
-        </thead>
 
-        <!-- Footer Table -->
-        <!--<tfoot>-->
-        <!--<tr>-->
-            <!--<th>Active Discounts</th>-->
-            <!--<th>Restrictions</th>-->
 
-        <!--</tr>-->
-        <!--</tfoot>-->
-    </table>
-</div>
+
+
+
+
+<!-- ========== Javascript ============ -->
+
 <div th:replace="fragments/fragments :: scripts" />
+
+<script>
+    $(document).ready(function () {
+        $('.dropdown-toggle').dropdown();
+    });
+</script>
 <script type="text/javascript">
     var editor;
 
     $(document).ready( function () {
         "use strict";
 
-        editor = new $.fn.dataTable.Editor({
-            "ajax": "/couponstable",
-            "table": "#userTable"
-        });
-
-        $('a.editor_create').on('click', function (e) {
-            e.preventDefault();
-
-            editor.create({
-                "title": 'Create new record',
-                "buttons": 'Add'
-            });
-        });
 
 
         var table = $('#userTable').DataTable({
@@ -63,34 +139,12 @@
             "bLengthChange": false,
             "bPaginate": false,
             "bInfo": false,
-            "columnDefs": [ {
-                "orderable": false,
-                "className": 'select-checkbox',
-                "targets": 1
-            } ],
 
-            "select": {
-                "style": 'os',
-                "selector": 'td:first-child'
-            },
+            "order": [[ 0, "asc" ]]
 
-
-            "sAjaxSource": "/coupons",
-            "sAjaxDataProp": "",
-            "order": [[ 0, "asc" ]],
-            "aoColumns": [                    /*These column names correspond with names in the User model*/
-                { "mData": "description" },
-                { "mData": "restrictions" }
-
-
-            ]
         });
 
-//        table.ajax().url('/userstable').load();
 
-        setInterval( function () {
-            table.ajax.reload();
-        }, 30000 );
 
 
     });
