@@ -79,17 +79,20 @@ public class CouponController {
 
 
 
-//    Edit a coupon
+    //    Edit a coupon
     @GetMapping("/coupon/{id}/edit")
     public String showEdit(@PathVariable Long id , Model model) {
         model.addAttribute("coupon", couponsRepository.findOne(id));
         return "coupon/edit";
-}
+    }
 
     @PostMapping("/coupon/{id}/edit")
     public String updateCoupon(@PathVariable long id, @ModelAttribute Coupon coupon, Model model) {
         Coupon existingCoupon = couponsRepository.findOne(id);
         BeanUtils.copyProperties(coupon, existingCoupon);
+        User user = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        Vendor vendor = vendorsRepository.findByOwner(user);
+        coupon.setOwner(vendor);
         couponsRepository.save(coupon);
         model.addAttribute("coupon", coupon);
         return "redirect:/dashboards";
