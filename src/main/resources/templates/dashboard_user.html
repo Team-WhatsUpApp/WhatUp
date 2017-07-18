@@ -10,7 +10,7 @@
 <div id="bgoverlay"></div>
 
 
-<h1 id="udash">Your Dashboard</h1>
+<h2 id="udash">Your Dashboard</h2>
 
 
 
@@ -18,7 +18,7 @@
 
 
     <!-- ============= Users Dashboard ================ -->
-    <div sec:authorize="hasRole('USER')">
+    <div sec:authorize="hasRole('ROLE_USER')">
         <div th:object="${user}">
             <h3 id="welcomeUser">Welcome, <span th:text="*{username}"></span></h3>
         </div>
@@ -34,6 +34,7 @@
                     <option th:each="coupon : ${coupons}" th:value="${coupon.id}" th:text="${coupon.description}"/>
 
                 </select>
+
                 <label class="custom-control custom-checkbox mb-2 mr-sm-2 mb-sm-0">
                     <input type="checkbox" class="custom-control-input"/>
                     <span class="custom-control-indicator"></span>
@@ -46,7 +47,7 @@
 
 
     </div>
-    <div id="googleMap" style="width:90%;height:500px;margin: auto"></div>
+    <div id="googleMap" style="width:90%;height:400px;margin-top: 90px; margin-left: 65px"></div>
 
 
     <table id="userTable" class="display col-sm-4" cellspacing="0" width="30%">
