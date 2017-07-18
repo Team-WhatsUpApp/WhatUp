@@ -79,12 +79,12 @@ public class CouponController {
 
 
 
-//    Edit a coupon
+    //    Edit a coupon
     @GetMapping("/coupon/{id}/edit")
     public String showEdit(@PathVariable Long id , Model model) {
         model.addAttribute("coupon", couponsRepository.findOne(id));
         return "coupon/edit";
-}
+    }
 
     @PostMapping("/coupon/{id}/edit")
     public String updateCoupon(@PathVariable long id, @ModelAttribute Coupon coupon, Model model) {

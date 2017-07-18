@@ -55,7 +55,8 @@
                         '<b class="name">' + location.name + '</b>' +
                         '<p><span>' + location.address + '</span><br/>' +
                         '<a href="tel:' + location.phone + '"><span>Call</span></a><br/>' +
-                        '<a href="' + location.url + '"><span>More</span></a><br/>' +
+                        '<a href="' + location.url + '"><span>Yelp</span></a><br/>' +
+                        '<a href="/places/' + location.id + '"><span>More</span></a><br/>' +
 //                        '<a target="_blank" href="https://maps.google.com/maps/dir/api=1?&amp;query=' + location.x + ',' + location.y + '&amp;z=16&amp;t=m&amp;hl=en-US&amp;gl=US&amp;mapclient=apiv3"><span>View on Google Maps</span></a>' +
                         '</p>' +
                         '</div>' +
@@ -70,10 +71,10 @@
                     });
                 });
                 /*var locMarker = new google.maps.Marker({
-                    position: new google.maps.LatLng(lat, lon),
-                    map: map,
-                    label: "Current position"
-                });*/
+                 position: new google.maps.LatLng(lat, lon),
+                 map: map,
+                 label: "Current position"
+                 });*/
                 locMarker.setIcon('http://maps.google.com/mapfiles/ms/icons/blue-dot.png')
             }
         });
