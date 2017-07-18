@@ -10,13 +10,6 @@
         color: black;
     }
 
-    input {
-        height: 3vh;
-        width: auto;
-        border-radius: 32px;
-        color: black;
-    }
-
     #dashdiv {
         text-align: center;
     }
