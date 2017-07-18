@@ -33,13 +33,7 @@
                     <option th:each="coupon : ${coupons}" th:value="${coupon.id}" th:text="${coupon.description}"/>
 
                 </select>
-
-                <label class="custom-control custom-checkbox mb-2 mr-sm-2 mb-sm-0">
-                    <input type="checkbox" class="custom-control-input"/>
-                    <span class="custom-control-indicator"></span>
-                    <span class="custom-control-description">Remember my preference</span>
-                </label>
-                <button type="submit" class="btn btn-primary">Save</button>
+                <button type="submit" class="btn btn-primary">Remember my preference</button>
             </div>
 
         </form>
@@ -56,7 +50,7 @@
         <tr>
 
             <th>Coupon</th>
-            <th>End Date</th>
+            <th>Location</th>
         </tr>
         </thead>
         <tbody>

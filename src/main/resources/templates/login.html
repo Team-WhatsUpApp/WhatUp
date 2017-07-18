@@ -7,24 +7,15 @@
 
 <div id="bgoverlay"></div>
 
-        <div id="logindiv" class="attention" th:if="${param.error}">
-            <p>Uh oh. Invalid Username and Password.</p>
-        </div>
-
-
-        <div id="logindiv2" class="attention" th:if="${param.logout}">
-           <p> See ya soon! You have been logged out.</p>
-        </div>
-
 
 <div class="col-xs-10 col-lg-6 col-lg-offset-3 col-xs-offset-1">
     <h1 class="header">Sign In!</h1>
 
 
-    <div th:if="${param.error}">
+    <div th:if="${param.error}" class="attention">
         Invalid Username and Password.
     </div>
-    <div th:if="${param.logout}">
+    <div th:if="${param.logout}" class="attention">
         You have been logged out.
     </div>
 
