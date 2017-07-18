@@ -17,14 +17,10 @@ h1{
 
 @media only screen and (max-width: 736px) {
 
-    h1 {
-        font-size: 13vw;
-        margin-top: 17vw;
-        text-align: center;
-    }
+    /*h1 {*/
+        /*font-size: 13vw;*/
+        /*margin-top: 17vw;*/
+        /*text-align: center;*/
+    /*}*/
 }
 
-#googleMap {
-
-
-}

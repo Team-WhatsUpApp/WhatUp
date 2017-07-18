@@ -6,6 +6,7 @@ body {
     background-size: cover;
     /*background-repeat: no-repeat;*/
     /*height: 100vw;*/
+    text-align: center;
 }
 
 ::-webkit-input-placeholder {
@@ -39,31 +40,30 @@ a {
 
 }
 
-h1 {
-    font-family: "Catamaran";
-    font-size: 8vw;
-    margin: 0;
-    margin-top:3vw;
-    font-weight: 200;
-    letter-spacing: 1px;
-}
+/*h1 {*/
+    /*font-family: "Catamaran";*/
+    /*font-size: 8vw;*/
+    /*margin: 0;*/
+    /*margin-top:3vw;*/
+    /*font-weight: 200;*/
+    /*letter-spacing: 1px;*/
+/*}*/
 
 
 a:hover {
     color: orange;
 }
 
-input {
-    height: 3vh;
-    width: 20vw;
-    border-radius: 32px;
-}
-
-button {
+.btn-primary {
     background-color: orange;
-    border-radius: 32px;
-
 }
+
+
+/*button {*/
+    /*!*background-color: orange;*!*/
+    /*border-radius: 32px;*/
+
+/*}*/
 
 /*#bgoverlay {*/
     /*width: 100%;*/
@@ -79,13 +79,13 @@ button {
     letter-spacing: 2px;
 }
 
-h1 {
-    font-family: "Catamaran";
-    font-size: 8vw;
-    margin-top:3vw;
-    font-weight: 200;
-    letter-spacing: 1px;
-}
+/*h1 {*/
+    /*font-family: "Catamaran";*/
+    /*font-size: 8vw;*/
+    /*margin-top:3vw;*/
+    /*font-weight: 200;*/
+    /*letter-spacing: 1px;*/
+/*}*/
 
 #logindiv {
     /*margin-top:20vh;*/
@@ -105,9 +105,9 @@ p {
     margin: 0;
 }
 
-.signin {
-    font-size: 1vw;
-}
+/*.signin {*/
+    /*font-size: 1vw;*/
+/*}*/
 
 .username {
     font-size: 1.5vw;
@@ -118,16 +118,11 @@ p {
         font-size: 7vw;
     }
 
-    input {
-        height: 8vw;
-        width: 53vw;
-        border-radius: 32px;
-    }
 
-    .signin {
-        font-size: 3vw;
-        color: white;
-    }
+    /*.signin {*/
+        /*font-size: 3vw;*/
+        /*color: white;*/
+    /*}*/
 
     .username {
         font-size: 4vw;
@@ -137,22 +132,23 @@ p {
         font-size: 5vw;
     }
 
-    button {
-        width: 20vw;
-        height: 7vw;
+    .header{
+        font-family: "Catamaran";
+        /*font-size: 14vw;*/
+        margin: 0.5em auto .5em auto;
+        /*margin-top:17vw;*/
+        font-weight: 200;
+        letter-spacing: 1px;
     }
 
-    h1 {
-        font-size: 14vw;
-        margin-top:17vw;
-    }
+
+    /*h1 {*/
+        /*font-size: 14vw;*/
+        /*margin-top:17vw;*/
+    /*}*/
 }
 
 @media (min-width: 768px) {
-    input {
-        height: 4vh;
-        width: 40vw;
-    }
 
     p {
         font-size: 5.5vw;
@@ -162,20 +158,15 @@ p {
         font-size: 3vw;
     }
 
-    h1 {
-        font-family: "Catamaran";
-        font-size: 6vw;
-        margin: 0;
-        margin-top:10vw;
-        font-weight: 200;
-        letter-spacing: 1px;
-    }
+    /*h1 {*/
+        /*font-family: "Catamaran";*/
+        /*font-size: 6vw;*/
+        /*margin: 0;*/
+        /*margin-top:10vw;*/
+        /*font-weight: 200;*/
+        /*letter-spacing: 1px;*/
+    /*}*/
 
-    button {
-
-        width: 16vw;
-        height: 4vw;
-    }
 
 }
 
@@ -185,22 +176,14 @@ p {
         font-size: 4vw;
     }
 
-    input {
-        height: 3vh;
-        width: 20vw;
-        border-radius: 32px;
-    }
+    /*button {*/
+        /*!*background-color: orange;*!*/
+        /*border-radius: 32px;*/
+    /*}*/
 
-    button {
-        background-color: orange;
-        border-radius: 32px;
-        width: 8vw;
-        height: 2.5vw;
-    }
-
-    .signin {
-        font-size: 1.5vw;
-    }
+    /*.signin {*/
+        /*font-size: 1.5vw;*/
+    /*}*/
 
     .username {
         font-size: 1.3vw;
@@ -209,14 +192,15 @@ p {
     a {
         font-size: 1.5vw;
     }
-    h1 {
+    .header {
         font-family: "Catamaran";
         font-size: 8vw;
-        margin: 0;
-        margin-top:3vw;
+        margin: 0.5em auto .5em auto;
+        /*margin-top:3vw;*/
         font-weight: 200;
         letter-spacing: 1px;
     }
+
 }
 
 /* ======== Forgot Password CSS ======== */
