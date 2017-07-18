@@ -5,24 +5,37 @@
     <meta charset="UTF-8"/>
 </head>
 <body>
-<div>
-    <div th:class="media">
-        <div th:class="media-left">
-            <a href="#">
-                <img class="media-object" th:src="${location.imageUrl}" th:alt="${location.name}"/>
-            </a>
+<nav th:replace="fragments/fragments :: navbar"></nav>
+<div class="container">
+    <div class="row">
+        <div class="col-xs-4">
+            <img style="max-width:100%;" th:src="${location.imageUrl}"/>
         </div>
-        <div th:class="media-body">
-            <h4 th:class="media-heading"><span th:text="${location.name}"></span></h4>
-            <h5><span th:text="${location.streetAddress}"></span></h5>
-            <a th:href="@{|/places/${location.id}|}">More</a>
-        </div>
-        <div th:each="coupon : ${location.couponList}">
-            <div th:text="${coupon.title}"></div>
+        <div class="col-xs-5">
+            <h2 th:text="${location.name}"></h2>
+
+
+            <div class="section">
+                <h3>
+                    <small th:text="${location.streetAddress}"></small>
+                </h3>
+            </div>
+            <div class="section">
+                <div>
+                    <div><a th:href="${location.yelpUrl}">Yelp</a></div>
+                    <div><a th:href="@{|tel:${location.phoneNumber}|}">Call</a></div>
+                </div>
+            </div>
+            <div class="section" style="padding-bottom:20px;">
+                <button class="btn btn-success"><span style="margin-right:20px"
+                                                      class="glyphicon glyphicon-shopping-cart"
+                                                      aria-hidden="true"></span>
+                </button>
+                <!--<img th:src="@{|https://maps.googleapis.com/maps/api/staticmap?center=${location.y},${location.x}&amp;zoom=13&amp;size=400x400&amp;markers=color:red%7C${location.y},${location.x}&amp;key=AIzaSyDWaILCW6S7JZjUx7MVdlBqq6YNNwxRvCk|}" th:alt="${location.name}"/>-->
+            </div>
         </div>
     </div>
 </div>
-
+<script th:replace="fragments/fragments :: scripts"></script>
 </body>
-<script th:include="fragments/fragments :: scripts"></script>
 </html>
