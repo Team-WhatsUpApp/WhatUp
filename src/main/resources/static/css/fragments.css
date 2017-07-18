@@ -61,7 +61,7 @@ ul.topnav li.right {float: right;}
     opacity: .7;
     float: right;
     padding: 0;
-    margin-top: 60px;
+    margin-top: 5px;
     margin-right: 50px;
 }
 
@@ -69,7 +69,7 @@ ul.topnav li.right {float: right;}
 #udashtwo {
     float: right;
     margin-right: 212px;
-    margin-top: 80px;
+    margin-top: 35px;
 }
 
 .dt-button.buttons-create {
@@ -78,5 +78,6 @@ ul.topnav li.right {float: right;}
 }
 
 #saveCoup {
-    padding: 0px;
+    margin-top: 0px;
+    padding: 0;
 }
