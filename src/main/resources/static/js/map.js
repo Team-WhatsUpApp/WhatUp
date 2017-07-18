@@ -28,7 +28,7 @@
         lat = position.coords.latitude;
         lon = position.coords.longitude;
         zoom = 13;
-        madeUrl = '/locations.json/' + lon + '/' + lat + '/20';
+
         if (!haveSearched) {
             haveSearched = true;
             initialize();
@@ -69,21 +69,21 @@
                         infowindow.open(map, marker);
                     });
                 });
-                var locMarker = new google.maps.Marker({
+                /*var locMarker = new google.maps.Marker({
                     position: new google.maps.LatLng(lat, lon),
                     map: map,
                     label: "Current position"
-                });
+                });*/
                 locMarker.setIcon('http://maps.google.com/mapfiles/ms/icons/blue-dot.png')
             }
         });
-        getLocation();
+        // getLocation();
     }
 
     google.maps.event.addDomListener(window, 'load', initialize);
 
     function initialize() {
-        getLocation();
+        // getLocation();
         var mapProp = {
             center: new google.maps.LatLng(lat, lon),
             zoom: zoom,
@@ -91,6 +91,7 @@
         };
 
         map = new google.maps.Map(document.getElementById("googleMap"), mapProp);
+        madeUrl = '/locations.json/' + lon + '/' + lat + '/20';
         getData();
     }
 
