@@ -90,6 +90,9 @@ public class CouponController {
     public String updateCoupon(@PathVariable long id, @ModelAttribute Coupon coupon, Model model) {
         Coupon existingCoupon = couponsRepository.findOne(id);
         BeanUtils.copyProperties(coupon, existingCoupon);
+        User user = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        Vendor vendor = vendorsRepository.findByOwner(user);
+        coupon.setOwner(vendor);
         couponsRepository.save(coupon);
         model.addAttribute("coupon", coupon);
         return "redirect:/dashboards";
