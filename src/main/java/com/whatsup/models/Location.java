@@ -23,8 +23,10 @@ public class Location implements Serializable {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private long id;
 
+	@Column
 	private String name;
 
+	@Column
 	private String yelpId;
 
 	@OneToOne
@@ -43,12 +45,22 @@ public class Location implements Serializable {
 	@JsonIgnore
 	private List<Coupon> couponList;
 
+	@Column
 	private String streetAddress;
+
+	@Column
 	private String phoneNumber;
+
+	@Column
 	private String yelpUrl;
+
+	@Column
 	private String imageUrl;
 
+	@Column
 	private double x;
+
+	@Column
 	private double y;
 
 	public Location() {
