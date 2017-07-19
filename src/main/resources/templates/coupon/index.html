@@ -6,7 +6,7 @@
 </head>
 <body>
 <div>
-    <div th:each="coupon : ${coupons}" th:class="media">
+    <div th:each="coupon : ${coupons}" class="media col md-8">
         <div>
             <h4><span th:text="${coupon.title}"></span></h4>
             <h5><span th:text="${coupon.couponCode}"></span></h5>

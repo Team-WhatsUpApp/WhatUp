@@ -58,8 +58,12 @@ public class CouponController {
 
 
     @GetMapping("/coupon/{id}")
-    public Coupon get(@PathVariable Long id) {
-        return couponsRepository.findOne(id);
+    public String getCoupon(@PathVariable Long id, Model model) {
+        User user = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        Coupon coupon = couponsRepository.findOne(id);
+        model.addAttribute("coupon", coupon);
+        model.addAttribute("user", user);
+        return "coupon/show";
     }
 
     @GetMapping("/coupon/create")
