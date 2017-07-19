@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4">
+<head th:replace="fragments/fragments :: head('Places')">
+    <meta charset="UTF-8"/>
+</head>
+<body>
+<nav th:replace="fragments/fragments :: navbar"></nav>
+<div class="container">
+    <div class="row">
+        <div class="col-xs-4">
+        </div>
+        <div class="col-xs-5">
+            <div th:each="location : ${coupon.locationList}">
+                <h3><a th:text="${location.name}" th:href="@{|/places/${location.id}|}"></a></h3>
+            </div>
+            <h2 th:text="${coupon.title}"></h2>
+            <h2 th:text="${coupon.value}"></h2>
+            <p th:text="${coupon.description}"></p>
+            <p th:text="${coupon.restrictions}"></p>
+
+            <form id="saveCoup" th:action="@{/user/{id}/savecoupon(id=${user.id})}" th:method="POST">
+                <div class="form-inline">
+                    <select hidden="true" class="custom-select mb-2 mr-sm-2 mb-sm-0" id="custom-select" name="coupon_id">
+                        <option th:object="${coupon}" th:value="${coupon.id}"/>
+                    </select>
+                    <button type="submit" class="btn btn-primary">Save</button>
+                </div>
+            </form>
+        </div>
+    </div>
+    <!--<img th:src="@{|https://maps.googleapis.com/maps/api/staticmap?center=${location.y},${location.x}&amp;zoom=13&amp;size=400x400&amp;markers=color:red%7C${location.y},${location.x}&amp;key=AIzaSyDWaILCW6S7JZjUx7MVdlBqq6YNNwxRvCk|}" th:alt="${location.name}"/>-->
+</div>
+<script th:replace="fragments/fragments :: scripts"></script>
+</body>
+</html>

@@ -6,32 +6,24 @@
 </head>
 <body>
 <nav th:replace="fragments/fragments :: navbar"></nav>
+
 <div class="container">
-    <div class="row">
-        <div class="col-xs-4">
-            <img style="max-width:100%;" th:src="${location.imageUrl}"/>
+    <div class="jumbotron col-lg-6">
+        <img style="max-width:100%;" th:src="${location.imageUrl}"/>
+        <h2 th:text="${location.name}"></h2>
+    </div>
+
+    <div class="row marketing">
+        <div class="col-lg-6">
+            <h3 th:text="${location.streetAddress}"></h3>
+            <div><a th:href="${location.yelpUrl}">Yelp</a></div>
+            <div><a th:href="@{|tel:${location.phoneNumber}|}">Call</a></div>
         </div>
-        <div class="col-xs-5">
-            <h2 th:text="${location.name}"></h2>
 
-
-            <div class="section">
-                <h3>
-                    <small th:text="${location.streetAddress}"></small>
-                </h3>
-            </div>
-            <div class="section">
-                <div>
-                    <div><a th:href="${location.yelpUrl}">Yelp</a></div>
-                    <div><a th:href="@{|tel:${location.phoneNumber}|}">Call</a></div>
-                </div>
-            </div>
-            <div class="section" style="padding-bottom:20px;">
-                <button class="btn btn-success"><span style="margin-right:20px"
-                                                      class="glyphicon glyphicon-shopping-cart"
-                                                      aria-hidden="true"></span>
-                </button>
-                <!--<img th:src="@{|https://maps.googleapis.com/maps/api/staticmap?center=${location.y},${location.x}&amp;zoom=13&amp;size=400x400&amp;markers=color:red%7C${location.y},${location.x}&amp;key=AIzaSyDWaILCW6S7JZjUx7MVdlBqq6YNNwxRvCk|}" th:alt="${location.name}"/>-->
+        <div class="coupons">
+            <span><h2>Available coupons:</h2></span>
+            <div th:each="coupon : ${location.couponList}">
+                <h2><a th:text="${coupon.title}" th:href="@{|/coupon/${coupon.id}|}"></a></h2>
             </div>
         </div>
     </div>
