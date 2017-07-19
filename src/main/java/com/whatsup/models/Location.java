@@ -17,7 +17,6 @@ import java.util.List;
 
 @Entity
 @Table(name = "locations")
-
 public class Location implements Serializable {
 
 	@Id
