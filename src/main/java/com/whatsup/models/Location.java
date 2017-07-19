@@ -49,7 +49,7 @@ public class Location implements Serializable{
 	@OneToOne
 	private Vendor vendor;
 
-	@Column(name = "location")
+	@Column(name = "location", columnDefinition = "geometry")
 	@JsonIgnore
 	private Point location;
 
