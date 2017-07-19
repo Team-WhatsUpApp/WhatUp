@@ -18,7 +18,7 @@ import java.util.List;
 @Entity
 @Table(name = "locations")
 
-public class Location{
+public class Location implements Serializable {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -31,7 +31,7 @@ public class Location{
 	@OneToOne
 	private Vendor vendor;
 
-	@Column(name = "location")
+	@Column(name = "location", columnDefinition = "geometry")
 	@JsonIgnore
 	private Point location;
 
