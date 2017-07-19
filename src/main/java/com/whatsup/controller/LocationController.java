@@ -66,7 +66,9 @@ public class LocationController {
 
 	@GetMapping("places/{id}")
 	public String singleLocation(@PathVariable long id, Model model) {
+		User user = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
 		Location location = locationsDao.findOne(id);
+		model.addAttribute("user", user);
 		model.addAttribute("location", location);
 		return "location/show";
 	}
