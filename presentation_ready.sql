@@ -1,15 +1,3 @@
-# ************************************************************
-# Sequel Pro SQL dump
-# Version 4541
-#
-# http://www.sequelpro.com/
-# https://github.com/sequelpro/sequelpro
-#
-# Host: localhost (MySQL 5.7.18)
-# Database: whatsup_db
-# Generation Time: 2017-07-18 19:23:41 +0000
-# ************************************************************
-
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
@@ -20,26 +8,7 @@
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 
-# Dump of table coupons
-# ------------------------------------------------------------
 
-DROP TABLE IF EXISTS `coupons`;
-
-CREATE TABLE `coupons` (
-  `id` bigint(20) NOT NULL AUTO_INCREMENT,
-  `code` varchar(255) DEFAULT NULL,
-  `description` text,
-  `end_datetime` datetime DEFAULT NULL,
-  `remaining_uses` int(11) DEFAULT NULL,
-  `restrictions` text,
-  `start_datetime` datetime DEFAULT NULL,
-  `title` varchar(255) DEFAULT NULL,
-  `value` varchar(255) DEFAULT NULL,
-  `vendor_id` bigint(20) DEFAULT NULL,
-  PRIMARY KEY (`id`),
-  KEY `FKeo53jdsgc5htpc5wuiyd4vkt6` (`vendor_id`),
-  CONSTRAINT `FKeo53jdsgc5htpc5wuiyd4vkt6` FOREIGN KEY (`vendor_id`) REFERENCES `vendors` (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 LOCK TABLES `coupons` WRITE;
 /*!40000 ALTER TABLE `coupons` DISABLE KEYS */;
@@ -57,19 +26,8 @@ VALUES
 UNLOCK TABLES;
 
 
-# Dump of table location_has_coupons
-# ------------------------------------------------------------
 
-DROP TABLE IF EXISTS `location_has_coupons`;
 
-CREATE TABLE `location_has_coupons` (
-  `location_id` bigint(20) NOT NULL,
-  `coupon_id` bigint(20) NOT NULL,
-  KEY `FKjiad25qq7wd585neprfpkdmn5` (`coupon_id`),
-  KEY `FKbeplsyk3wd1aq84702dkoa4xx` (`location_id`),
-  CONSTRAINT `FKbeplsyk3wd1aq84702dkoa4xx` FOREIGN KEY (`location_id`) REFERENCES `locations` (`id`),
-  CONSTRAINT `FKjiad25qq7wd585neprfpkdmn5` FOREIGN KEY (`coupon_id`) REFERENCES `coupons` (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 LOCK TABLES `location_has_coupons` WRITE;
 /*!40000 ALTER TABLE `location_has_coupons` DISABLE KEYS */;
@@ -83,27 +41,7 @@ VALUES
 UNLOCK TABLES;
 
 
-# Dump of table locations
-# ------------------------------------------------------------
 
-DROP TABLE IF EXISTS `locations`;
-
-CREATE TABLE `locations` (
-  `id` bigint(20) NOT NULL AUTO_INCREMENT,
-  `image_url` varchar(255) DEFAULT NULL,
-  `location` geometry DEFAULT NULL,
-  `name` varchar(255) DEFAULT NULL,
-  `phone_number` varchar(255) DEFAULT NULL,
-  `street_address` varchar(255) DEFAULT NULL,
-  `x` double NOT NULL,
-  `y` double NOT NULL,
-  `yelp_id` varchar(255) DEFAULT NULL,
-  `yelp_url` varchar(255) DEFAULT NULL,
-  `vendor_id` bigint(20) DEFAULT NULL,
-  PRIMARY KEY (`id`),
-  KEY `FK9gvfbxkyir4p6qcksacnx8uc1` (`vendor_id`),
-  CONSTRAINT `FK9gvfbxkyir4p6qcksacnx8uc1` FOREIGN KEY (`vendor_id`) REFERENCES `vendors` (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 LOCK TABLES `locations` WRITE;
 /*!40000 ALTER TABLE `locations` DISABLE KEYS */;
@@ -130,33 +68,6 @@ VALUES
 UNLOCK TABLES;
 
 
-# Dump of table user_has_coupons
-# ------------------------------------------------------------
-
-DROP TABLE IF EXISTS `user_has_coupons`;
-
-CREATE TABLE `user_has_coupons` (
-  `user_id` bigint(20) NOT NULL,
-  `coupon_id` bigint(20) NOT NULL,
-  KEY `FKcntuufinxjjah6hloalkj17w9` (`coupon_id`),
-  KEY `FK1lrteyxirdip8ir9k7hgbaom6` (`user_id`),
-  CONSTRAINT `FK1lrteyxirdip8ir9k7hgbaom6` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`),
-  CONSTRAINT `FKcntuufinxjjah6hloalkj17w9` FOREIGN KEY (`coupon_id`) REFERENCES `coupons` (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
-
-
-# Dump of table user_roles
-# ------------------------------------------------------------
-
-DROP TABLE IF EXISTS `user_roles`;
-
-CREATE TABLE `user_roles` (
-  `id` bigint(20) NOT NULL AUTO_INCREMENT,
-  `role` varchar(255) DEFAULT NULL,
-  `user_id` bigint(20) DEFAULT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 LOCK TABLES `user_roles` WRITE;
 /*!40000 ALTER TABLE `user_roles` DISABLE KEYS */;
@@ -190,23 +101,6 @@ VALUES
 /*!40000 ALTER TABLE `user_roles` ENABLE KEYS */;
 UNLOCK TABLES;
 
-
-# Dump of table users
-# ------------------------------------------------------------
-
-DROP TABLE IF EXISTS `users`;
-
-CREATE TABLE `users` (
-  `id` bigint(20) NOT NULL AUTO_INCREMENT,
-  `create_time` datetime DEFAULT NULL,
-  `email` varchar(255) DEFAULT NULL,
-  `first_name` varchar(255) DEFAULT NULL,
-  `last_name` varchar(255) DEFAULT NULL,
-  `password` varchar(255) DEFAULT NULL,
-  `phone_number` varchar(20) DEFAULT NULL,
-  `username` varchar(255) DEFAULT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 LOCK TABLES `users` WRITE;
 /*!40000 ALTER TABLE `users` DISABLE KEYS */;
@@ -245,21 +139,6 @@ VALUES
 UNLOCK TABLES;
 
 
-# Dump of table vendors
-# ------------------------------------------------------------
-
-DROP TABLE IF EXISTS `vendors`;
-
-CREATE TABLE `vendors` (
-  `id` bigint(20) NOT NULL AUTO_INCREMENT,
-  `display_name` varchar(255) DEFAULT NULL,
-  `validated` bit(1) DEFAULT NULL,
-  `owner_id` bigint(20) DEFAULT NULL,
-  PRIMARY KEY (`id`),
-  KEY `FKr6ix570rt9pyap3r88rdvuy3k` (`owner_id`),
-  CONSTRAINT `FKr6ix570rt9pyap3r88rdvuy3k` FOREIGN KEY (`owner_id`) REFERENCES `users` (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
 LOCK TABLES `vendors` WRITE;
 /*!40000 ALTER TABLE `vendors` DISABLE KEYS */;
 
@@ -280,56 +159,3 @@ VALUES
 
 /*!40000 ALTER TABLE `vendors` ENABLE KEYS */;
 UNLOCK TABLES;
-
-
-
---
--- Dumping routines (PROCEDURE) for database 'whatsup_db'
---
-DELIMITER ;;
-
-# Dump of PROCEDURE getLocations
-# ------------------------------------------------------------
-
-/*!50003 DROP PROCEDURE IF EXISTS `getLocations` */;;
-/*!50003 SET SESSION SQL_MODE="STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION"*/;;
-/*!50003 CREATE*/ /*!50020 DEFINER=`root`@`localhost`*/ /*!50003 PROCEDURE `getLocations`(IN lat DECIMAL(20,9), IN lon DECIMAL(20,9), IN point VARCHAR(100), OUT ids int)
-BEGIN
-    set @lon = lon;
-    set @lat = lat;
-    SET @location = st_geomfromtext(point);
-    set @dist = 10;
-    set @rlon1 = @lon-@dist/abs(cos(radians(@lat))*69);
-    set @rlon2 = @lon+@dist/abs(cos(radians(@lat))*69);
-    set @rlat1 = @lat-(@dist/69);
-    set @rlat2 = @lat+(@dist/69);
-
-#     select id, st_astext(location), owner_id from locations
-#     where st_within(location, st_envelope(linestring(point(@rlon1, @rlat1), point(@rlon2, @rlat2))))
-#     order by st_distance(point(@lon, @lat), location) limit  10;
-#
-#     select st_astext(envelope(linestring(point(@rlon1, @rlat1), point(@rlon2, @rlat2))));
-#
-#     select id, st_astext(location), owner_id from locations
-#     where st_within(location, st_envelope(linestring(point(@rlon1, @rlat1), point(@rlon2, @rlat2))))
-#     order by st_distance(point(@lon, @lat), location) limit  10;
-#
-#     select id, st_astext(location), (st_distance(point(@lon, @lat), location)*364320) as 'distance(ft)',  owner_id from locations
-#     where st_within(location, st_envelope(linestring(point(@rlon1, @rlat1), point(@rlon2, @rlat2))))
-#     order by st_distance(point(@lon, @lat), location);
-
-    select id INTO ids from locations
-    where st_within(location, st_envelope(linestring(point(@rlon1, @rlat1), point(@rlon2, @rlat2))))
-    order by st_distance(point(@lon, @lat), location) limit 1;
-
-  END */;;
-
-/*!50003 SET SESSION SQL_MODE=@OLD_SQL_MODE */;;
-DELIMITER ;
-
-/*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
-/*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
-/*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;
-/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
-/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
-/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;

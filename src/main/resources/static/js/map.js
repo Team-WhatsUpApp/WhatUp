@@ -75,7 +75,7 @@
                  map: map,
                  label: "Current position"
                  });*/
-                locMarker.setIcon('http://maps.google.com/mapfiles/ms/icons/blue-dot.png')
+                // locMarker.setIcon('http://maps.google.com/mapfiles/ms/icons/blue-dot.png')
             }
         });
         // getLocation();

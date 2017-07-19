@@ -54,8 +54,10 @@ a:hover {
     color: orange;
 }
 
-.btn-primary {
+.btn-primary,
+.btn-primary:hover {
     background-color: orange;
+    border-color: orange;
 }
 
 
@@ -77,6 +79,7 @@ a:hover {
     color: red;
     font-family: "Catamaran";
     letter-spacing: 2px;
+    margin-bottom: 1.5em;
 }
 
 /*h1 {*/
@@ -194,7 +197,7 @@ p {
     }
     .header {
         font-family: "Catamaran";
-        font-size: 8vw;
+        font-size: 2.5em;
         margin: 0.5em auto .5em auto;
         /*margin-top:3vw;*/
         font-weight: 200;
