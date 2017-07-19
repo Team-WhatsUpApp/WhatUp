@@ -17,39 +17,22 @@ import java.util.List;
 
 @Entity
 @Table(name = "locations")
-//@NamedStoredProcedureQuery(
-//		name = "getLocations", // name of stored procedure in the persistence unit
-//		procedureName = "getLocations", //name of  stored procedure in the database
-//		parameters = //Parameters of the stored procedure
-//				{
-//						@StoredProcedureParameter(// A parameter,
-//								name = "lat", //Name of the parameter
-//								mode = ParameterMode.IN, // Mode of the parameter
-//								type = double.class), // JDBC Type.
-//						@StoredProcedureParameter(// A parameter,
-//								name = "long", //Name of the parameter
-//								mode = ParameterMode.IN, // Mode of the parameter
-//								type = double.class),
-//						@StoredProcedureParameter(// A parameter,
-//								name = "point", //Name of the parameter
-//								mode = ParameterMode.IN, // Mode of the parameter
-//								type = String.class)
-//				}
-//)
-public class Location implements Serializable{
+public class Location implements Serializable {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private long id;
 
+	@Column
 	private String name;
 
+	@Column
 	private String yelpId;
 
 	@OneToOne
 	private Vendor vendor;
 
-	@Column(name = "location")
+	@Column(name = "location", columnDefinition = "geometry")
 	@JsonIgnore
 	private Point location;
 
@@ -62,12 +45,22 @@ public class Location implements Serializable{
 	@JsonIgnore
 	private List<Coupon> couponList;
 
+	@Column
 	private String streetAddress;
+
+	@Column
 	private String phoneNumber;
+
+	@Column
 	private String yelpUrl;
+
+	@Column
 	private String imageUrl;
 
+	@Column
 	private double x;
+
+	@Column
 	private double y;
 
 	public Location() {
