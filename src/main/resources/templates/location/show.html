@@ -2,32 +2,68 @@
 <html xmlns:th="http://www.thymeleaf.org"
       xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4">
 <head th:replace="fragments/fragments :: head('Places')">
+    <!--Weirdness-->
     <meta charset="UTF-8"/>
 </head>
 <body>
 <nav th:replace="fragments/fragments :: navbar"></nav>
 
 <div class="container">
-    <div class="jumbotron col-lg-6">
-        <img style="max-width:100%;" th:src="${location.imageUrl}"/>
-        <h2 th:text="${location.name}"></h2>
-    </div>
-
-    <div class="row marketing">
-        <div class="col-lg-6">
-            <h3 th:text="${location.streetAddress}"></h3>
+    <div class="panel panel-default">
+        <div class="panel-heading"><h1 th:text="${location.name}"></h1></div>
+        <div class="panel-body">
+            <img style="max-width:100%;" th:src="${location.imageUrl}"/>
+        </div>
+        <div class="panel-footer">
+            <h2 style="color: black" th:text="${location.streetAddress}"></h2>
             <div><a th:href="${location.yelpUrl}">Yelp</a></div>
             <div><a th:href="@{|tel:${location.phoneNumber}|}">Call</a></div>
-        </div>
+            <div class="coupons" th:each="coupon : ${location.couponList}">
+                <!-- Button trigger modal -->
+                <span><button style="margin-bottom: 5px;" type="button" class="btn btn-primary btn-lg"
+                              data-toggle="modal" th:text="${coupon.couponCode}"
+                              th:attr="data-target='#couponModal'+${coupon.id }"></button></span>
 
-        <div class="coupons">
-            <span><h2>Available coupons:</h2></span>
-            <div th:each="coupon : ${location.couponList}">
-                <h2><a th:text="${coupon.title}" th:href="@{|/coupon/${coupon.id}|}"></a></h2>
-            </div>
-        </div>
-    </div>
-</div>
+                <!-- Modal -->
+                <div class="modal fade" th:id="'couponModal'+${coupon.id}" tabindex="-1" role="dialog"
+                     aria-labelledby="myModalLabel" style="color: black">
+                    <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                                        aria-hidden="true">&times;</span></button>
+                                <h4 class="modal-title" th:id="${coupon.id}+myModalLabel"
+                                    th:text="${coupon.title}"></h4>
+                            </div>
+                            <div class="modal-body">
+                                <!--<h2  th:text="${coupon.title}" style="color: black"></h2>-->
+                                <h2 style="color: black;" th:text="${coupon.value}"></h2>
+                                <p th:text="${coupon.description}"></p>
+                                <p th:text="${coupon.restrictions}"></p>
+                                <div th:each="location : ${coupon.locationList}">
+                                    <h3><a th:text="${location.name}" th:href="@{|/places/${location.id}|}"></a></h3>
+                                </div>
+                            </div>
+                            <div class="modal-footer">
+                                <!--<button type="button" class="btn btn-default" th:attr="data-dismiss='modal'">Close</button>-->
+                                <form id="saveCoup" th:action="@{/user/{id}/savecoupon(id=${user.id})}"
+                                      th:method="POST">
+                                    <div class="form-inline">
+                                        <select hidden="true" class="custom-select mb-2 mr-sm-2 mb-sm-0"
+                                                id="custom-select" name="coupon_id">
+                                            <option th:object="${coupon}" th:value="${coupon.id}"/>
+                                        </select>
+                                        <button type="submit" class="btn btn-primary">Save</button>
+                                    </div> <!--.form-inline-->
+                                </form> <!--#saveCoup-->
+                            </div><!--modal-footer-->
+                        </div><!--modal-content-->
+                    </div><!--.modal-dialog-->
+                </div><!--.modal-->
+            </div> <!--.coupons-->
+        </div> <!--.panel-footer-->
+    </div> <!--.panel-->
+</div> <!--.container-->
 <script th:replace="fragments/fragments :: scripts"></script>
 </body>
 </html>
