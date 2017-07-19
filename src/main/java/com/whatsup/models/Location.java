@@ -36,7 +36,7 @@ import java.util.List;
 //								type = String.class)
 //				}
 //)
-public class Location implements Serializable{
+public class Location{
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
