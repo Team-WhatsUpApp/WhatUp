@@ -1,6 +1,6 @@
 #WhatsUP! is a new app that will give you exclusive discounts to San Antonio's unique restaurants and bars!
+With an aim to help small businesses in our community
 
-Created by Josh R., Delanor Monroe, Moses Franco. Codeup Java students
 
 ##Introduction
 WhatsUp! was built with intention of helping local businesses increase traffic and patronage at their establishments 
@@ -30,10 +30,12 @@ username and password for your database.
 - Use the [Yelp API v3 client](https://github.com/MontealegreLuis/yelpv3-java-client) to build a more consistent result
 for businesses, and a more robust searching feature
 - Refine user experience for consistency and increased functionality for Vendor use
-
-##Notes
+###Notes
 The location database is populated using a Yelp Fusion client that is experimental, but was functional for our purposes,
 in the future we plan to build a page that show results for locations, and then allows them to be selected.
+
+##Authors
+Created by Josh R., Delenor Monroe, Moses Franco, Codeup Java students
 
 ##Acknowledgements
 This project was built by students from [Codeup](http://codeup.com//) as part of our capstone project over a 3 week time 
