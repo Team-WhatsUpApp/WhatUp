@@ -26,8 +26,17 @@ username and password for your database.
 * [Thymeleaf](http://www.thymeleaf.org/) - Template engine
 * [jQuery](https://jquery.com/) - JavaScript library 
 
+##Future changes
+- Use the [Yelp API v3 client](https://github.com/MontealegreLuis/yelpv3-java-client) to build a more consistent result
+for businesses, and a more robust searching feature
+- Refine user experience for consistency and increased functionality for Vendor use
+
+##Notes
+The location database is populated using a Yelp Fusion client that is experimental, but was functional for our purposes,
+in the future we plan to build a page that show results for locations, and then allows them to be selected.
+
 ##Acknowledgements
 This project was built by students from [Codeup](http://codeup.com//) as part of our capstone project over a 3 week time 
-frame. 
+frame.
 
-Thanks Luis and Fer!
+Special thanks to Luis and Fer!
